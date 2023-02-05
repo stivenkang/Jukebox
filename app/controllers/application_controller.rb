@@ -7,6 +7,7 @@ class ApplicationController < ActionController::API
     before_action :attach_authenticity_token
 
     private
+    
     def snake_case_params
         params.deep_transform_keys!(&:underscore)
     end
@@ -15,5 +16,4 @@ class ApplicationController < ActionController::API
         headers['X-CSRF-Token'] = masked_authenticity_token(session)
         # headers['X-CSRF-Token'] = form_authenticity_token
     end
-    
 end
