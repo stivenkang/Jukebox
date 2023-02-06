@@ -39,8 +39,10 @@ module Jukebox
 
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore,
-    key: '_jukebox_session',
-    same_site: :lax, 
-    secure: Rails.env.production?
+      key: '_jukebox_session',
+      same_site: :lax, 
+      secure: Rails.env.production?
+
+    config.railties_order = [:all, :main_app]
   end
 end
