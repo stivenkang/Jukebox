@@ -18,6 +18,7 @@ export const removeUser = userId => {
 }
 
 const userReducer = (state={}, action) => {
+    Object.freeze(state);
     const nextState = {...state}
 
     switch(action.type) {

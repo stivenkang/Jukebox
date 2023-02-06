@@ -39,11 +39,8 @@ module Jukebox
 
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore,
-    key: '_appname_session',
+    key: '_jukebox_session',
     same_site: :lax, 
     secure: Rails.env.production?
-  
-    # is the key supposed to be '_jukebox_session' or leave as _appname_????
-
   end
 end
