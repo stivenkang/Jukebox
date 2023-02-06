@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import configureStore from './store';
-import { restoreSession } from './store/csrf'
 import csrfFetch, { restoreCSRF } from './store/csrf';
 
 const store = configureStore();
@@ -25,7 +24,7 @@ function Root() {
   );
 }
 
-const renderApp = () => {
+const renderApplication = () => {
   ReactDOM.render(
     <React.StrictMode>
       <Root />
@@ -33,12 +32,9 @@ const renderApp = () => {
     document.getElementById('root')
   );
 }
-  
-// restoreSession().then(initializeApp)
-// in place of line 37 we have lines 40 - 44?
 
 if (sessionStorage.getItem("X-CSRF-Token") === null) {
-  restoreCSRF().then(renderApp);
+  restoreCSRF().then(renderApplication);
 } else {
-  renderApp();
+  renderApplication();
 }

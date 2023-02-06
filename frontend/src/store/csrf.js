@@ -24,8 +24,11 @@
 
 
 async function csrfFetch(url, options={}) {
-    options.method ||= 'GET';
-    options.headers ||= {};
+    // options.method ||= 'GET';
+    // options.headers ||= {};
+
+    options.method = options.method || 'GET';
+    options.headers = options.headers || {};
 
     if (options.method.toUpperCase() !== 'GET') {
         options.headers['Content-Type'] ||= 'application/json';

@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import userReducer from './users';
 
 const rootReducer = combineReducers({
-    user: userReducer,
+    // user: userReducer,
 });
 
 let enhancer;
