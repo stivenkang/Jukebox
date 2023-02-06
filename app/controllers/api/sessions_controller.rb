@@ -4,8 +4,9 @@ class Api::SessionsController < ApplicationController
     # before_action :require_logged_in, only: [:destroy]
 
     def show
-        @user = current_user
-        if @user
+        # @user = current_user
+        if current_user
+            @user = current_user
             render 'api/users/show'
         else
             render json: { user: nil }
@@ -17,7 +18,7 @@ class Api::SessionsController < ApplicationController
         password = params[:password]
         @user = User.find_by_credentials(username, password)
         if @user
-            login(@user)
+            login!(@user)
             render 'api/users/show'
         else
             render json: { errors: ['Invalid Credentials'] }, status: 422
@@ -25,7 +26,7 @@ class Api::SessionsController < ApplicationController
     end
 
     def destroy
-        logout
+        logout!
         head :no_content
     end
 end
