@@ -1,10 +1,9 @@
 class Api::SessionsController < ApplicationController
 
-    before_action :require_logged_in, only: [:create, :destroy]  # before action for require logged in includes create? Need to log in in order to log in?
-    # before_action :require_logged_in, only: [:destroy]
+    before_action :require_logged_out, only: [:create]
+    before_action :require_logged_in, only: [:destroy]
 
     def show
-        # @user = current_user
         if current_user
             @user = current_user
             render 'api/users/show'

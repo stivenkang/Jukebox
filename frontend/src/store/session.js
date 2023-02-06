@@ -3,13 +3,13 @@ import csrfFetch from "./csrf";
 const SET_CURRENT_USER = 'session/setCurrentUser';
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
 
-export const getUser = () => (state) => {
-    if (state && state.user) {
-        return state.user
-    } else {
-        return null
-    }
-}
+// export const getUser = () => (state) => {
+//     if (state && state.user) {
+//         return state.user
+//     } else {
+//         return null
+//     }
+// }
 // import getuser and useSelector in the homepage invoked, 
 // useSelector(getUser()) into the home page which will give you the current user and display on the page
 
@@ -45,7 +45,7 @@ export const login = ({ credential, password }) => async dispatch => {
     sessionStorage.setItem('currentUser', JSON.stringify(data.user));
     storeCurrentUser(data.user);
     dispatch(setCurrentUser(data.user));
-    // return res;
+    return res;
 };
 
 export const signup = user => async dispatch => {
@@ -57,8 +57,17 @@ export const signup = user => async dispatch => {
     const data = await res.json();
     storeCurrentUser(data.user);
     dispatch(setCurrentUser(data.user));
-    // return res;
+    return res;
 }
+
+export const logout = () => async (dispatch) => {
+    const res = await csrfFetch("/api/session", {
+      method: "DELETE"
+    });
+    storeCurrentUser(null);
+    dispatch(removeCurrentUser());
+    return res;
+};
 
 export const restoreSession = () => async dispatch => {
     const res = await csrfFetch('/api/session');
@@ -66,7 +75,7 @@ export const restoreSession = () => async dispatch => {
     const data = await res.json();
     storeCurrentUser(data.user);
     dispatch(setCurrentUser(data.user));
-    // return res;
+    return res;
 }
 
 const initialState = { user: JSON.parse(sessionStorage.getItem('currentUser'))};
