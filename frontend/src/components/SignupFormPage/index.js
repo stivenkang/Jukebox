@@ -12,14 +12,14 @@ function SignupFormPage() {
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
+    if (email === confirmEmail) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, username, password }))
         .catch(async (res) => {
@@ -35,7 +35,7 @@ function SignupFormPage() {
         else setErrors([res.statusText]);
       });
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+    return setErrors(['Email entries must be the same']);
   };
 
   return (
@@ -62,6 +62,18 @@ function SignupFormPage() {
                 />
               <br/>
               <br/>
+              <label id="credName" >Confirm your email</label>
+              <br/>
+                  <input
+                  id="cred"
+                  type="text"
+                  value={confirmEmail}
+                  onChange={(e) => setConfirmEmail(e.target.value)}
+                  placeholder="Enter your email again."
+                  required
+                  />
+              <br/>
+              <br/>
               <label id="credName">Create a password</label>
                 <input
                 id="cred"
@@ -85,17 +97,6 @@ function SignupFormPage() {
                 />
                 <br/>
                 <p id="subInfo">This appears on your profile.</p>
-              <br/>
-              <br/>
-              <label>
-                  Confirm Password:
-                  <input
-                  type="password"
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  required
-                  />
-              </label>
               <br/>
               <p className="term1">By clicking on sign-up, you agree to Jukebox's <a className="terms" href="https://www.spotify.com/us/legal/end-user-agreement/">Terms and Conditions of Use.</a></p>
               <p className="term2">To learn more about how Jukebox collects, uses, shares and protects your personal data,<br/> please see <a className="policy" href="https://www.spotify.com/us/legal/privacy-policy/">Jukebox's Privacy Policy.</a></p>
