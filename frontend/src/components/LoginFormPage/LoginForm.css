@@ -6,21 +6,13 @@
 #logo {
     display: flex;
     justify-content: center;
-    /* margin-bottom: 20px; */
+    padding-bottom: 15px;
     border-bottom: 1px solid lightgray;
 }
 
-#logo > #project_name {
-    font-size: 33px;
-    display: flex;
-    align-items: center;
-    font-weight: bold;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
 img {
-    width: 10%;
-    height: 10%;
+    width: 12%;
+    margin-bottom: 100px;
 }
 
 #info {
@@ -46,6 +38,7 @@ img {
     border-bottom: 1px solid lightgray;
 }
 
+
 #credentialName {
     font-size: 14px;
     /* display: flex; */
@@ -69,7 +62,7 @@ img {
     height: 35px
 }
 
-#loginButton {
+.loginButton {
     position: relative;
     background-color: #1ed760;
     font-size: 16px;
@@ -81,7 +74,14 @@ img {
     border: none;
 }
 
-#demoUserButton {
+/* .loginButton:hover {
+    background-color: #1fdf64;
+    height: 41px;
+    width: 410px;
+    font-size: 17px;
+} */
+
+.demoUserButton {
     position: relative;
     background-color: #1ed760;
     font-size: 16px;
@@ -94,6 +94,13 @@ img {
 
     margin-bottom: 50px;
 }
+
+/* .demoUserButton:hover {
+    background-color: #1fdf64;
+    height: 41px;
+    width: 410px;
+    font-size: 17px;
+} */
 
 #noAccount {
     margin: 0 auto;
@@ -118,7 +125,7 @@ img {
     border: 1px solid #878787;
     width: 400px;
     height: 40px;
-    
+    /* margin-left: 36%; */
 
     font-size: 14px;
     color: #6a6a6a;

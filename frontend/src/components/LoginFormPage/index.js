@@ -3,7 +3,7 @@ import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Link } from 'react-router-dom';
 import './LoginForm.css';
-import logo from '../../assets/spotify_logo.jpeg';
+import logo from '../../assets/spotify_logo.JPG';
 
 function LoginFormPage() {
     const dispatch = useDispatch()
@@ -40,10 +40,9 @@ function LoginFormPage() {
         <div className="outer">
             <div id="logo">
                 <img src={logo} alt='' />
-                <p id="project_name">Jukebox</p>
             </div>
             <br/>
-            <p id="info">Log in to Jukebox to continue.</p>
+            <p id="info">To continue, log in to Jukebox.</p>
             <br/>
             <div className="login">
                 <form onSubmit={handleSubmit}>
@@ -74,10 +73,10 @@ function LoginFormPage() {
                     />
                     <br/>
                     <br/>
-                    <button type="submit" id="loginButton">LOG IN</button>
+                    <button type="submit" className="loginButton">LOG IN</button>
                     <br/>
                     <br/>
-                    <button onClick={demoUser} id="demoUserButton" type="submit">DEMO USER</button>
+                    <button onClick={demoUser} className="demoUserButton" type="submit">DEMO USER</button>
                 </form>
             </div>
             <p id="noAccount">Don't have an account?</p>
