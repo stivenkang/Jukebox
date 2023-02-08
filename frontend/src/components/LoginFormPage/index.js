@@ -38,11 +38,10 @@ function LoginFormPage() {
 
     return (
         <div className="outer">
-            <div id="logo">
+            <div className="logo">
                 <img src={logo} alt='' />
             </div>
-            <br/>
-            <p id="info">To continue, log in to Jukebox.</p>
+            <p className="info">To continue, log in to Jukebox.</p>
             <br/>
             <div className="login">
                 <form onSubmit={handleSubmit}>
@@ -79,9 +78,9 @@ function LoginFormPage() {
                     <button onClick={demoUser} className="demoUserButton" type="submit">DEMO USER</button>
                 </form>
             </div>
-            <p id="noAccount">Don't have an account?</p>
+            <p className="noAccount">Don't have an account?</p>
             <br/>
-            <div id="signUp">
+            <div className="signUp">
                 <Link to="/signup">SIGN UP FOR JUKEBOX</Link>
             </div>
         </div>

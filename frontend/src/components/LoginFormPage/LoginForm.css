@@ -3,7 +3,7 @@
     flex-direction: column;
 } */
 
-#logo {
+.logo {
     display: flex;
     justify-content: center;
     padding-bottom: 15px;
@@ -15,7 +15,7 @@ img {
     margin-bottom: 100px;
 }
 
-#info {
+.info {
     display: flex;
     justify-content: center;
     /* align-items: center; */
@@ -102,7 +102,7 @@ img {
     font-size: 17px;
 } */
 
-#noAccount {
+.noAccount {
     margin: 0 auto;
     margin-top: 35px;
     font-weight: bold;
@@ -112,7 +112,7 @@ img {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-#signUp {
+.signUp {
     /* position: relative; */
 
     font-family: Arial, Helvetica, sans-serif;
