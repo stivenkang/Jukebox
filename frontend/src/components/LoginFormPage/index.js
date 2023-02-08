@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import './LoginForm.css';
+import logo from '../../assets/spotify_logo.jpeg';
 
 function LoginFormPage() {
     const dispatch = useDispatch()
@@ -30,33 +31,61 @@ function LoginFormPage() {
             });
     }
 
+    const demoUser = e => {
+        setCredential('danlee');
+        setPassword('danlee');
+    }
+
     return (
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
-            <label>
-                Username or Email:
-                <input
-                    type="text"
-                    value={credential}
-                    onChange={e => setCredential(e.target.value)}
-                    required
-                />
-            </label>
+        <div className="outer">
+            <div id="logo">
+                <img src={logo} alt='' />
+                <p id="project_name">Jukebox</p>
+            </div>
             <br/>
-            <label>
-                Password:
-                <input
-                    type="password"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    required
-                />
-            </label>
+            <p id="info">Log in to Jukebox to continue.</p>
             <br/>
-            <button type="submit">Log In</button>
-        </form>
+            <div className="login">
+                <form onSubmit={handleSubmit}>
+                    <ul>
+                        {errors.map(error => <li key={error}>{error}</li>)}
+                    </ul>
+                    <label id="credentialName">Email address or username</label>
+                    <br/>
+                    <input
+                        id="credential"
+                        type="text"
+                        value={credential}
+                        onChange={e => setCredential(e.target.value)}
+                        placeholder="Email address or username"
+                        required
+                    />
+                    <br/>
+                    <br/>
+                    <label id="passwordName">Password</label>
+                    <br/>
+                    <input
+                        id="password"
+                        type="password"
+                        value={password}
+                        onChange={e => setPassword(e.target.value)}
+                        placeholder="Password"
+                        required
+                    />
+                    <br/>
+                    <br/>
+                    <button type="submit" id="loginButton">LOG IN</button>
+                    <br/>
+                    <br/>
+                    <button onClick={demoUser} id="demoUserButton" type="submit">DEMO USER</button>
+                </form>
+            </div>
+            <p id="noAccount">Don't have an account?</p>
+            <br/>
+            <div id="signUp">
+                <Link to="/signup">SIGN UP FOR JUKEBOX</Link>
+            </div>
+        </div>
     )
 }
 
