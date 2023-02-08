@@ -41,6 +41,13 @@ function LoginFormPage() {
             <div className="loginLogo">
                 <img src={logo} alt='' />
             </div>
+            <a href="https://www.linkedin.com/in/stiven-kang-69a9ab258/">
+                <button type="linkedIn" className="linkedInButton">LINKEDIN</button>
+            </a>
+            <br/>
+            <a href="https://github.com/stivenkang">
+                <button type="github" className="githubButton">GITHUB</button>
+            </a>
             <p className="logInfo">To continue, log in to Jukebox.</p>
             <br/>
             <div className="login">
