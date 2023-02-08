@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css'
 import logo from '../../assets/spotify_logo.JPG';
@@ -45,54 +45,66 @@ function SignupFormPage() {
         </div>
         <p className="signInfo">Sign up for free to start listening.</p>
         <p className="title">Sign up with your email address</p>
-        <form onSubmit={handleSubmit}>
-            <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
-            <label id="credName">What's your email?</label>
-            <br/>
-              <input
-              id="credName"
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email."
-              required
-              />
-            <br/>
-            <label id="credName">What should we call you?</label>
-            <br/>
-              <input
-              id="credName"
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              placeholder="Enter a profile name."
-              required
-              />
-            <br/>
-            <label id="credName">Create a password</label>
-              <input
-              id="credName"
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Create a password."
-              required
-              />
-            <br/>
-            <label>
-                Confirm Password:
+        <div className="signup">
+          <form onSubmit={handleSubmit}>
+              <ul>
+                  {errors.map(error => <li key={error}>{error}</li>)}
+              </ul>
+              <label id="credName">What's your email?</label>
+              <br/>
                 <input
-                type="password"
-                value={confirmPassword}
-                onChange={(e) => setConfirmPassword(e.target.value)}
+                id="cred"
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email."
                 required
                 />
-            </label>
-            <br/>
-            <button type="submit">Sign Up</button>
-        </form>
+              <br/>
+              <br/>
+              <label id="credName">Create a password</label>
+                <input
+                id="cred"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Create a password."
+                required
+                />
+              <br/>
+              <br/>
+              <label id="credName">What should we call you?</label>
+              <br/>
+                <input
+                id="cred"
+                type="text"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                placeholder="Enter a profile name."
+                required
+                />
+                <br/>
+                <p id="subInfo">This appears on your profile.</p>
+              <br/>
+              <br/>
+              <label>
+                  Confirm Password:
+                  <input
+                  type="password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                  />
+              </label>
+              <br/>
+              <p className="term1">By clicking on sign-up, you agree to Jukebox's <a className="terms" href="https://www.spotify.com/us/legal/end-user-agreement/">Terms and Conditions of Use.</a></p>
+              <p className="term2">To learn more about how Jukebox collects, uses, shares and protects your personal data,<br/> please see <a className="policy" href="https://www.spotify.com/us/legal/privacy-policy/">Jukebox's Privacy Policy.</a></p>
+              <button type="submit" className="signupButton">Sign up</button>
+          </form>
+        </div>
+        <div className="loginButtonSU">
+          <p id="buttonInfo">Have an account? <Link to="/login">Log in.</Link></p>
+        </div>
     </div>
   );
 }

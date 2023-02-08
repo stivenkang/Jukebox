@@ -72,7 +72,9 @@ function LoginFormPage() {
                     />
                     <br/>
                     <br/>
-                    <button type="submit" className="loginButton">LOG IN</button>
+                    {/* <div className="loginButtonDiv"> */}
+                        <button type="submit" className="loginButton">LOG IN</button>
+                    {/* </div> */}
                     <br/>
                     <br/>
                     <button onClick={demoUser} className="demoUserButton" type="submit">DEMO USER</button>
