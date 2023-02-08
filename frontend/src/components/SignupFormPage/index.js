@@ -40,44 +40,46 @@ function SignupFormPage() {
 
   return (
     <div>
-        <div id="logo">
+        <div className="signinLogo">
             <img src={logo} alt='' />
         </div>
-        <p className="info">Sign up for free to start listening.</p>
+        <p className="signInfo">Sign up for free to start listening.</p>
         <p className="title">Sign up with your email address</p>
         <form onSubmit={handleSubmit}>
             <ul>
                 {errors.map(error => <li key={error}>{error}</li>)}
             </ul>
-            <label>
-                Email:
-                <input
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                />
-            </label>
+            <label id="credName">What's your email?</label>
             <br/>
-            <label>
-                Username:
-                <input
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-                required
-                />
-            </label>
+              <input
+              id="credName"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Enter your email."
+              required
+              />
             <br/>
-            <label>
-                Password:
-                <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-                />
-            </label>
+            <label id="credName">What should we call you?</label>
+            <br/>
+              <input
+              id="credName"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Enter a profile name."
+              required
+              />
+            <br/>
+            <label id="credName">Create a password</label>
+              <input
+              id="credName"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Create a password."
+              required
+              />
             <br/>
             <label>
                 Confirm Password:

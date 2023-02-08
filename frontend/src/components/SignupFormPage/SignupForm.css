@@ -1,4 +1,4 @@
-#logo {
+.signinLogo {
     display: flex;
     justify-content: center;
     padding-bottom: 15px;
@@ -6,19 +6,24 @@
 /* if i set logo to className, the line appears but why does it
 persist over from the loginForm page */
 
-.info {
+.signInfo {
     display: flex;
     justify-content: center;
     /* align-items: center; */
     margin-top: 25px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 25px;
     font-weight: bold;
     padding: 0px 0px 20px;
+    border-bottom: 1px solid lightgray;
 }
 
 .title {
     display: flex;
     justify-content: center;
-
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 25px;
 }
+

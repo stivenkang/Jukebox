@@ -38,20 +38,20 @@ function LoginFormPage() {
 
     return (
         <div className="outer">
-            <div className="logo">
+            <div className="loginLogo">
                 <img src={logo} alt='' />
             </div>
-            <p className="info">To continue, log in to Jukebox.</p>
+            <p className="logInfo">To continue, log in to Jukebox.</p>
             <br/>
             <div className="login">
                 <form onSubmit={handleSubmit}>
                     <ul>
                         {errors.map(error => <li key={error}>{error}</li>)}
                     </ul>
-                    <label id="credentialName">Email address or username</label>
+                    <label id="credName">Email address or username</label>
                     <br/>
                     <input
-                        id="credential"
+                        id="cred"
                         type="text"
                         value={credential}
                         onChange={e => setCredential(e.target.value)}
@@ -60,10 +60,10 @@ function LoginFormPage() {
                     />
                     <br/>
                     <br/>
-                    <label id="passwordName">Password</label>
+                    <label id="credName">Password</label>
                     <br/>
                     <input
-                        id="password"
+                        id="cred"
                         type="password"
                         value={password}
                         onChange={e => setPassword(e.target.value)}
