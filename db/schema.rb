@@ -16,9 +16,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_054435) do
 
   create_table "albums", force: :cascade do |t|
     t.string "title", null: false
+    t.integer "year", null: false
+    t.string "album_photo_url", null: false
     t.bigint "artist_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_albums_on_artist_id"
     t.index ["title"], name: "index_albums_on_title", unique: true
   end
 
@@ -42,4 +45,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_054435) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "albums", "artists"
 end
