@@ -32,8 +32,8 @@ function LoginFormPage() {
     }
 
     const demoUser = e => {
-        setCredential('danlee');
-        setPassword('danlee');
+        setCredential('demo@demo.com');
+        setPassword('demodemo');
     }
 
     return (
@@ -53,7 +53,7 @@ function LoginFormPage() {
             <div className="login">
                 <form onSubmit={handleSubmit}>
                     <ul>
-                        {errors.map(error => <li key={error}>{error}</li>)}
+                        {errors.map(error => <li className="errorLI" key={error}><i class="fa-solid fa-circle-exclamation"></i><span style={{marginLeft: '10px'}}>{error}</span></li>)}
                     </ul>
                     <label id="credName">Email address or username</label>
                     <br/>

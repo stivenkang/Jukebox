@@ -35,7 +35,7 @@ function SignupFormPage() {
         else setErrors([res.statusText]);
       });
     }
-    return setErrors(['Email entries must be the same']);
+    return setErrors(['The email addresses don\'t match']);
   };
 
   return (
@@ -48,7 +48,7 @@ function SignupFormPage() {
         <div className="signup">
           <form onSubmit={handleSubmit}>
               <ul>
-                  {errors.map(error => <li key={error}>{error}</li>)}
+                  {errors.map(error => <li className="errorSU" key={error}><i class="fa-solid fa-circle-exclamation"></i><span style={{marginLeft: '10px'}}>{error}</span></li>)}
               </ul>
               <label id="credName">What's your email?</label>
               <br/>

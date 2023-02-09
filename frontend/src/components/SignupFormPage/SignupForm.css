@@ -42,6 +42,17 @@ persist over from the loginForm page */
     width: fit-content; */
 }
 
+.errorSU {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: red;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
 #subInfo {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 14px;
@@ -124,9 +135,10 @@ persist over from the loginForm page */
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: 500;
-
+    /* margin-bottom: 50px; */
 }
 
 .loginButtonSU a {
     color: #1db954;
 }
+
