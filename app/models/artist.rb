@@ -12,13 +12,13 @@ class Artist < ApplicationRecord
     validates :name, presence: true
     validates :description, presence: true
 
-    # has_many :songs,
-    #     foreign_key: :song_id,
-    #     class_name: :Song,
-    #     dependent: :destroy
+    has_many :songs,
+        foreign_key: :song_id,
+        class_name: :Song,
+        dependent: :destroy
 
-    # has_many :albums,
-    #     through: :songs
-    #     foreign_key: :album_id,
-    #     class_name: :Album
+    has_many :albums,
+        through: :songs
+        foreign_key: :album_id,
+        class_name: :Album
 end
