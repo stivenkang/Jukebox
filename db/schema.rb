@@ -17,7 +17,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_221533) do
   create_table "albums", force: :cascade do |t|
     t.string "title", null: false
     t.integer "year", null: false
-    t.string "album_photo_url", null: false
     t.bigint "artist_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -36,18 +35,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_221533) do
   create_table "playlists", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
-    t.boolean "public", null: false
-    t.bigint "author_id_id", null: false
+    t.bigint "author_id", null: false
     t.bigint "song_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id_id"], name: "index_playlists_on_author_id_id"
+    t.index ["author_id"], name: "index_playlists_on_author_id"
     t.index ["song_id"], name: "index_playlists_on_song_id"
   end
 
   create_table "songs", force: :cascade do |t|
     t.string "title", null: false
-    t.string "audio_url", null: false
     t.bigint "artist_id", null: false
     t.bigint "album_id"
     t.datetime "created_at", null: false
@@ -69,5 +66,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_221533) do
   end
 
   add_foreign_key "albums", "artists"
-  add_foreign_key "playlists", "users", column: "author_id_id"
+  add_foreign_key "playlists", "users", column: "author_id"
+  add_foreign_key "songs", "artists"
 end

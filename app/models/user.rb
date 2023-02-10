@@ -20,10 +20,6 @@ class User < ApplicationRecord
 
     before_validation :ensure_session_token
 
-    # has_many :songs,
-    #     foreign_key: :song_id,
-    #     class_name: :Song
-
     # has_many :playlists,
     #     foreign_key: :playlist_id,
     #     class_name: :Playlist

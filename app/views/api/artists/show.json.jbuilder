@@ -1,3 +1,3 @@
 json.artist do
-    json.extract! @artist, :id, :name, :description
+    json.partial! '/api/artists/artist', artist: @artist
 end
