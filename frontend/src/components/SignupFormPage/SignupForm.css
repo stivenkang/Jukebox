@@ -3,8 +3,6 @@
     justify-content: center;
     padding-bottom: 15px;
 }
-/* if i set logo to className, the line appears but why does it
-persist over from the loginForm page */
 
 .signInfo {
     display: flex;
@@ -135,7 +133,7 @@ persist over from the loginForm page */
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: 500;
-    /* margin-bottom: 50px; */
+    margin-bottom: 50px;
 }
 
 .loginButtonSU a {

@@ -20,9 +20,9 @@ class User < ApplicationRecord
 
     before_validation :ensure_session_token
 
-    # has_many :playlists,
-    #     foreign_key: :playlist_id,
-    #     class_name: :Playlist
+    has_many :playlists,
+        foreign_key: :playlist_id,
+        class_name: :Playlist
 
     def self.find_by_credentials(credential, password)
         field = credential =~ URI::MailTo::EMAIL_REGEXP ? :email : :username
