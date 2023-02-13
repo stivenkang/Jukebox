@@ -17,7 +17,6 @@ const addUsers = users => {
 }
 
 
-
 function usersReducer(state={}, action) {
     Object.freeze(state)
     switch (action.type) {

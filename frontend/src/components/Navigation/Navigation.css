@@ -116,3 +116,25 @@
     margin-right: 30px;
     margin-left: 15px;
 }
+
+.dropDown {
+    /* display: block; */
+    /* margin-left: auto;
+    margin-right: auto; */
+
+    /* justify-content: center;
+    align-items: center; */
+
+    margin-right: 20px;
+    /* height: 50px; */
+
+    color: white;
+}
+
+.dropDownOptions {
+    color: white;
+}
+
+.profile-dropdown {
+    color: white;
+}

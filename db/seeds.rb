@@ -22,6 +22,12 @@ ApplicationRecord.transaction do
       email: 'demo@user.io', 
       password: 'password'
     )
+
+    User.create!(
+      username: 'demo', 
+      email: 'demo@demo.com', 
+      password: 'password'
+    )
   
     # More users
     10.times do 
@@ -31,6 +37,25 @@ ApplicationRecord.transaction do
         password: 'password'
       }) 
     end
+
+    # Artist.create!(name: "Snakehips")
+    # Artist.create!(name: "Louis The Child")
+    # Artist.create!(name: "Emotional Oranges")
+    # Artist.create!(name: "Sam Smith")
+    # Artist.create!(name: "Honne")
+    # Artist.create!(name: "J.Cole")
+
+    Album.create!(name: "Nights Like This", artist_id: 1, year: 2019)
+    Album.create!(name: "Stay Home Tapes", artist_id: 1, year: 2018)
+    Album.create!(name: "Don't Leave", artist_id: 1, year: 2017)
+    Album.create!(name: "All My Friends", artist_id: 1, year: 2016)
+    Album.create!(name: "Forever (Pt. II) - EP", artist_id: 1, year: 2015)
+    # Album.create!(name: "", artist_id: , year: )
+
+
+    # Song.create!(title: "", album_id: )
+
+    # Playlist.create!(title: "", author_id: , song_id: )
   
     puts "Done!"
 end

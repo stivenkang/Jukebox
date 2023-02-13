@@ -3,16 +3,6 @@ import csrfFetch from "./csrf";
 const SET_CURRENT_USER = 'session/setCurrentUser';
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
 
-// export const getUser = () => (state) => {
-//     if (state && state.user) {
-//         return state.user
-//     } else {
-//         return null
-//     }
-// }
-// import getuser and useSelector in the homepage invoked, 
-// useSelector(getUser()) into the home page which will give you the current user and display on the page
-
 const setCurrentUser = user => {
     return {
         type: SET_CURRENT_USER,
@@ -92,4 +82,3 @@ const sessionReducer = (state = initialState, action) => {
 };
   
 export default sessionReducer;
-

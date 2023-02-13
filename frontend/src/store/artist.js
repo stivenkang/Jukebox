@@ -1,7 +1,6 @@
 // export const RECEIVE_ARTISTS = 'artists/receiveArtists'
 export const RECEIVE_ARTIST = 'artists/receiveArtist'
 
-
 const receiveArtist = (artist) => {
     return {
         type: RECEIVE_ARTIST,
@@ -21,3 +20,16 @@ export const fetchArtist = (artistId) => async dispatch => {
 }
 
 
+const artistsReducer = (state={}, action) => {
+    const newState = {...state}
+
+    switch(action.type) {
+        case RECEIVE_ARTIST:
+            newState[action.artist.id] = action.artist
+            return newState;
+        default:
+            return state;
+    }
+}
+
+export default artistsReducer;
