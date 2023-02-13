@@ -1,20 +1,22 @@
-const ADD_USER = 'users/addUser'
-const ADD_USERS = 'users/addUsers'
+export const ADD_USER = 'users/addUser'
+export const ADD_USERS = 'users/addUsers'
 // const REMOVE_USER = 'users/removeUser'
 
-export const addUser = user => {
+const addUser = user => {
     return {
         type: ADD_USER,
         user
     }
 }
 
-export const addUsers = users => {
+const addUsers = users => {
     return {
         type: ADD_USERS,
         users
     }
 }
+
+
 
 function usersReducer(state={}, action) {
     Object.freeze(state)
@@ -29,3 +31,6 @@ function usersReducer(state={}, action) {
 }
 
 export default usersReducer;
+
+
+// do I need a users reducer?

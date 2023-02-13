@@ -28,28 +28,21 @@ function Navigation() {
   }
 
   return (
-    // <div className='home'>
-    //   <div className='sidebar'>
-    //     <p>sidebar</p>
-    //   </div>
-    //   <ul>
-    //     <li className='topButtons'>
-    //       <NavLink exact to="/">Home</NavLink>
-    //       {sessionLinks}
-    //     </li>
-    //   </ul>
-    // </div>
-
-    <div className='home'>
+    <div className='nav'>
       <div className='sidebar'>
         <img className='homeLogo' src={logo} alt='' />
-        <br/>
-        <NavLink className='homeButton' exact to="/"><i class="fa-solid fa-house"></i><span style={{marginLeft: '15px'}}>Home</span></NavLink>
-        <br/>
-        <NavLink className='searchButton' exact to="/search"><i class="fa-solid fa-magnifying-glass"></i><span style={{marginLeft: '15px'}}>Search</span></NavLink>
+        <div className='buttons'>
+          <div className='homeButton'>
+            <NavLink id='homeButton' exact to="/"><i className="fa-solid fa-house"></i><span style={{marginLeft: '15px'}}>Home</span></NavLink>
+          </div>
+          <br/>
+          <div className='searchButton'>
+            <NavLink id='searchButton' exact to="/search"><i className= "fa-solid fa-magnifying-glass"></i><span style={{marginLeft: '15px'}}>Search</span></NavLink>
+          </div>
+        </div>
       </div>
-      <ul>
-        <li className='topButtons'>
+      <ul className='topButtons'>
+        <li >
           {sessionLinks}
         </li>
       </ul>

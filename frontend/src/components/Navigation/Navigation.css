@@ -1,10 +1,8 @@
-
-.home {
+.nav {
     display: flex;
     height: 100%;
-    background-color: #0b0b0b;
+    /* background-color: #0b0b0b; */
     /* height: 67px; */
-    
 }
 
 .sidebar {
@@ -15,6 +13,7 @@
     /* top: 67px; */
     bottom: 0;
     background-color: black;
+    z-index: 2;
 }
 
 .homeLogo {
@@ -23,11 +22,23 @@
     margin-left: 10px;
 }
 
+.buttons {
+    width: 240px;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: black;
+    margin-left: 0;
+}
+
 .homeButton {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     margin-left: 30px;
-    padding-bottom: 50px;
+    /* margin-bottom: 5px; */
+}
+
+#homeButton {
     color: white;
     text-decoration: none;
 }
@@ -36,8 +47,10 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     margin-left: 30px;
-    margin-top: 30px;
-    /* padding-top: 0px; */
+    /* margin-top: 5px; */
+}
+
+#searchButton {
     color: white;
     text-decoration: none;
 }
@@ -50,22 +63,25 @@
     justify-content: center;
     justify-content: flex-end;
     align-items: center; */
+
+    height: 10%;
+    background-color: #0b0b0b;
 }
 
 .navTop {
-    /* position: relative; */
-    /* float: right; */
-    /* width: 30%; */
     display: flex;
-    /* justify-content: flex-end; */
+    position: absolute;
+    right: 0;
+    justify-content: flex-end;
     align-items: center;
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
 
-    position: absolute;
-    right: 0;
-    
+    width: 100%;
+    height: 10%;
+    background-color: #0b0b0b;
+    z-index: 1;
 }
 
 .navSignup {
