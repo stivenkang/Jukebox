@@ -10,10 +10,10 @@
 json.album do
     json.partial! '/api/albums/album', album: @album
 
-    json.set! 'songs' do
-        @songs.map do |song|
-            json.extract! song, :title, 
-            json.artist song.artist.name
-        end
-    end
+    # json.array! 'songs' do
+    #     @songs do |song|
+    #         json.extract! song, :title, 
+    #         json.artist song.artist.name
+    #     end
+    # end
 end

@@ -6,10 +6,16 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+require "open-uri"
+
 ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
     User.destroy_all
+    Album.destroy_all
+    Song.destroy_all
+    Artist.destroy_all
+    Playlist.destroy_all
   
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
@@ -26,7 +32,7 @@ ApplicationRecord.transaction do
     User.create!(
       username: 'demo', 
       email: 'demo@demo.com', 
-      password: 'password'
+      password: 'demodemo'
     )
   
     # More users
@@ -45,15 +51,21 @@ ApplicationRecord.transaction do
     # Artist.create!(name: "Honne")
     # Artist.create!(name: "J.Cole")
 
-    Album.create!(name: "Nights Like This", artist_id: 1, year: 2019)
-    Album.create!(name: "Stay Home Tapes", artist_id: 1, year: 2018)
-    Album.create!(name: "Don't Leave", artist_id: 1, year: 2017)
-    Album.create!(name: "All My Friends", artist_id: 1, year: 2016)
-    Album.create!(name: "Forever (Pt. II) - EP", artist_id: 1, year: 2015)
+    Album.create!(title: "Nights Like This", artist_id: 1, year: 2019)
+    Album.create!(title: "Stay Home Tapes", artist_id: 1, year: 2018)
+    Album.create!(title: "Don't Leave", artist_id: 1, year: 2017)
+    Album.create!(title: "All My Friends", artist_id: 1, year: 2016)
+    Album.create!(title: "Forever (Pt. II) - EP", artist_id: 1, year: 2015)
     # Album.create!(name: "", artist_id: , year: )
 
 
-    # Song.create!(title: "", album_id: )
+    Song.create!(title: "Nights Like This (ft. Ty Dolla $ign)", album_id: 1)
+    Song.create!(title: "For the F^_^k Of It (ft. Jeremih & Amine)", album_id: 2)
+    Song.create!(title: "Don't Leave", album_id: 3)
+    Song.create!(title: "All My Friends (ft. Tinashe & Chance the Rapper)", album_id: 4)
+    Song.create!(title: "Dimelo", album_id: 4)
+    Song.create!(title: "Forever (Pt. II) (ft. Kaleem Taylor)", album_id: 5)
+    Song.create!(title: "Overtime (ft. Sasha Keable)", album_id: 5)
 
     # Playlist.create!(title: "", author_id: , song_id: )
   

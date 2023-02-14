@@ -15,7 +15,7 @@ const AlbumIndexItem = (props) => {
     // const handleSubmit = e => {
     //     dispatch(fetchAlbum(props.album.id))
     // }
-
+    // debugger
     return (
         <div>
             <p>{album.title}</p>
@@ -24,3 +24,5 @@ const AlbumIndexItem = (props) => {
         </div>
     )
 }
+
+export default AlbumIndexItem;
