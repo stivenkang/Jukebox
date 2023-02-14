@@ -45,21 +45,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_022811) do
     t.string "title", null: false
     t.text "description"
     t.bigint "author_id", null: false
-    t.bigint "song_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_playlists_on_author_id"
-    t.index ["song_id"], name: "index_playlists_on_song_id"
   end
 
   create_table "songs", force: :cascade do |t|
     t.string "title", null: false
     t.bigint "artist_id", null: false
     t.bigint "album_id"
+    t.bigint "playlist_song_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["album_id"], name: "index_songs_on_album_id"
     t.index ["artist_id"], name: "index_songs_on_artist_id"
+    t.index ["playlist_song_id"], name: "index_songs_on_playlist_song_id"
   end
 
   create_table "users", force: :cascade do |t|

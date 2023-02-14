@@ -3,20 +3,25 @@ import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation';
-import { fetchAlbum } from './store/album';
-import { useDispatch } from 'react-redux';
+import Sidebar from './components/Sidebar';
+// import './components/Sidebar/Sidebar.css';
+
+// import { fetchAlbum } from './store/album';
+// import { useDispatch } from 'react-redux';
 
 
 
 function App() {
 
-  const dispatch = useDispatch()
-  useEffect(() => {
-    dispatch(fetchAlbum(1))
-  })
+  // const dispatch = useDispatch()
+  // useEffect(() => {
+  //   dispatch(fetchAlbum(1))
+  // })
+
   return (
     <>
-      <Navigation />
+      <Navigation className="naviOuter"/>
+        <Sidebar />
         <Switch>
           <Route path="/login">
             <LoginFormPage />

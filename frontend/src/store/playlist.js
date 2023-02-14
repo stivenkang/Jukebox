@@ -9,10 +9,10 @@ const receivePlaylists = (playlists) => {
     }
 }
 
-const receivePlaylist = (playlist) => {
+const receivePlaylist = (payload) => {
     return {
         type: RECEIVE_PLAYLIST,
-        playlist
+        payload
     }
 }
 
@@ -82,7 +82,8 @@ const playlistsReducer = (state={}, action) => {
         case RECEIVE_PLAYLISTS:
             return {...state, ...action.playlists}
         case RECEIVE_PLAYLIST:
-            newState[action.playlist.id] = action.playlist
+            debugger
+            newState[action.payload.playlist.id] = action.payload.playlist
             return newState;
         case REMOVE_PLAYLIST:
             delete newState[action.playlistId]

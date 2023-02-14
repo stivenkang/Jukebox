@@ -33,7 +33,7 @@ function LoginFormPage() {
 
     const demoUser = e => {
         setCredential('demo@demo.com');
-        setPassword('demodemo');
+        setPassword('password');
     }
 
     return (

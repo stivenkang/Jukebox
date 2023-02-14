@@ -11,9 +11,9 @@
 class Artist < ApplicationRecord
     validates :name, :description, presence: true
 
-    has_many :songs,
-        foreign_key: :song_id,
-        dependent: :destroy
+    # has_many :songs,
+    #     foreign_key: :song_id,
+    #     dependent: :destroy
 
     has_many :albums,
         foreign_key: :album_id,
