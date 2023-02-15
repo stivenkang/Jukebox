@@ -1,7 +1,4 @@
 .mainBody {
-    /* flex: 0.8; */
-    /* width: 80%; */
-    /* background-color: rgb(36, 36, 36); */
     background-color: #4820b0;
     height: 100vh;
     padding: 20px;
@@ -13,5 +10,8 @@
 }
 
 .subBody {
-    margin-top: 80px;
+    margin-top: 100px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 800;
 }
