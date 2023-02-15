@@ -11,9 +11,11 @@
 #  updated_at       :datetime         not null
 #
 class Song < ApplicationRecord
-    validates :title, :artist_id, presence: true
+    validates :title, :artist_id, :album_id, presence: true
 
-    # belongs_to :artist
+    belongs_to :artist
     belongs_to :album
     # belongs_to :playlist_song
+
+    has_one_attached :song
 end

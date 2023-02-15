@@ -32,38 +32,26 @@ function ProfileButton({ user }) {
   return (
     <>
       <div className='loggedInTopBar'>
-        <button onClick={openMenu}>
-          <div className='dropDown'>
-            <i className="fa-solid fa-user-circle" />
-          </div>
-        </button>
-        {showMenu && (
-          <ul className="profile-dropdown">
-            <li>{user.username}</li>
-            <li>{user.email}</li>
-            <li>
-              <button className="profile-dropdown" onClick={logout}>Log Out</button>
-            </li>
-          </ul>
-        )}
+        <div className='profileButton'>
+          <button onClick={openMenu}>
+            <div className='dropDown'>
+              <i className="fa-solid fa-user-circle" />
+            </div>
+          </button>
+          {showMenu && (
+            <ul className="profile-dropdown">
+              <li>{user.username}</li>
+              <li>{user.email}</li>
+              <li>
+                <button className="profile-dropdown" onClick={logout}>Log Out</button>
+              </li>
+            </ul>
+          )}
+        </div>
       </div>
     </>
   );
 }
 
-{/* <button className='navTop' onClick={openMenu}>
-<div className='dropDown'>
-  <i className="fa-solid fa-user-circle" />
-</div>
-</button>
-{showMenu && (
-<ul className="profile-dropdown">
-  <li>{user.username}</li>
-  <li>{user.email}</li>
-  <li>
-    <button onClick={logout}>Log Out</button>
-  </li>
-</ul>
-)} */}
 
 export default ProfileButton;

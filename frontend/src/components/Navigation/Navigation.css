@@ -67,6 +67,12 @@
     width: 100%;
 }
 
+.profileButton {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+}
+
 .dropDown {
     /* display: block; */
     /* margin-left: auto;

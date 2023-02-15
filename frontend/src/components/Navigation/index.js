@@ -12,7 +12,9 @@ function Navigation() {
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <div className='navTop'>
+          <ProfileButton user={sessionUser} />
+      </div>
     );
   } else if (location.pathname === '/signup' || location.pathname === '/login') {
     return null
