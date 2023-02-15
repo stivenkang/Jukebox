@@ -1,58 +1,11 @@
 .nav {
-    display: flex;
-    height: 100%;
+    /* display: flex; */
+    /* height: 100%; */
+
     /* background-color: #0b0b0b; */
     /* height: 67px; */
-}
 
-.sidebar {
-    width: 240px;
-    height: 100%;
-    /* position: fixed; */
-    left: 0;
-    /* top: 67px; */
-    bottom: 0;
-    background-color: black;
-    z-index: 2;
-}
-
-.homeLogo {
-    width: 75%;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-.buttons {
-    width: 240px;
-    height: 100%;
-    left: 0;
-    bottom: 0;
-    background-color: black;
-    margin-left: 0;
-}
-
-.homeButton {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    margin-left: 30px;
-    /* margin-bottom: 5px; */
-}
-
-#homeButton {
-    color: white;
-    text-decoration: none;
-}
-
-.searchButton {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    margin-left: 30px;
-    /* margin-top: 5px; */
-}
-
-#searchButton {
-    color: white;
-    text-decoration: none;
+    /* top: 0; */
 }
 
 .topButtons {
@@ -64,13 +17,13 @@
     justify-content: flex-end;
     align-items: center; */
 
-    height: 10%;
+    height: 100%;
     background-color: #0b0b0b;
 }
 
 .navTop {
     display: flex;
-    position: absolute;
+    position: fixed;
     right: 0;
     justify-content: flex-end;
     align-items: center;
@@ -84,20 +37,13 @@
     z-index: 1;
 }
 
+
 .navSignup {
-    /* display: flex;
-    justify-content: flex-end;
-    align-items: center; */
     color: #A7A7A7;
 
     margin-right: 15px;
     margin-left: 30px;
     text-decoration: none;
-
-    /* height: 20px;
-    width: 100px;
-    border-radius: 40px; */
-
 }
 
 .navLogin {
@@ -115,6 +61,10 @@
     margin-top: 7px;
     margin-right: 30px;
     margin-left: 15px;
+}
+
+.loggedInTopBar {
+    width: 100%;
 }
 
 .dropDown {
