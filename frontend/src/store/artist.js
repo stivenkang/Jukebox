@@ -1,14 +1,16 @@
 export const RECEIVE_ARTISTS = 'artists/receiveArtists'
 export const RECEIVE_ARTIST = 'artists/receiveArtist'
 
-const receiveArtists = (artists) => {
+export const receiveArtists = (artists) => {
+    console.log("artists", artists)
     return {
         type: RECEIVE_ARTISTS,
         artists
     }
 }
 
-const receiveArtist = (payload) => {
+export const receiveArtist = (payload) => {
+    console.log("artist", payload)
     return {
         type: RECEIVE_ARTIST,
         payload
@@ -21,7 +23,8 @@ export const getArtists = (state) => state.artists ? Object.values(state.artists
 export const fetchArtists = () => async dispatch => {
     const res = await fetch(`/api/artists`)
     const data = await res.json()
-    return dispatch(receiveArtists(data.artists))
+    // console.log("res", res, "data", data)
+    return dispatch(receiveArtists(data))
 }
 
 export const fetchArtist = (artistId) => async dispatch => {
@@ -38,7 +41,7 @@ const artistsReducer = (state={}, action) => {
 
     switch(action.type) {
         case RECEIVE_ARTISTS:
-            return {...state, ...action.artists}
+            return {...newState, ...action.artists}
         case RECEIVE_ARTIST:
             newState[action.payload.artist.id] = action.payload.artist
             return newState;

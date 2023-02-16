@@ -9,13 +9,17 @@
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .indexArtists {
     display: flex;
     flex-wrap: wrap;
-    background-color: white;
+    /* background-color: white; */
     color: white;
 }
 
+.artistsList {
+    color: white;
+    font-size: 20px;
+}

@@ -1,15 +1,15 @@
-@artists.each do |artist|
-    json.set! artist.id do
-        json.extract! artist, :id, :name, :description
-        # json.photoUrl url_for(artist.photo)
-    end
-end
-
-
-# json.set! 'artists' do
-#     json.extract! @artist :id, :name, :description
-#     # json.photoUrl url_for(@artist.photo)
+# @artists.each do |artist|
+#     json.set! artist.id do
+#         json.extract! artist, :id, :name, :description
+#         # json.photoUrl url_for(artist.photo)
+#     end
 # end
+
+
+json.set! 'artists' do
+    json.extract! @artist :id, :name, :description
+    # json.photoUrl url_for(@artist.photo)
+end
 
 # json.set! 'albums' do
 #     @albums.each do |album|
