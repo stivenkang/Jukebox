@@ -1,10 +1,15 @@
 .artistPageBody {
     /* display: flex;
     background-color: #4820b0; */
-    margin-left: 100px;
+    /* margin-left: 100px; */
 
-    /* position: relative; */
+
+
+    position: absolute;
+    top: 90px;
+    left: 220px;
     height: 100vh;
+    width: 100vw;
     padding: 5px;
     background: linear-gradient(rgb(36, 36, 36), rgba(0, 0, 0, 1));
     color: white;
@@ -15,7 +20,10 @@
 }
 
 .artistShowImg {
+    display: flex;
 
+    margin-left: 50px;
+    margin-top: 50px;
 }
 
 .artistShowName {

@@ -16,5 +16,3 @@ function ArtistIndexItem({artist}) {
 }
 
 export default ArtistIndexItem;
-
-// src="https://jukebox-sk-seeds.s3.amazonaws.com/Snakehips-ArtistImg.jpeg"
