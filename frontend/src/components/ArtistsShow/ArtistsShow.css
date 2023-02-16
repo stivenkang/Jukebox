@@ -1,6 +1,7 @@
 .artistPageBody {
     /* display: flex;
     background-color: #4820b0; */
+    margin-left: 100px;
 
     /* position: relative; */
     height: 100vh;
@@ -13,3 +14,14 @@
     /* z-index: 1; */
 }
 
+.artistShowImg {
+
+}
+
+.artistShowName {
+
+}
+
+.artistShowDesc {
+
+}

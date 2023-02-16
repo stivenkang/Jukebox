@@ -59,11 +59,11 @@
 }
 
 .artistImg {
-    /* object-fit: contain; */
-    width: 150px;
-    height: 100px;
+    width: 130px;
+    height: 130px;
     border-radius: 5px;
-
+    object-fit: contain;
+    margin-left: 10px;
 }
 
 .artistName {

@@ -8,7 +8,7 @@ function ArtistIndexItem({artist}) {
     return (
         <div onClick={(e) => history.push(`/artists/${artist.id}`)}>
             <div className='artistsList'>
-                <img className='artistImg' src="https://jukebox-sk-seeds.s3.amazonaws.com/Snakehips-ArtistImg.jpeg" alt='' />
+                <img className='artistImg' src={artist.photoUrl} alt='' />
                 <p className='artistName'>{artist.name}</p>
             </div>
         </div>
@@ -16,3 +16,5 @@ function ArtistIndexItem({artist}) {
 }
 
 export default ArtistIndexItem;
+
+// src="https://jukebox-sk-seeds.s3.amazonaws.com/Snakehips-ArtistImg.jpeg"

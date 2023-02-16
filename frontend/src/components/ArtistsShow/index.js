@@ -12,7 +12,7 @@ function ArtistShowPage() {
     // debugger
     // console.log(artistId)
     // console.log('hello', artist)
-    
+
     const [artistName, setArtistName] = useState('');
     const [artistDescription, setArtistDescription] = useState('');
     const [artistAlbums, setArtistAlbums] = useState([]);
@@ -32,10 +32,10 @@ function ArtistShowPage() {
 
     return (
         <div className='artistPageBody'>
-            <img className='artistShowPageImg' src="https://jukebox-sk-seeds.s3.amazonaws.com/Snakehips-ArtistImg.jpeg" alt='' />
+            <img className='artistShowImg' src="https://jukebox-sk-seeds.s3.amazonaws.com/Snakehips-ArtistImg.jpeg" alt='' />
             <div>
-                <h1>{artist.name}</h1>
-                <p>{artist.description}</p>
+                <h1 className='artistShowName'>{artist.name}</h1>
+                <p className='artistShowDesc'>{artist.description}</p>
                 {/* <ul>
                     {artist.albums.map(album => (
                         <li key={album.id}>{album.name}</li>
