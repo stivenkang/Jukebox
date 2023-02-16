@@ -37,7 +37,7 @@ function App() {
             <TopBar />
             <div className='homePage'>
               <SideBar />
-              <div className='body' style={{display: "flex", flexDirection: "column"}}>
+              <div className='body'>
                 <Navigation />
                 <Body />
               </div>

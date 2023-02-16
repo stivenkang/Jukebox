@@ -1,0 +1,21 @@
+.artistIndexPage {
+    display: block;
+    margin-top: 100px;
+    position: absolute;
+    width: fit-content;
+}
+
+.indexPageTitle {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.indexArtists {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: white;
+    color: white;
+}
+

@@ -21,14 +21,14 @@ export const getArtists = (state) => state.artists ? Object.values(state.artists
 export const fetchArtists = () => async dispatch => {
     const res = await fetch(`/api/artists`)
     const data = await res.json()
-    dispatch(receiveArtists(data))
+    return dispatch(receiveArtists(data.artists))
 }
 
 export const fetchArtist = (artistId) => async dispatch => {
     const res = await fetch(`/api/artists/${artistId}`)
     if (res.ok) {
-        const artist = await res.json()
-        dispatch(receiveArtist(artist))
+        const data = await res.json()
+        return dispatch(receiveArtist(data))
     }
 }
 

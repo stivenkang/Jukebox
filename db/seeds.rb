@@ -21,6 +21,11 @@ ApplicationRecord.transaction do
     puts "Resetting primary keys..."
     # For easy testing, so that after seeding, the first `User` has `id` of 1
     ApplicationRecord.connection.reset_pk_sequence!('users')
+    ApplicationRecord.connection.reset_pk_sequence!('artists')
+    ApplicationRecord.connection.reset_pk_sequence!('albums')
+    ApplicationRecord.connection.reset_pk_sequence!('songs')
+    ApplicationRecord.connection.reset_pk_sequence!('playlists')
+    ApplicationRecord.connection.reset_pk_sequence!('playlist_songs')
   
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:

@@ -17,4 +17,6 @@ class Album < ApplicationRecord
     has_many :songs,
         foreign_key: :album_id,
         dependent: :destroy
+
+    has_one_attached :photo
 end
