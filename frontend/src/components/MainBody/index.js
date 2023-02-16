@@ -5,8 +5,8 @@ import './MainBody.css';
 function MainBody() {
     return (
         <div className='mainBody'>
+            {/* <h1 className='indexPageTitle'>Artists</h1> */}
             <ArtistsIndex />
-            {/* <img src={"https://jukebox-sk-seeds.s3.amazonaws.com/SnakeHips-AllMyFriends.jpeg"} /> */}
         </div>
     )
 }

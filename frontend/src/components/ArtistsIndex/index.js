@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchArtists } from '../../store/artist'
-import ArtistIndexItem from './ArtistIndexItem';
-import './ArtistIndex.css';
+import ArtistsIndexItem from './ArtistsIndexItem';
+import './ArtistsIndex.css';
 
 function ArtistIndexPage() {
     const dispatch = useDispatch();
@@ -23,7 +23,7 @@ function ArtistIndexPage() {
             <div className='indexArtists'>
                 <>
                     {artists.map((artist) => { return(
-                        <ArtistIndexItem id='artistIndexItem' key={artist.id} artist={artist} />
+                        <ArtistsIndexItem id='artistIndexItem' key={artist.id} artist={artist} />
                     )})}
                 </>
             </div>

@@ -1,0 +1,15 @@
+.artistPageBody {
+    /* display: flex;
+    background-color: #4820b0; */
+
+    /* position: relative; */
+    height: 100vh;
+    padding: 5px;
+    background: linear-gradient(rgb(36, 36, 36), rgba(0, 0, 0, 1));
+    color: white;
+    overflow: scroll;
+
+
+    /* z-index: 1; */
+}
+

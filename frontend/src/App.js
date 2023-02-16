@@ -7,24 +7,17 @@ import Body from './components/MainBody/index';
 import SideBar from './components/SideBar/index';
 import PlayBar from './components/PlayBar/index';
 import TopBar from './components/TopBar/index';
+import ArtistsShowPage from './components/ArtistsShow';
+// import ArtistsIndexItem from './components/ArtistsIndex/ArtistsIndexItem';
 import './index.css';
 // import './components/Sidebar/Sidebar.css';
-
-// import { fetchAlbum } from './store/album';
-// import { useDispatch } from 'react-redux';
-
 
 
 function App() {
 
-  // const dispatch = useDispatch()
-  // useEffect(() => {
-  //   dispatch(fetchAlbum(1))
-  // })
-
   return (
     <>
-      {/* <Navigation className="navOuter"/> */}
+      <Navigation className="navOuter"/>\
         <Switch>
           <Route path="/login">
             <LoginFormPage />
@@ -32,15 +25,22 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/">
-            {/* <Album /> */}
+          <Route path="/artists/:artistId">
             <TopBar />
-            <div className='homePage'>
-              <SideBar />
-              <div className='body'>
-                <Navigation />
-                <Body />
-              </div>
+            <SideBar />
+            {/* <div className='body'>
+              <Navigation />
+              <Body />
+            </div> */}
+            <ArtistsShowPage />
+            <PlayBar />
+          </Route>
+          <Route path="/">
+            <TopBar />
+            <SideBar />
+            <div className='body'>
+              <Navigation />
+              <Body />
             </div>
             <PlayBar />
           </Route>
