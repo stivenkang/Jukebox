@@ -25,7 +25,6 @@ function ArtistIndexPage() {
                     {artists.map((artist) => { return(
                         <ArtistIndexItem id='artistIndexItem' key={artist.id} artist={artist} />
                     )})}
-                    <p>Working?</p>
                 </>
             </div>
         </div>

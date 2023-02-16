@@ -101,6 +101,8 @@
 
     cursor: pointer;
     transition: 200ms color ease-in;
+
+
 }
 
 #sideBarPlaylists:hover {
@@ -110,6 +112,12 @@
 #sideBarPlaylistsButton {
     color: rgb(159, 156, 156);
     text-decoration: none;
+}
+
+.sideBarLine {
+    margin: auto;
+    width: fit-content;
+    border-bottom: 1px solid white;
 }
 
 /* .loggedInSideBarOptions {
