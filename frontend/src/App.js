@@ -17,7 +17,7 @@ function App() {
 
   return (
     <>
-      <Navigation className="navOuter"/>\
+      <Navigation className="navOuter"/>
         <Switch>
           <Route path="/login">
             <LoginFormPage />

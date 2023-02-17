@@ -1,14 +1,14 @@
 export const RECEIVE_ALBUMS = 'albums/receiveAlbums'
 export const RECEIVE_ALBUM = 'albums/receiveAlbum'
 
-const receiveAlbums = (albums) => {
+export const receiveAlbums = (albums) => {
     return {
         type: RECEIVE_ALBUMS,
         albums
     }
 }
 
-const receiveAlbum = (payload) => {
+export const receiveAlbum = (payload) => {
     return{
         type: RECEIVE_ALBUM,
         payload
@@ -22,7 +22,7 @@ export const fetchAlbums = () => async dispatch => {
     const res = await fetch(`/api/albums`)
     const data = await res.json()
     // console.log({albums})
-    dispatch(receiveAlbums(data))
+    return dispatch(receiveAlbums(data))
     // debugger
 }
 
@@ -30,7 +30,7 @@ export const fetchAlbum = (albumId) => async dispatch => {
     const res = await fetch(`/api/albums/${albumId}`)
     if (res.ok) {
         const data = await res.json()
-        dispatch(receiveAlbum(data))
+        return dispatch(receiveAlbum(data))
     }
 }
 

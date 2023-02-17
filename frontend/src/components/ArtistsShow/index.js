@@ -2,45 +2,39 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { fetchArtist } from '../../store/artist';
+import { fetchAlbums } from '../../store/album';
 import './ArtistsShow.css';
 
 function ArtistShowPage() {
     const dispatch = useDispatch();
     const { artistId } = useParams();
     const artist = useSelector(state => state.artists[artistId] ? state.artists[artistId] : {})
-    
-    // debugger
-    // console.log(artistId)
-    // console.log('hello', artist)
+    const albums = useSelector(state => state.albums ? state.albums : {})
 
-    const [artistName, setArtistName] = useState('');
-    const [artistDescription, setArtistDescription] = useState('');
-    const [artistAlbums, setArtistAlbums] = useState([]);
+    const artistAlbums = Object.values(albums).filter(album => {
+            return album.artistId === artist.id
+        })
 
-
-    // useEffect(() => {
-    //     return dispatch(fetchArtist(artistId))
-    // })
-
-    // useEffect(() => {
-    //     if (artist) {
-    //         setArtistName(artist.name);
-    //         setArtistDescription(artist.description);
-    //         setArtistAlbums(artist.albums);
-    //     }
-    // }, [artist])
+    useEffect(() => {
+        dispatch(fetchArtist(artistId))
+        dispatch(fetchAlbums())
+    }, [artistId, dispatch])
+    console.log(artistAlbums)
 
     return (
         <div className='artistPageBody'>
-            <img className='artistShowImg' src="https://jukebox-sk-seeds.s3.amazonaws.com/Snakehips-ArtistImg.jpeg" alt='' />
-            <div>
+            <div className='artistImgName'>
+                <img className='artistShowImg' src={artist.photoUrl} alt='' />
                 <h1 className='artistShowName'>{artist.name}</h1>
+            </div>
+            <div>
                 <p className='artistShowDesc'>{artist.description}</p>
-                {/* <ul>
-                    {artist.albums.map(album => (
-                        <li key={album.id}>{album.name}</li>
+                <ul>
+                    <p className='artistAlbumTitle'>Albums</p>
+                    {artistAlbums.map(album => (
+                        <li className='artistAlbum' key={album.id}>{album.title}</li>
                     ))}
-                </ul> */}
+                </ul>
                 {/* <ul>
                     {artistSongs.map(song => (
                         <li key={song.id}>{song.name}</li>
@@ -52,3 +46,36 @@ function ArtistShowPage() {
 }
 
 export default ArtistShowPage;
+
+
+
+
+
+
+// return (
+//     <div className='artistPageBody'>
+//         <div className='artistImgName'>
+//             <img className='artistShowImg' src={artist.photoUrl} alt='' />
+//             <h1 className='artistShowName'>{artist.name}</h1>
+//         </div>
+//         <div>
+//             <p className='artistShowDesc'>{artist.description}</p>
+//             <ul>
+//                 <p className='artistAlbumTitle'>Albums</p>
+//                 {artistAlbums.map(album => (
+//                     <>
+//                         <li className='artistAlbum' key={album.id}>{album.title}</li>
+                        
+//                         {album.songs.map(song => (
+//                             <>
+//                                 {song.albumId === album.id && (
+//                                     <li key={song.id}>{song.title}</li>
+//                                 )}
+//                             </>
+//                         ))}
+//                     </>
+//                 ))}
+//             </ul>
+//         </div>
+//     </div>
+// )

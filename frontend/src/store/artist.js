@@ -2,7 +2,7 @@ export const RECEIVE_ARTISTS = 'artists/receiveArtists'
 export const RECEIVE_ARTIST = 'artists/receiveArtist'
 
 export const receiveArtists = (artists) => {
-    console.log("artists", artists)
+    // console.log("artists", artists)
     return {
         type: RECEIVE_ARTISTS,
         artists
@@ -10,7 +10,7 @@ export const receiveArtists = (artists) => {
 }
 
 export const receiveArtist = (payload) => {
-    console.log("artist", payload)
+    // console.log("artist", payload)
     return {
         type: RECEIVE_ARTIST,
         payload
@@ -23,7 +23,6 @@ export const getArtists = (state) => state.artists ? Object.values(state.artists
 export const fetchArtists = () => async dispatch => {
     const res = await fetch(`/api/artists`)
     const data = await res.json()
-    // console.log("res", res, "data", data)
     return dispatch(receiveArtists(data))
 }
 

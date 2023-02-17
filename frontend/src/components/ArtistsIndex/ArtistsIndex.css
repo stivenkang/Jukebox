@@ -9,7 +9,7 @@
     /* margin-left: 5px; */
     overflow: scroll;
     height: 100%;
-    margin-top: 120px;
+    margin-top: 110px;
     /* background-image: linear-gradient(rgb(35, 35, 35), black); */
     /* margin-bottom: 90px; */
 }
@@ -61,9 +61,12 @@
 .artistImg {
     width: 130px;
     height: 130px;
-    border-radius: 5px;
+    border-radius: 8px;
     object-fit: contain;
     margin-left: 10px;
+
+    display: flex;
+    justify-content: center;
 }
 
 .artistName {
@@ -72,4 +75,5 @@
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 20px;
+    text-align: center;
 }
