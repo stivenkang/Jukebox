@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
+import SearchBar from "../SearchBar";
 import './Navigation.css';
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
+  const currentUser = useSelector(state => state.session.user)
   
   const openMenu = () => {
     if (showMenu) return;
@@ -18,6 +20,10 @@ function ProfileButton({ user }) {
     const closeMenu = () => {
       setShowMenu(false);
     };
+    
+    if (!currentUser) {
+      return null
+    }
 
     document.addEventListener('click', closeMenu);
   
@@ -32,6 +38,7 @@ function ProfileButton({ user }) {
   return (
     <>
       <div className='loggedInTopBar'>
+        {/* <SearchBar /> */}
         <div className='profileButton'>
           <button onClick={openMenu}>
             <div className='dropDown'>
@@ -41,7 +48,7 @@ function ProfileButton({ user }) {
           {showMenu && (
             <ul className="profile-dropdown">
               <li>{user.username}</li>
-              <li>{user.email}</li>
+              {/* <li>{user.email}</li> */}
               <li>
                 <button className="profile-dropdown" onClick={logout}>Log Out</button>
               </li>

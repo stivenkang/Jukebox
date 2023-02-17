@@ -1,6 +1,6 @@
 # Jukebox (Spotify Clone)
 
-![Alt text]()
+![Alt text](Jukebox-overview.png)
 
 &emsp;
 
