@@ -4,7 +4,7 @@ import SignupFormPage from "./components/SignupFormPage/SignupForm";
 import Navigation from "./components/Navigation/Navigation";
 import Body from "./components/MainBody/MainBody";
 import ArtistsShowPage from "./components/ArtistsShow/ArtistShow";
-import SearchBar from "./components/SearchBar";
+import SearchBar from "./components/SearchBar/SearchBar";
 // import ArtistsIndexItem from './components/ArtistsIndex/ArtistsIndexItem';
 import "./index.css";
 // import './components/Sidebar/Sidebar.css';

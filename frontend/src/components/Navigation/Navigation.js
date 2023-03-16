@@ -1,43 +1,56 @@
-import React from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import ProfileButton from './ProfileButton';
-import logo from '../../assets/spotify-logo-inverted.png';
-import './Navigation.css';
-import SideBar from '../SideBar/SideBar';
-import PlayBar from '../PlayBar/PlayBar';
+import React from "react";
+import { NavLink, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
+import ProfileButton from "./ProfileButton";
+import SideBar from "../SideBar/SideBar";
+import PlayBar from "../PlayBar/PlayBar";
+import SearchBar from "../SearchBar/SearchBar";
+import "./Navigation.css";
 
 function Navigation() {
   const location = useLocation();
-  const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector((state) => state.session.user);
+
+  let searchBar = null;
+  if (location.pathname === "/search") {
+    searchBar = <SearchBar />;
+  }
 
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
       <>
-        <div className='navTop'>
+        <div className="navTop">
+          <div className="search">{searchBar}</div>
           <a href="https://www.linkedin.com/in/stiven-kang-69a9ab258/">
-            <i id='navLinkedIn' class="fa-brands fa-linkedin"></i>
+            <i id="navLinkedIn" class="fa-brands fa-linkedin"></i>
           </a>
-          <br/>
+          <br />
           <a href="https://github.com/stivenkang">
-            <i id='navGithub' class="fa-brands fa-github"></i>
+            <i id="navGithub" class="fa-brands fa-github"></i>
           </a>
-          <br/>
+          <br />
           <ProfileButton user={sessionUser} />
         </div>
         <SideBar />
         <PlayBar />
       </>
     );
-  } else if (location.pathname === '/signup' || location.pathname === '/login') {
-    return null
+  } else if (
+    location.pathname === "/signup" ||
+    location.pathname === "/login"
+  ) {
+    return null;
   } else {
     sessionLinks = (
       <>
-        <div className='navTop'>
-          <NavLink className='navSignup' to="/signup">Sign Up</NavLink>
-          <NavLink className='navLogin' to="/login">Log In</NavLink>
+        <div className="navTop">
+          <NavLink className="navSignup" to="/signup">
+            Sign Up
+          </NavLink>
+          <NavLink className="navLogin" to="/login">
+            Log In
+          </NavLink>
         </div>
         <SideBar />
         <PlayBar />
@@ -46,11 +59,9 @@ function Navigation() {
   }
 
   return (
-    <div className='nav'>
-      <ul className='topButtons'>
-        <li >
-          {sessionLinks}
-        </li>
+    <div className="nav">
+      <ul className="topButtons">
+        <li>{sessionLinks}</li>
       </ul>
     </div>
   );

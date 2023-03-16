@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import * as sessionActions from '../../store/session';
-import SearchBar from "../SearchBar";
 import './Navigation.css';
 
 function ProfileButton({ user }) {
@@ -38,7 +37,6 @@ function ProfileButton({ user }) {
   return (
     <>
       <div className='loggedInTopBar'>
-        {/* <SearchBar /> */}
         <div className='profileButton'>
           <button onClick={openMenu}>
             <div className='dropDown'>
