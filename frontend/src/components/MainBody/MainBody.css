@@ -6,5 +6,11 @@
     color: white;
     overflow: scroll;
 
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    position: relative;
+    left: 15%;
+
     /* z-index: 1; */
 }

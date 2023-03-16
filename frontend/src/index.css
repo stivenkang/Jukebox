@@ -9,12 +9,3 @@
     margin: 0;
 }
 
-.body {
-    display: flex;
-    flex-direction: column;
-    width: 85%;
-    height: 100vh;
-    /* float: right; */
-    position: relative;
-    left: 15%;
-}

@@ -62,7 +62,6 @@
     color: #A7A7A7;
 
     margin-right: 15px;
-    margin-left: 30px;
     text-decoration: none;
 }
 
@@ -78,7 +77,6 @@
     border-radius: 500px;
     text-decoration: none;
 
-    margin-top: 7px;
     margin-right: 30px;
     margin-left: 15px;
 }
@@ -90,7 +88,7 @@
 .profileButton {
     display: flex;
     justify-content: flex-end;
-    margin-left: 20px;
+    /* margin-left: 20px; */
     margin-right: 20px;
 }
 

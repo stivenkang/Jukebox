@@ -4,7 +4,8 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import logo from '../../assets/spotify-logo-inverted.png';
 import './Navigation.css';
-import SearchBar from '../SearchBar';
+import SideBar from '../SideBar/SideBar';
+import PlayBar from '../PlayBar/PlayBar';
 
 function Navigation() {
   const location = useLocation();
@@ -15,7 +16,6 @@ function Navigation() {
     sessionLinks = (
       <>
         <div className='navTop'>
-          <SearchBar />
           <a href="https://www.linkedin.com/in/stiven-kang-69a9ab258/">
             <i id='navLinkedIn' class="fa-brands fa-linkedin"></i>
           </a>
@@ -26,6 +26,8 @@ function Navigation() {
           <br/>
           <ProfileButton user={sessionUser} />
         </div>
+        <SideBar />
+        <PlayBar />
       </>
     );
   } else if (location.pathname === '/signup' || location.pathname === '/login') {
@@ -37,6 +39,8 @@ function Navigation() {
           <NavLink className='navSignup' to="/signup">Sign Up</NavLink>
           <NavLink className='navLogin' to="/login">Log In</NavLink>
         </div>
+        <SideBar />
+        <PlayBar />
       </>
     );
   }

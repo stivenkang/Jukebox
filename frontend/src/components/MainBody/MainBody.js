@@ -1,5 +1,5 @@
 import React from 'react';
-import ArtistsIndex from '../ArtistsIndex/index.js';
+import ArtistsIndex from '../ArtistsIndex/ArtistIndex.js';
 import './MainBody.css';
 
 function MainBody() {
