@@ -17,7 +17,8 @@ function SearchBar() {
     }
 
     const handleOnClick = () => {
-        const artistInfo = artist.find_by((artistId) => artistId.name === searchValue);
+        const artistInfo = Object.value(artistId).find(artist => artist.name === searchValue);
+        // const artistInfo = artist.find_by((artistId) => artistId.name === searchValue);
         history.push(`/artist/${artistInfo.id}`)
     }
     

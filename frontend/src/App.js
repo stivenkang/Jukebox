@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import LoginFormPage from './components/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage';
 import Navigation from './components/Navigation/index';
 import Body from './components/MainBody/index';
-import SideBar from './components/SideBar/index';
+import SideBar from './components/SideBar/index.js';
 import PlayBar from './components/PlayBar/index';
 import TopBar from './components/TopBar/index';
 import ArtistsShowPage from './components/ArtistsShow';
