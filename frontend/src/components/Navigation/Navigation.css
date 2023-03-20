@@ -8,20 +8,6 @@
     /* top: 0; */
 }
 
-.topButtons {
-    /* float: right; */
-    /* width: 30%; */
-
-    /* display: flex;
-    justify-content: center;
-    justify-content: flex-end;
-    align-items: center; */
-
-    height: 100%;
-    background-color: #0b0b0b;
-}
-
-
 .navTop {
     display: flex;
     position: fixed;
@@ -37,6 +23,12 @@
     background-color: #0b0b0b;
     color: white;
     z-index: 1;
+}
+
+.searchFunc {
+    display: flex;
+    justify-content: center;
+    /* margin-right: 100px; */
 }
 
 #navLinkedIn {
@@ -113,3 +105,4 @@
 .profile-dropdown {
     color: white;
 }
+

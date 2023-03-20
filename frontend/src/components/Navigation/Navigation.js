@@ -21,7 +21,9 @@ function Navigation() {
     sessionLinks = (
       <>
         <div className="navTop">
-          <div className="search">{searchBar}</div>
+          <div className="searchFunc" style={{ justifyContent: "center" }}>
+            {searchBar}
+          </div>
           <a href="https://www.linkedin.com/in/stiven-kang-69a9ab258/">
             <i id="navLinkedIn" class="fa-brands fa-linkedin"></i>
           </a>
@@ -60,9 +62,7 @@ function Navigation() {
 
   return (
     <div className="nav">
-      <ul className="topButtons">
-        <li>{sessionLinks}</li>
-      </ul>
+        {sessionLinks}
     </div>
   );
 }

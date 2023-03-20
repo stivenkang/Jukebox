@@ -2,7 +2,7 @@ import { Route, Switch } from "react-router-dom";
 import LoginFormPage from "./components/LoginFormPage/LoginForm";
 import SignupFormPage from "./components/SignupFormPage/SignupForm";
 import Navigation from "./components/Navigation/Navigation";
-import Body from "./components/MainBody/MainBody";
+import ArtistIndex from "./components/ArtistsIndex/ArtistIndex"
 import ArtistsShowPage from "./components/ArtistsShow/ArtistShow";
 import SearchBar from "./components/SearchBar/SearchBar";
 // import ArtistsIndexItem from './components/ArtistsIndex/ArtistsIndexItem';
@@ -23,7 +23,7 @@ function App() {
           <ArtistsShowPage />
         </Route>
         <Route path="/search" component={SearchBar} />
-        <Route path="/" component={Body} />
+        <Route exact path="/" component={ArtistIndex} />
       </Switch>
     </>
   );

@@ -1,3 +1,7 @@
+.searchFunc {
+    /* margin-right: 15px; */
+}
+
 .searchBar {
     /* display: flex;
     justify-content: center;
@@ -11,8 +15,23 @@
 
 }
 
-#searchBar {
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
+.searchResults {
+    position: fixed;
+    display: grid;
+    top: 10%;
+    left: 20%;
+    justify-content: left;
+    height: 100%;
+    width: 80%;
+    overflow-y: scroll;
+}
+
+.searchType {
+    font-weight: bold;
+    color: black;
+    font-size: 24px;
+}
+
+.results {
 
 }

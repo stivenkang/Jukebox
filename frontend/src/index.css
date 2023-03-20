@@ -5,7 +5,16 @@
     width: 100%;
 } */
 
-* {
+/* * {
     margin: 0;
+} */
+
+/* not sure if this is actually doing anything. double check below */
+body {
+    height: 100%;
+    max-width: 100vw;
+    background-color: linear-gradient(rgb(36, 36, 36), rgba(0, 0, 0, 1));
+    overflow-x: hidden;
+    /* overflow: scroll; */
 }
 

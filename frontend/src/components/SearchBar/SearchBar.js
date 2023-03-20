@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useRef, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 // import { fetchArtists } from "../../store/artist";
 import './SearchBar.css'
 import ArtistIndexItem from "../ArtistsIndex/ArtistsIndexItem";
@@ -10,13 +10,11 @@ import { fetchAlbums } from "../../store/album";
 function SearchBar() {
     const dispatch = useDispatch();
     const history = useHistory();
-    // const { artistId } = useParams()
+    const [searchValue, setSearchValue] = useState("");
 
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
     // const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
-    
-    const [searchValue, setSearchValue] = useState("");
 
     const handleChange = (e) => {
         setSearchValue(e.target.value);
@@ -24,6 +22,7 @@ function SearchBar() {
 
     const searchArtists = artists.filter((artist) => artist.name.toLowerCase().includes(searchValue.toLowerCase()));
     const searchAlbums = albums.filter((album) => album.title.toLowerCase().includes(searchValue.toLowerCase()));
+    // const searchSongs = songs.filter((song) => song.title.toLowerCase().includes(searchValue.toLowerCase()));
 
     useEffect(() => {
         dispatch(fetchArtists())
@@ -38,27 +37,38 @@ function SearchBar() {
         return null
     }
 
-    const handleClick = (artistId) => {
-        history.push(`/aritsts/${artistId}`)
-    }
+    // const handleClick = (artistId) => {
+    //     history.push(`/aritsts/${artistId}`)
+    // }
 
     
     return (
-        <>
+        <div>
             <input 
                 className='searchBar' 
-                type='text'
-                value={searchValue} 
+                type='search'
                 onChange={handleChange}
                 placeholder='Who do you want to listen to?'>
             </input>
-            {searchArtists.map((artist) => (
-                <li key={artist.id}>
-                    {/* <p>{artist.name}</p> */}
-                    {/* <p>{artist}</p> */}
-                </li>
-            ))}
-        </>
+            <div className='searchResults'>
+                <ul className='results'>
+                    <h3 className='searchType'>Artists</h3>
+                    {searchArtists.map((artist) => (
+                        <li key={artist.id}>
+                            <p>{artist.name}</p>
+                            {/* <p>{artist}</p> */}
+                        </li>
+                    ))}
+                    
+                    <h3 className='searchType'>Albums</h3>
+                    {searchAlbums.map((album) => (
+                        <li key={album.id}>
+                            <p>{album.title}</p>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </div>
     )
 }
 

@@ -1,15 +1,27 @@
 .artistIndexPage {
-    /* display: block;
-    margin-top: 100px;
+    display: block;
+    margin-top: 70px;
+    margin-left: 225px;
+    background-color: #333;
+    /* background-color: linear-gradient(rgb(35, 35, 35), black); */
     position: absolute;
-    width: fit-content; */
-
-    display: flex;
-    flex-direction: column;
-    /* margin-left: 5px; */
-    overflow: scroll;
     height: 100%;
-    margin-top: 110px;
+    width: 100%;
+    /* width: fit-content; */
+    height: fit-content;
+    overflow: scroll;
+
+    /* display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 85%;
+    left: 15%; */
+
+    /* margin-left: 5px; */
+    /* overflow: scroll; */
+    /* height: 100%; */
+    /* margin-left: 50px; */
+    /* margin-top: 110px; */
     /* background-image: linear-gradient(rgb(35, 35, 35), black); */
     /* margin-bottom: 90px; */
 }
@@ -20,6 +32,7 @@
     font-size: 30px;
     font-weight: 600;
     margin-left: 50px;
+    margin-top: 50px;
 }
 
 .indexArtists {
@@ -34,7 +47,7 @@
     /* justify-content: space-around; */
 
     display: grid;
-    grid-template-columns: repeat(4, 280px);
+    grid-template-columns: repeat(5, 250px);
     transition: background-color .5s;
 
 }
