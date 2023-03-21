@@ -21,7 +21,7 @@ function Navigation() {
     sessionLinks = (
       <>
         <div className="navTop">
-          <div className="searchFunc" style={{ justifyContent: "center" }}>
+          <div className="searchFunc">
             {searchBar}
           </div>
           <a href="https://www.linkedin.com/in/stiven-kang-69a9ab258/">

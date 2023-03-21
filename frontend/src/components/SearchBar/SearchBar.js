@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
-// import { fetchArtists } from "../../store/artist";
 import './SearchBar.css'
 import ArtistsIndexItem from "../ArtistsIndex/ArtistsIndexItem";
 import { fetchArtists } from "../../store/artist";
@@ -29,14 +28,6 @@ function SearchBar() {
     const searchAlbums = searchValue !== '' && albums.filter((album) => album.title.toLowerCase().includes(searchValue.toLowerCase()));
     // const searchSongs = songs.filter((song) => song.title.toLowerCase().includes(searchValue.toLowerCase()));
 
-    // if (albums.length === 0) {
-    //     return null
-    // }
-
-    // if (artists.length === 0) {
-    //     return null
-    // }
-
     // const handleClick = (artistId) => {
     //     history.push(`/aritsts/${artistId}`)
     // }
@@ -53,25 +44,31 @@ function SearchBar() {
             <div className='searchResults'>
                 {searchValue !== '' &&
                     <div>
-                        <div className='searchArt'>
-                            <h3 className='searchType'>Artists</h3>
-                            {searchArtists.map((artist) => (
-                                <ArtistsIndexItem id='artistIndexItem' key={artist.id} artist={artist} />
-                                // <ul key={artist.id}>
-                                //     <p>{artist.name}</p>
-                                //     {/* <p>{artist}</p> */}
-                                // </ul>
-                            ))}
-                        </div>
+                        <>
+                            {searchArtists.length > 0 && 
+                                <div className='searchArt'>
+                                    <div className='searchType'>Artists</div>
+                                    {searchArtists.map((artist) => (
+                                        <ArtistsIndexItem id='artistIndexItem' key={artist.id} artist={artist} />
+                                        // <ul key={artist.id}>
+                                        //     <p>{artist.name}</p>
+                                        //     {/* <p>{artist}</p> */}
+                                        // </ul>
+                                    ))}
+                                </div>
+                            }
 
-                        <div className='searchAl'>
-                            <h3 className='searchType'>Albums</h3>
-                            {searchAlbums.map((album) => (
-                                <ul key={album.id}>
-                                    <p>{album.title}</p>
-                                </ul>
-                            ))}
-                        </div>
+                            {searchAlbums.length > 0 &&
+                                <div className='searchAl'>
+                                    <div className='searchType'>Albums</div>
+                                    {searchAlbums.map((album) => (
+                                        <ul key={album.id}>
+                                            <p>{album.title}</p>
+                                        </ul>
+                                    ))}
+                                </div>
+                            }
+                        </>
                     </div>
                 }
             </div>
