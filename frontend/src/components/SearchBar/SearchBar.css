@@ -1,6 +1,3 @@
-.searchFunc {
-    /* margin-right: 15px; */
-}
 
 .searchBar {
     /* display: flex;
@@ -17,21 +14,29 @@
 
 .searchResults {
     position: fixed;
-    display: grid;
     top: 10%;
-    left: 20%;
-    justify-content: left;
+    left: 15%;
     height: 100%;
-    width: 80%;
+    width: 90%;
     overflow-y: scroll;
+    background: linear-gradient(rgb(35, 35, 35), black);
+    padding-top: 30px;
+    padding-left: 10px;
+}
+
+.searchArt {
+    margin-bottom: 20px;
 }
 
 .searchType {
     font-weight: bold;
-    color: black;
-    font-size: 24px;
+    color: white;
+    font-size: 30px;
+    margin: 0px 50px 5px 50px;
+    /* margin-bottom: 5px; */
 }
 
-.results {
 
+ul {
+    padding-bottom: 5px;
 }

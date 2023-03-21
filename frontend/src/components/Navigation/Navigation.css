@@ -79,8 +79,8 @@
 
 .profileButton {
     display: flex;
-    justify-content: flex-end;
-    /* margin-left: 20px; */
+    /* justify-content: flex-end; */
+    margin-left: 20px;
     margin-right: 20px;
 }
 

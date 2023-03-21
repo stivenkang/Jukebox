@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 // import { fetchArtists } from "../../store/artist";
 import './SearchBar.css'
-import ArtistIndexItem from "../ArtistsIndex/ArtistsIndexItem";
+import ArtistsIndexItem from "../ArtistsIndex/ArtistsIndexItem";
 import { fetchArtists } from "../../store/artist";
 import { fetchAlbums } from "../../store/album";
 
@@ -20,22 +20,22 @@ function SearchBar() {
         setSearchValue(e.target.value);
     }
 
-    const searchArtists = artists.filter((artist) => artist.name.toLowerCase().includes(searchValue.toLowerCase()));
-    const searchAlbums = albums.filter((album) => album.title.toLowerCase().includes(searchValue.toLowerCase()));
-    // const searchSongs = songs.filter((song) => song.title.toLowerCase().includes(searchValue.toLowerCase()));
-
     useEffect(() => {
         dispatch(fetchArtists())
         dispatch(fetchAlbums())
     }, [dispatch]);
 
-    if (albums.length === 0) {
-        return null
-    }
+    const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name.toLowerCase().includes(searchValue.toLowerCase()));
+    const searchAlbums = searchValue !== '' && albums.filter((album) => album.title.toLowerCase().includes(searchValue.toLowerCase()));
+    // const searchSongs = songs.filter((song) => song.title.toLowerCase().includes(searchValue.toLowerCase()));
 
-    if (artists.length === 0) {
-        return null
-    }
+    // if (albums.length === 0) {
+    //     return null
+    // }
+
+    // if (artists.length === 0) {
+    //     return null
+    // }
 
     // const handleClick = (artistId) => {
     //     history.push(`/aritsts/${artistId}`)
@@ -51,22 +51,29 @@ function SearchBar() {
                 placeholder='Who do you want to listen to?'>
             </input>
             <div className='searchResults'>
-                <ul className='results'>
-                    <h3 className='searchType'>Artists</h3>
-                    {searchArtists.map((artist) => (
-                        <li key={artist.id}>
-                            <p>{artist.name}</p>
-                            {/* <p>{artist}</p> */}
-                        </li>
-                    ))}
-                    
-                    <h3 className='searchType'>Albums</h3>
-                    {searchAlbums.map((album) => (
-                        <li key={album.id}>
-                            <p>{album.title}</p>
-                        </li>
-                    ))}
-                </ul>
+                {searchValue !== '' &&
+                    <div>
+                        <div className='searchArt'>
+                            <h3 className='searchType'>Artists</h3>
+                            {searchArtists.map((artist) => (
+                                <ArtistsIndexItem id='artistIndexItem' key={artist.id} artist={artist} />
+                                // <ul key={artist.id}>
+                                //     <p>{artist.name}</p>
+                                //     {/* <p>{artist}</p> */}
+                                // </ul>
+                            ))}
+                        </div>
+
+                        <div className='searchAl'>
+                            <h3 className='searchType'>Albums</h3>
+                            {searchAlbums.map((album) => (
+                                <ul key={album.id}>
+                                    <p>{album.title}</p>
+                                </ul>
+                            ))}
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     )

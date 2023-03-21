@@ -1,9 +1,8 @@
 .artistIndexPage {
     display: block;
-    margin-top: 70px;
+    margin-top: 60px;
     margin-left: 225px;
-    background-color: #333;
-    /* background-color: linear-gradient(rgb(35, 35, 35), black); */
+    background: linear-gradient(rgb(35, 35, 35), black);
     position: absolute;
     height: 100%;
     width: 100%;
