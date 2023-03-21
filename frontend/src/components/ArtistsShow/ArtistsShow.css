@@ -1,15 +1,14 @@
 .artistPageBody {
-
     position: fixed;
     /* padding: 50px; */
     top: 50px;
     left: 220px;
     height: 100vh;
-    /* width: 100vw; */
     padding: 5px;
     background: linear-gradient(rgb(36, 36, 36), rgba(0, 0, 0, 1));
     color: white;
-    overflow: scroll;
+    overflow: auto;
+    padding-bottom: 200px;
 
     /* display: flex; */
 

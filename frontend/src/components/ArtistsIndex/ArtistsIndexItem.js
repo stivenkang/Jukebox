@@ -7,11 +7,9 @@ function ArtistIndexItem({artist}) {
 
 
     return (
-        <div onClick={(e) => history.push(`/artists/${artist.id}`)}>
-            <div className='artistsList'>
-                <img className='artistImg' src={artist.photoUrl} alt='' />
-                <p className='artistName'>{artist.name}</p>
-            </div>
+        <div className='artistsList' onClick={(e) => history.push(`/artists/${artist.id}`)}>
+            <img className='artistImg' src={artist.photoUrl} alt='' />
+            <p className='artistName'>{artist.name}</p>
         </div>
     )
 }

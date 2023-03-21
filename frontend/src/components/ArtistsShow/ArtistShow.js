@@ -32,7 +32,10 @@ function ArtistShowPage() {
                 <ul>
                     <p className='artistAlbumTitle'>Albums</p>
                     {artistAlbums.map(album => (
+                        <>
+                        <img src={album.photoUrl} alt='' />
                         <li className='artistAlbum' key={album.id}>{album.title}</li>
+                        </>
                     ))}
                 </ul>
                 {/* <ul>

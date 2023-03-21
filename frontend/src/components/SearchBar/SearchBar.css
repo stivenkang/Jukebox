@@ -29,11 +29,19 @@
     margin-bottom: 20px;
 }
 
+/* .searchAl {
+    display: flex;
+} */
+
 .searchType {
     font-weight: bold;
     color: white;
     font-size: 30px;
     margin: 0px 50px 5px 50px;
+}
+
+.results {
+    display: flex;
 }
 
 

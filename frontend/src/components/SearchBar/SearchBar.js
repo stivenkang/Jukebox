@@ -5,6 +5,7 @@ import './SearchBar.css'
 import ArtistsIndexItem from "../ArtistsIndex/ArtistsIndexItem";
 import { fetchArtists } from "../../store/artist";
 import { fetchAlbums } from "../../store/album";
+import AlbumIndexItem from "../Albums/AlbumIndexItem";
 
 function SearchBar() {
     const dispatch = useDispatch();
@@ -48,24 +49,29 @@ function SearchBar() {
                             {searchArtists.length > 0 && 
                                 <div className='searchArt'>
                                     <div className='searchType'>Artists</div>
-                                    {searchArtists.map((artist) => (
-                                        <ArtistsIndexItem id='artistIndexItem' key={artist.id} artist={artist} />
-                                        // <ul key={artist.id}>
-                                        //     <p>{artist.name}</p>
-                                        //     {/* <p>{artist}</p> */}
-                                        // </ul>
-                                    ))}
+                                    <div className='results'>
+                                        {searchArtists.map((artist) => (
+                                            <ArtistsIndexItem id='artistIndexItem' key={artist.id} artist={artist} />
+                                            // <ul key={artist.id}>
+                                            //     <p>{artist.name}</p>
+                                            //     {/* <p>{artist}</p> */}
+                                            // </ul>
+                                        ))}
+                                    </div>
                                 </div>
                             }
 
                             {searchAlbums.length > 0 &&
                                 <div className='searchAl'>
                                     <div className='searchType'>Albums</div>
-                                    {searchAlbums.map((album) => (
-                                        <ul key={album.id}>
-                                            <p>{album.title}</p>
-                                        </ul>
-                                    ))}
+                                    <div className='results'>
+                                        {searchAlbums.map((album) => (
+                                            <AlbumIndexItem id='albumIndexItem' key={album.id} album={album} />
+                                            // <ul key={album.id}>
+                                            //     <p>{album.title}</p>
+                                            // </ul>
+                                        ))}
+                                    </div>
                                 </div>
                             }
                         </>
