@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchArtist } from '../../store/artist';
 import { fetchAlbums } from '../../store/album';
 import './ArtistsShow.css';
+import AlbumIndexItem from '../Albums/AlbumIndexItem';
 
 function ArtistShowPage() {
     const dispatch = useDispatch();
@@ -31,6 +32,9 @@ function ArtistShowPage() {
                 <p className='artistShowDesc'>{artist.description}</p>
                 <ul>
                     <p className='artistAlbumTitle'>Albums</p>
+                    {/* <div>
+                        <AlbumIndexItem id='albumIndexItem' key={albums.id} album={albums}/>
+                    </div> */}
                     {artistAlbums.map(album => (
                         <>
                         <img src={album.photoUrl} alt='' />
