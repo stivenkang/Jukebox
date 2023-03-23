@@ -14,7 +14,7 @@ const AlbumIndexItem = ({album}) => {
     // }, [dispatch, albumId])
 
     // const handleSubmit = e => {
-    //     dispatch(fetchAlbum(props.album.id))
+    //     dispatch(fetchAlbum(album.id))
     // }
     // debugger
     return (

@@ -1,21 +1,21 @@
 json.set! 'album' do
-    json.extract! album, :id, :title, :year, :artist_id
-    # json.photoUrl url_for(@album.photo)
+    json.extract! @album, :id, :title, :year, :artist_id
+    json.photoUrl url_for(@album.photo)
 end
 
-json.artist do
-    # json.partial! '/api/artists/artist', artist: @artist
+# json.artist do
+#     # json.partial! '/api/artists/artist', artist: @artist
 
-    @artists.each do |artist|
-        json.set! artist.id do
-            json.extract! artist, :id, :name, :description
-            json.photoUrl url_for(artist.photo)
-        end
-    end
+#     @artists.each do |artist|
+#         json.set! artist.id do
+#             json.extract! artist, :id, :name, :description
+#             json.photoUrl url_for(artist.photo)
+#         end
+#     end
 
     
     
-end
+# end
 
 
 

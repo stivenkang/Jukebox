@@ -25,9 +25,12 @@ function SearchBar() {
         dispatch(fetchAlbums())
     }, [dispatch]);
 
-    const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name.toLowerCase().includes(searchValue.toLowerCase()));
-    const searchAlbums = searchValue !== '' && albums.filter((album) => album.title.toLowerCase().includes(searchValue.toLowerCase()));
+    // debugger
+    const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().includes(searchValue.toLowerCase()));
+    const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().includes(searchValue.toLowerCase()));
     // const searchSongs = songs.filter((song) => song.title.toLowerCase().includes(searchValue.toLowerCase()));
+
+    // added conditional above to check if artist/album exists first. Code now works only for artists.
 
     // const handleClick = (artistId) => {
     //     history.push(`/aritsts/${artistId}`)
