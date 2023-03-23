@@ -64,6 +64,16 @@
     justify-content: center;
 }
 
+.albumImg {
+    width: 130px;
+    height: 130px;
+    border-radius: 5px;
+    object-fit: contain;
+
+    display: flex;
+    justify-content: center;
+}
+
 .artistName {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
