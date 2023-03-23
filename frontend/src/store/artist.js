@@ -22,6 +22,7 @@ export const getArtists = (state) => state.artists ? Object.values(state.artists
 
 export const fetchArtists = () => async dispatch => {
     const res = await fetch(`/api/artists`)
+    // debugger
     const data = await res.json()
     return dispatch(receiveArtists(data))
 }

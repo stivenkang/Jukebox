@@ -11,9 +11,10 @@ require "open-uri"
 ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
+
+    Song.destroy_all
     Album.destroy_all
     Artist.destroy_all
-    # Song.destroy_all
     # Playlist.destroy_all
     # PlaylistSong.destroy_all
     User.destroy_all
@@ -243,7 +244,7 @@ ApplicationRecord.transaction do
     )
 
     unjuke = Album.create!(title: "Unorthodox Jukebox", year: 2012, artist_id: 10)
-    unjuke = nlt.photo.attach(
+    unjuke.photo.attach(
       io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/unorthodox-jukebox.jpeg"),
       filename: "unjuke.jpeg"
     )

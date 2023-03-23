@@ -20,10 +20,9 @@ export const getAlbums = (state) => state.albums ? Object.values(state.albums) :
 
 export const fetchAlbums = () => async dispatch => {
     const res = await fetch(`/api/albums`)
-    const data = await res.json()
-    // console.log({albums})
-    return dispatch(receiveAlbums(data))
     // debugger
+    const data = await res.json()
+    return dispatch(receiveAlbums(data))
 }
 
 export const fetchAlbum = (albumId) => async dispatch => {
@@ -39,7 +38,7 @@ const albumsReducer = (state={}, action) => {
 
     switch(action.type) {
         case RECEIVE_ALBUMS:
-            return {...state, ...action.albums};
+            return {...newState, ...action.albums};
         case RECEIVE_ALBUM:
             newState[action.payload.album.id] = action.payload.album
             return newState;

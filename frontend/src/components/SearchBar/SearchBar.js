@@ -23,7 +23,7 @@ function SearchBar() {
     useEffect(() => {
         dispatch(fetchArtists())
         dispatch(fetchAlbums())
-    }, [dispatch]);
+    }, []);
 
     // debugger
     const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().includes(searchValue.toLowerCase()));
