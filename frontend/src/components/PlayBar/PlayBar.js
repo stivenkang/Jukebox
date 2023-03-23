@@ -5,12 +5,12 @@ import React from 'react';
 import './PlayBar.css';
 
 function PlayBar() {
-    
+
 
     return (
         <AudioPlayer
             className='playBar'
-            src={currSong}
+            // src={currSong}
         />
 
         // <div className='playBar'>

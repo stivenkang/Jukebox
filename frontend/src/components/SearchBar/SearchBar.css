@@ -42,6 +42,8 @@
 
 .results {
     display: flex;
+    overflow-x: auto;
+    padding-right: 100px;
 }
 
 

@@ -20,7 +20,7 @@ const AlbumIndexItem = ({album}) => {
     return (
         <div className='artistsList'>
             <img className='albumImg' src={album.photoUrl} alt='' />
-            <p>{album.title}</p>
+            <p className='artistName'>{album.title}</p>
             <p>{album.year}{album.artistId.name}</p>
             {/* <p>{album.artistId.name}</p> */}
         </div>
