@@ -3,11 +3,19 @@ import { useParams } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAlbum, fetchAlbum } from '../../store/album';
 import '../ArtistsIndex/ArtistsIndex.css';
+import { fetchArtists } from '../../store/artist';
 
 const AlbumIndexItem = ({album}) => {
     // const {albumId} = useParams()
     // const dispatch = useDispatch()
     // const album = useSelector(getAlbum(albumId))
+
+    useEffect(() => {
+        dispatchEvent(fetchArtists())
+    });
+
+    const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
+
 
     // useEffect(() => {
     //     dispatch(fetchAlbum(albumId))
@@ -21,7 +29,7 @@ const AlbumIndexItem = ({album}) => {
         <div className='artistsList'>
             <img className='albumImg' src={album.photoUrl} alt='' />
             <p className='artistName'>{album.title}</p>
-            <p>{album.year}{album.artistId.name}</p>
+            <p>{album.year}-{artists[album.artistId]}</p>
             {/* <p>{album.artistId.name}</p> */}
         </div>
     )
