@@ -30,18 +30,22 @@ function ArtistShowPage() {
             </div>
             <div>
                 <p className='artistShowDesc'>{artist.description}</p>
-                <ul>
-                    <p className='artistAlbumTitle'>Albums</p>
-                    {/* <div>
-                        <AlbumIndexItem id='albumIndexItem' key={albums.id} album={albums}/>
-                    </div> */}
+            </div>
+            <div>
+                <p className='artistAlbumTitle'>Albums</p>
+                {/* <div>
+                    <AlbumIndexItem id='albumIndexItem' key={albums.id} album={albums}/>
+                </div> */}
+                <div className='artistRelatedDisplay'>
                     {artistAlbums.map(album => (
-                        <>
-                        <img src={album.photoUrl} alt='' />
-                        <li className='artistAlbum' key={album.id}>{album.title}</li>
-                        </>
+                        <ul>
+                            <img src={album.photoUrl} alt='' />
+                            <li className='artistAlbum' key={album.id}>{album.title}</li>
+                            {/* <AlbumIndexItem /> */}
+                        </ul>
                     ))}
-                </ul>
+
+                </div>
                 {/* <ul>
                     {artistSongs.map(song => (
                         <li key={song.id}>{song.name}</li>

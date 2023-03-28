@@ -3,12 +3,12 @@ json.set! 'artist' do
     json.photoUrl url_for(@artist.photo)
 end
 
-@artists.each do |artist|
-    json.set! artist.id do
-        json.extract! artist, :id, :name, :description
-        # json.photoUrl url_for(artist.photo)
-    end
-end
+# @artists.each do |artist|
+#     json.set! artist.id do
+#         json.extract! artist, :id, :name, :description
+#         # json.photoUrl url_for(artist.photo)
+#     end
+# end
 
 
 
