@@ -30,8 +30,6 @@ function SearchBar() {
     const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().includes(searchValue.toLowerCase()));
     // const searchSongs = songs.filter((song) => song.title.toLowerCase().includes(searchValue.toLowerCase()));
 
-    // added conditional above to check if artist/album exists first. Code now works only for artists.
-
     // const handleClick = (artistId) => {
     //     history.push(`/aritsts/${artistId}`)
     // }

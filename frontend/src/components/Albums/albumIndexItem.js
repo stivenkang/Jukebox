@@ -10,12 +10,13 @@ const AlbumIndexItem = ({album}) => {
     // const dispatch = useDispatch()
     // const album = useSelector(getAlbum(albumId))
 
-    useEffect(() => {
-        dispatchEvent(fetchArtists())
-    });
+    // code below causes constant rerender of albums
+    // useEffect(() => {
+    //     dispatch(fetchArtists())
+    // });
 
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
-
+    const artistName = artists.find(artist => artist.id === album.artistId)?.name;
 
     // useEffect(() => {
     //     dispatch(fetchAlbum(albumId))
@@ -29,7 +30,7 @@ const AlbumIndexItem = ({album}) => {
         <div className='artistsList'>
             <img className='albumImg' src={album.photoUrl} alt='' />
             <p className='artistName'>{album.title}</p>
-            <p>{album.year}-{artists[album.artistId]}</p>
+            <p>{album.year} - {artistName}</p>
             {/* <p>{album.artistId.name}</p> */}
         </div>
     )
