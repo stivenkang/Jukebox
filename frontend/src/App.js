@@ -4,6 +4,7 @@ import SignupFormPage from "./components/SignupFormPage/SignupForm";
 import Navigation from "./components/Navigation/Navigation";
 import ArtistIndex from "./components/ArtistsIndex/ArtistIndex"
 import ArtistsShowPage from "./components/ArtistsShow/ArtistShow";
+import AlbumShowPage from "./components/Albums/AlbumShow";
 import SearchBar from "./components/SearchBar/SearchBar";
 // import ArtistsIndexItem from './components/ArtistsIndex/ArtistsIndexItem';
 import "./index.css";
@@ -22,6 +23,7 @@ function App() {
             </div> */}
           <ArtistsShowPage />
         </Route>
+        <Route path="/albums/:albumId" component={AlbumShowPage} />
         <Route path="/search" component={SearchBar} />
         <Route exact path="/" component={ArtistIndex} />
       </Switch>

@@ -1,19 +1,10 @@
-import React, { useEffect} from 'react';
-import { useParams } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { getAlbum, fetchAlbum } from '../../store/album';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import '../ArtistsIndex/ArtistsIndex.css';
-import { fetchArtists } from '../../store/artist';
 
 const AlbumIndexItem = ({album}) => {
-    // const {albumId} = useParams()
-    // const dispatch = useDispatch()
-    // const album = useSelector(getAlbum(albumId))
-
-    // code below causes constant rerender of albums
-    // useEffect(() => {
-    //     dispatch(fetchArtists())
-    // });
+    const history = useHistory();
 
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     const artistName = artists.find(artist => artist.id === album.artistId)?.name;
@@ -21,13 +12,10 @@ const AlbumIndexItem = ({album}) => {
     // useEffect(() => {
     //     dispatch(fetchAlbum(albumId))
     // }, [dispatch, albumId])
-
-    // const handleSubmit = e => {
-    //     dispatch(fetchAlbum(album.id))
-    // }
     // debugger
+
     return (
-        <div className='artistsList'>
+        <div className='artistsList' onClick={(e) => history.push(`/albums/${album.id}`)}>
             <img className='albumImg' src={album.photoUrl} alt='' />
             <p className='artistName'>{album.title}</p>
             <p>{album.year} - {artistName}</p>

@@ -20,7 +20,7 @@ function ArtistShowPage() {
         dispatch(fetchArtist(artistId))
         dispatch(fetchAlbums())
     }, [artistId, dispatch])
-    console.log(artistAlbums)
+    // console.log(artistAlbums)
 
     return (
         <div className='artistPageBody'>
@@ -57,36 +57,3 @@ function ArtistShowPage() {
 }
 
 export default ArtistShowPage;
-
-
-
-
-
-
-// return (
-//     <div className='artistPageBody'>
-//         <div className='artistImgName'>
-//             <img className='artistShowImg' src={artist.photoUrl} alt='' />
-//             <h1 className='artistShowName'>{artist.name}</h1>
-//         </div>
-//         <div>
-//             <p className='artistShowDesc'>{artist.description}</p>
-//             <ul>
-//                 <p className='artistAlbumTitle'>Albums</p>
-//                 {artistAlbums.map(album => (
-//                     <>
-//                         <li className='artistAlbum' key={album.id}>{album.title}</li>
-                        
-//                         {album.songs.map(song => (
-//                             <>
-//                                 {song.albumId === album.id && (
-//                                     <li key={song.id}>{song.title}</li>
-//                                 )}
-//                             </>
-//                         ))}
-//                     </>
-//                 ))}
-//             </ul>
-//         </div>
-//     </div>
-// )
