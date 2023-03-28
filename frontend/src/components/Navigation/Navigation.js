@@ -25,11 +25,11 @@ function Navigation() {
             {searchBar}
           </div>
           <a href="https://www.linkedin.com/in/stiven-kang-69a9ab258/">
-            <i id="navLinkedIn" class="fa-brands fa-linkedin"></i>
+            <i id="navLinkedIn" className="fa-brands fa-linkedin"></i>
           </a>
           <br />
           <a href="https://github.com/stivenkang">
-            <i id="navGithub" class="fa-brands fa-github"></i>
+            <i id="navGithub" className="fa-brands fa-github"></i>
           </a>
           <br />
           <ProfileButton user={sessionUser} />

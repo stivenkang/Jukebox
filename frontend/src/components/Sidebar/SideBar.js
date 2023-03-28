@@ -13,13 +13,13 @@ function SideBar() {
     if (sessionUser) {
         sessionLinks = (
             <div className='sideBarPlaylists'>
-                <NavLink id='sideBarPlaylistsButton' exact to="/playlists/create"><i class="fa-regular fa-square-plus"></i><span style={{marginLeft: '15px'}}>Create Playlist</span></NavLink>
+                <NavLink id='sideBarPlaylistsButton' exact to="/playlists/create"><i className="fa-regular fa-square-plus"></i><span style={{marginLeft: '15px'}}>Create Playlist</span></NavLink>
             </div>
         );
     } else {
         sessionLinks = (
             <div className='sideBarPlaylists'>
-                <NavLink id='sideBarPlaylistsButton' exact to="/login"><i class="fa-regular fa-square-plus"></i><span style={{marginLeft: '15px'}}>Create Playlist</span></NavLink>
+                <NavLink id='sideBarPlaylistsButton' exact to="/login"><i className="fa-regular fa-square-plus"></i><span style={{marginLeft: '15px'}}>Create Playlist</span></NavLink>
             </div>
         )
     }
@@ -35,7 +35,7 @@ function SideBar() {
                     <NavLink id='searchButton' exact to="/search"><i className= "fa-solid fa-magnifying-glass"></i><span style={{marginLeft: '15px'}}>Search</span></NavLink>
                 </div>
                 <div className='yourLibraryButton'>
-                    <NavLink id='yourLibraryButton' exact to="/playlists"><i class="fa-regular fa-bookmark"></i><span style={{marginLeft: '15px'}}>Your Library</span></NavLink>
+                    <NavLink id='yourLibraryButton' exact to="/playlists"><i className="fa-regular fa-bookmark"></i><span style={{marginLeft: '15px'}}>Your Library</span></NavLink>
                 </div>
                 {sessionLinks}
                 <div className='sideBarLine'>

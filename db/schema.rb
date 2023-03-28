@@ -80,6 +80,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_15_195744) do
 
   create_table "songs", force: :cascade do |t|
     t.string "title", null: false
+    t.string "song_url", null: false
     t.bigint "artist_id", null: false
     t.bigint "album_id"
     t.bigint "playlist_song_id"

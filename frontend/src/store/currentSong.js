@@ -8,7 +8,7 @@ export const setCurrentSong = (songId) => {
 };
 
 const currentSongReducer = (state={}, action) => {
-    const newState = {...state};
+    // const newState = {...state};
 
     switch(action.type) {
         case SET_CURRENT_SONG:
