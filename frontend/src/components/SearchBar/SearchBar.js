@@ -7,6 +7,7 @@ import { fetchArtists } from "../../store/artist";
 import { fetchAlbums } from "../../store/album";
 import { fetchSongs } from "../../store/song";
 import AlbumIndexItem from "../Albums/AlbumIndexItem";
+import ArtistIndexItem from "../ArtistsIndex/ArtistsIndexItem";
 
 function SearchBar() {
     const dispatch = useDispatch();
@@ -30,7 +31,7 @@ function SearchBar() {
     // debugger
     const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
-    const searchSongs = searchValue != '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
+    const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
 
     // const handleClick = (artistId) => {
     //     history.push(`/aritsts/${artistId}`)
@@ -49,8 +50,32 @@ function SearchBar() {
                 {searchValue !== '' &&
                     <div>
                         <>
+                            <div className='topRes'>
+                                {searchArtists.length > 0 && 
+                                    <div className='firstArt'>
+                                        <div className='searchType'>Top Result</div>
+                                        <div className='topResult'>
+                                            <ArtistIndexItem id='artistIndexItem' key={searchArtists[0]} artist={searchArtists[0]} />
+                                        </div>
+                                    </div>
+                                }
+
+                                {searchSongs.length > 0 &&
+                                    <div className='searchSongsRes'>
+                                        <div className='searchType'>Songs</div>
+                                        <div className='songResults'>
+                                            {searchSongs.slice(0, 4).map((song) => (
+                                                <ul className='songInfo' key={song.id}>
+                                                    <p>{song.title}</p>
+                                                </ul>
+                                            ))}
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+
                             {searchArtists.length > 0 && 
-                                <div className='searchArt'>
+                                <div className='searchRes'>
                                     <div className='searchType'>Artists</div>
                                     <div className='results'>
                                         {searchArtists.map((artist) => (
@@ -65,7 +90,7 @@ function SearchBar() {
                             }
 
                             {searchAlbums.length > 0 &&
-                                <div className='searchAl'>
+                                <div className='searchRes'>
                                     <div className='searchType'>Albums</div>
                                     <div className='results'>
                                         {searchAlbums.map((album) => (
@@ -73,19 +98,6 @@ function SearchBar() {
                                             // <ul key={album.id}>
                                             //     <p>{album.title}</p>
                                             // </ul>
-                                        ))}
-                                    </div>
-                                </div>
-                            }
-
-                            {searchSongs.length > 0 && 
-                                <div className='searchAl'>
-                                    <div className='searchType'>Songs</div>
-                                    <div className='results'>
-                                        {searchSongs.map((song) => (
-                                            <ul key={song.id}>
-                                                <p>{song.title}</p>
-                                            </ul>
                                         ))}
                                     </div>
                                 </div>

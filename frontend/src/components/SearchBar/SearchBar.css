@@ -25,25 +25,48 @@
     padding-bottom: 200px;
 }
 
-.searchArt {
+.topRes {
+    display: flex;
+}
+
+.topResult {
+    padding-right: 100px;
+}
+
+.firstArt {
+    width: 500px;
+}
+
+.searchRes {
     margin-bottom: 20px;
 }
 
-/* .searchAl {
-    display: flex;
-} */
+.searchSongsRes {
+    width: 600px;
+}
+
 
 .searchType {
     font-weight: bold;
     color: white;
     font-size: 30px;
-    margin: 0px 50px 5px 50px;
+    margin: 0px 50px 20px 50px;
 }
 
 .results {
     display: flex;
     overflow-x: auto;
     padding-right: 100px;
+}
+
+.songResults {
+    display: flex;
+    flex-direction: column;
+    padding-left: 60px;
+}
+
+.songInfo {
+    
 }
 
 
