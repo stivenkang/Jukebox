@@ -28,9 +28,9 @@ function SearchBar() {
     }, []);
 
     // debugger
-    const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().includes(searchValue.toLowerCase()));
-    const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().includes(searchValue.toLowerCase()));
-    const searchSongs = searchValue != '' && songs.filter((song) => song.title && song.title.toLowerCase().includes(searchValue.toLowerCase()));
+    const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
+    const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
+    const searchSongs = searchValue != '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
 
     // const handleClick = (artistId) => {
     //     history.push(`/aritsts/${artistId}`)
