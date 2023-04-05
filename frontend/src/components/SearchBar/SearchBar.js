@@ -13,6 +13,7 @@ function SearchBar() {
     const dispatch = useDispatch();
     // const history = useHistory();
     const [searchValue, setSearchValue] = useState("");
+    const audioRef = useRef(null);
 
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
@@ -36,6 +37,16 @@ function SearchBar() {
     // const handleClick = (artistId) => {
     //     history.push(`/aritsts/${artistId}`)
     // }
+
+    const handleClick = (e) => {
+        // if (audioRef.current.paused) {
+        //     audioRef.current.play();
+        // } else {
+        //     audioRef.current.pause();
+        // }
+
+        audioRef.current.play(e);
+    }
 
     
     return (
@@ -65,7 +76,8 @@ function SearchBar() {
                                         <div className='searchType'>Songs</div>
                                         <div className='songResults'>
                                             {searchSongs.slice(0, 4).map((song) => (
-                                                <ul className='songInfo' key={song.id}>
+                                                <ul className='songInfo' key={song.id} onClick={handleClick}>
+                                                    <audio id='audio-player' ref={audioRef} src={songs.songUrl}>{song.title}</audio>
                                                     <p>{song.title}</p>
                                                 </ul>
                                             ))}

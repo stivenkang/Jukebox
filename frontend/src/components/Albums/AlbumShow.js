@@ -23,7 +23,7 @@ function AlbumShowPage() {
 
     return (
         <div className='albumPageBody'>
-            <div className='albumImg'>
+            <div className='albumPageImg'>
                 <img classname='albumShowImg' src={album.photoUrl} alt='' />
                 <h1 className='albumShowTitle'>{album.title}</h1>
                 {/* <p>{albumSongs}</p> */}
