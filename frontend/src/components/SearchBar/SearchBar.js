@@ -11,7 +11,7 @@ import ArtistIndexItem from "../ArtistsIndex/ArtistsIndexItem";
 
 function SearchBar() {
     const dispatch = useDispatch();
-    const history = useHistory();
+    // const history = useHistory();
     const [searchValue, setSearchValue] = useState("");
 
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);

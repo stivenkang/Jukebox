@@ -26,6 +26,7 @@ function AlbumShowPage() {
             <div className='albumImg'>
                 <img classname='albumShowImg' src={album.photoUrl} alt='' />
                 <h1 className='albumShowTitle'>{album.title}</h1>
+                {/* <p>{albumSongs}</p> */}
             </div>
         </div>
     )

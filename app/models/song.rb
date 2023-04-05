@@ -12,7 +12,7 @@
 #  updated_at       :datetime         not null
 #
 class Song < ApplicationRecord
-    validates :title, :artist_id, :album_id, presence: true
+    validates :title, :artist_id, :song_url, presence: true
 
     belongs_to :artist
     belongs_to :album

@@ -1,36 +1,27 @@
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import React from 'react';
-// import { fetchSong } from '../../store/song';
+import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentSong } from '../../store/currentSong';
 import './PlayBar.css';
 
 function PlayBar() {
+    const dispatch = useDispatch();
+    const currentSong = useSelector((state) => state.currentSong);
+    // const currAlbumSongs = useSelector(({ currentAlbum }) => {
+    //     return currentAlbum ? Object.values(currentAlbum.songs) : []
+    // });
 
+    if (!currentSong) {
+        return null;
+    }
 
     return (
         <AudioPlayer
             className='playBar'
-            // src={currSong}
+            src={currentSong}
+            showSkipControls
+            showFilledVolume
         />
-
-        // <div className='playBar'>
-            // {/* <h1>PlayBar</h1> */}
-            // <AudioPlayer />
-            // {/* <div className='playBarImg'>
-            //     <img className='albumImg' src="" alt="" />
-            //     <div className='songInfo'>
-            //         <p>Song Info</p>
-            //     </div>
-            // </div>
-            // <div className='playBarButtons'>
-            //     <div className='playButton'>
-
-            //     </div>
-            // </div>
-            // <div className='playBarVolume'>
-                
-            // </div> */}
-        // {/* </div> */}
     )
 }
 
