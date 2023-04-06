@@ -38,9 +38,9 @@ function SideBar() {
                     <NavLink id='yourLibraryButton' exact to="/playlists"><i className="fa-regular fa-bookmark"></i><span style={{marginLeft: '15px'}}>Your Library</span></NavLink>
                 </div>
                 {sessionLinks}
-                <div className='sideBarLine'>
-                    {SideBarOptions}
-                </div>
+                {/* <div className='sideBarLine'> */}
+                    <SideBarOptions />
+                {/* </div> */}
             </div>
         </div>
     )

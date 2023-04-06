@@ -6,23 +6,18 @@ import './SideBar.css';
 function SideBarOptions() {
     const sessionUser = useSelector(state => state.session.user)
 
-    let sessionLinks;
-    if (sessionUser) {
-        sessionLinks = (
-            // <div className='loggedInPlaylists'>
-            //     <NavLink id='loggedInPlaylistsButton' exact to="/playlists/${playlists.id}">Playlists</NavLink>
-            // </div>
-            <div>Playlists</div>
-        );
-    } else {
-        return null
+    if (!sessionUser) {
+        return null;
     }
 
     return (
-        // <div className='loggedInSideBarOptions'>
-
-        // </div>
-        {sessionLinks}
+        <div className='loggedInSideBarOptions'>
+            <div className='loggedInPlaylists'>
+                <NavLink id='loggedInPlaylistsButton' exact to='/playlists'>
+                    <p>Playlists would go here</p>
+                </NavLink>
+            </div>
+        </div>
     )
 }
 

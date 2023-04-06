@@ -38,15 +38,17 @@ function SearchBar() {
     //     history.push(`/aritsts/${artistId}`)
     // }
 
-    const handleClick = (e) => {
-        // if (audioRef.current.paused) {
-        //     audioRef.current.play();
-        // } else {
-        //     audioRef.current.pause();
-        // }
 
-        audioRef.current.play(e);
-    }
+    // shouldn't need to include this in the searchbar, the play functionality should be applied to all songs
+    // const handleClick = (e) => {
+    //     if (audioRef.current) {
+    //         if (audioRef.current.paused) {
+    //             audioRef.current.play();
+    //         } else {
+    //             audioRef.current.pause();
+    //         }
+    //     }
+    // }
 
     
     return (
@@ -76,8 +78,9 @@ function SearchBar() {
                                         <div className='searchType'>Songs</div>
                                         <div className='songResults'>
                                             {searchSongs.slice(0, 4).map((song) => (
-                                                <ul className='songInfo' key={song.id} onClick={handleClick}>
-                                                    <audio id='audio-player' ref={audioRef} src={songs.songUrl}>{song.title}</audio>
+                                                // <ul className='songInfo' key={song.id} onClick={() => handleClick(song.songUrl)}>
+                                                <ul className='songInfo' key={song.id}>
+                                                    <audio id='audio-player' ref={audioRef} src={song.songUrl}>{song.title}</audio>
                                                     <p>{song.title}</p>
                                                 </ul>
                                             ))}
