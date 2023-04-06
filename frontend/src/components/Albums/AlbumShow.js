@@ -24,9 +24,19 @@ function AlbumShowPage() {
     return (
         <div className='albumPageBody'>
             <div className='albumPageImg'>
-                <img classname='albumShowImg' src={album.photoUrl} alt='' />
+                <img className='albumShowImg' src={album.photoUrl} alt='' />
                 <h1 className='albumShowTitle'>{album.title}</h1>
                 {/* <p>{albumSongs}</p> */}
+            </div>
+            <div>
+                <p className='albumSongType'># Title</p>
+                <div>
+                    {albumSongs.map(song => (
+                        <ul>
+                            <li className='albumSongList' key={song.id}>{song.title}</li>
+                        </ul>
+                    ))}
+                </div>
             </div>
         </div>
     )

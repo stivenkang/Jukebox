@@ -15,6 +15,7 @@ json.artist do
     
 end
 
+# need to check if this is correct
 json.songs do
     @songs.each do |song|
         json.set! song.id do

@@ -2,7 +2,7 @@
     position: fixed;
     /* padding: 50px; */
     top: 50px;
-    left: 220px;
+    left: 200px;
     height: 100vh;
     width: 100vw;
     padding: 5px;
@@ -30,4 +30,22 @@
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 40px;
+}
+
+.albumSongType {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 50px;
+    margin-top: 50px;
+    border-bottom: 1px solid grey;
+    margin-bottom: 25px;
+
+}
+
+.albumSongList {
+    /* display: grid;
+    grid-template-columns: repeat(5, 250px);
+    transition: background-color .5s; */
+    margin-left: 50px;
 }
