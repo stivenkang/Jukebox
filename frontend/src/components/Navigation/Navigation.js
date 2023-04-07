@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useHistory, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import SideBar from "../SideBar/SideBar";
@@ -9,6 +9,7 @@ import "./Navigation.css";
 
 function Navigation() {
   const location = useLocation();
+  // const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
 
   let searchBar = null;
@@ -21,18 +22,22 @@ function Navigation() {
     sessionLinks = (
       <>
         <div className="navTop">
+          <NavLink className='navPrev' to='#'>{'<'}</NavLink>
+          <NavLink className='navNext' to='#'>{'>'}</NavLink>
           <div className="searchFunc">
             {searchBar}
           </div>
-          <a href="https://www.linkedin.com/in/stiven-kang-69a9ab258/">
-            <i id="navLinkedIn" className="fa-brands fa-linkedin"></i>
-          </a>
-          <br />
-          <a href="https://github.com/stivenkang">
-            <i id="navGithub" className="fa-brands fa-github"></i>
-          </a>
-          <br />
-          <ProfileButton user={sessionUser} />
+          <div className='icons'>
+            <a href="https://www.linkedin.com/in/stiven-kang-69a9ab258/">
+              <i id="navLinkedIn" className="fa-brands fa-linkedin"></i>
+            </a>
+            <br />
+            <a href="https://github.com/stivenkang">
+              <i id="navGithub" className="fa-brands fa-github"></i>
+            </a>
+            <br />
+            <ProfileButton user={sessionUser} />
+          </div>
         </div>
         <SideBar />
         <PlayBar />
@@ -62,7 +67,13 @@ function Navigation() {
 
   return (
     <div className="nav">
-        {sessionLinks}
+      {/* {history && (
+        <>
+        <button className='navPrev' onClick={() => history.goBack()}>{'<'}</button>
+        <button className='navNext' onClick={() => history.goForward()}>{'>'}</button>
+        </>
+      )} */}
+      {sessionLinks}
     </div>
   );
 }

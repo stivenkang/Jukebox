@@ -1,22 +1,18 @@
 .nav {
-    /* display: flex; */
+    display: flex;
     /* height: 100%; */
-
-    /* background-color: #0b0b0b; */
     /* height: 67px; */
-
-    /* top: 0; */
 }
 
 .navTop {
     display: flex;
-    position: fixed;
-    right: 0;
-    justify-content: flex-end;
     align-items: center;
+    right: 0;
     font-size: 16px;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
+    position: fixed;
+    /* justify-content: flex-end; */
+    /* font-family: Arial, Helvetica, sans-serif; */
     
     width: 100%;
     height: 10%;
@@ -25,10 +21,34 @@
     z-index: 1;
 }
 
+.navPrev {
+    display: flex;
+    font-size: 30px;
+    margin-left: 250px;
+    margin-right: 10px;
+
+    text-decoration: none;
+    color: white;
+}
+
+.navNext {
+    display: flex;
+    font-size: 30px;
+    margin-right: 50px;
+
+    text-decoration: none;
+    color: white;
+}
+
 .searchFunc {
     display: flex;
     justify-content: center;
-    margin-right: 600px;
+    margin-right: 450px;
+}
+
+.icons {
+    display: flex;
+    justify-content: flex-end;
 }
 
 #navLinkedIn {
