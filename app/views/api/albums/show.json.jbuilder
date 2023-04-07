@@ -16,7 +16,7 @@ json.artist do
 end
 
 # need to check if this is correct
-json.songs do
+json.song do
     @songs.each do |song|
         json.set! song.id do
             json.extract! song, :id, :title, :artist_id, :album_id, :song_url

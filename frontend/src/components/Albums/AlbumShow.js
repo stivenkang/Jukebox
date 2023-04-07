@@ -9,11 +9,12 @@ import "./AlbumShow.css";
 function AlbumShowPage() {
     const dispatch = useDispatch();
     const { albumId } = useParams();
-    const album = useSelector(state => state.albums[albumId] ? state.albums[albumId] : [])
+    const albums = useSelector(state => state.albums[albumId] ? state.albums[albumId] : [])
     const songs = useSelector(state => state.songs ? state.songs : [])
+    // const artist = useSelector(state => albums.artistId ? state.artists[albums.artistId] : null)
 
     const albumSongs = Object.values(songs).filter(song => {
-        return song.albumId === album.id
+        return song.albumId === albums.id
     })
 
     useEffect(() => {
@@ -24,16 +25,16 @@ function AlbumShowPage() {
     return (
         <div className='albumPageBody'>
             <div className='albumPageImg'>
-                <img className='albumShowImg' src={album.photoUrl} alt='' />
-                <h1 className='albumShowTitle'>{album.title}</h1>
+                <img className='albumShowImg' src={albums.photoUrl} alt='' />
+                <h1 className='albumShowTitle'>{albums.title}</h1>
                 {/* <p>{albumSongs}</p> */}
             </div>
             <div>
                 <p className='albumSongType'># Title</p>
                 <div>
-                    {albumSongs.map(song => (
+                    {albumSongs.map((song, index) => (
                         <ul>
-                            <li className='albumSongList' key={song.id}>{song.title}</li>
+                            <li className='albumSongList' key={song.id}>{index + 1} {song.title}</li>
                         </ul>
                     ))}
                 </div>

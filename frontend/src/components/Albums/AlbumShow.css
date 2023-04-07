@@ -29,18 +29,18 @@
     display: flex;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 40px;
+    font-size: 60px;
+    font-weight: bolder;
 }
 
 .albumSongType {
     font-family: Arial, Helvetica, sans-serif;
+    color: grey;
     font-size: 15px;
     font-weight: 300;
-    margin-left: 50px;
-    margin-top: 50px;
+    margin: 50px 0px 25px 50px;
+    padding-bottom: 10px;
     border-bottom: 1px solid grey;
-    margin-bottom: 25px;
-
 }
 
 .albumSongList {
@@ -48,4 +48,5 @@
     grid-template-columns: repeat(5, 250px);
     transition: background-color .5s; */
     margin-left: 50px;
+    
 }
