@@ -12,7 +12,7 @@ const currentSongReducer = (state={}, action) => {
 
     switch(action.type) {
         case SET_CURRENT_SONG:
-            return action.songId;
+            return action.songId; // may have to use another useselector the get the song
         default:
             return state;
     }
