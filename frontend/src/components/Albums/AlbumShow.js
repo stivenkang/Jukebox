@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -22,6 +22,12 @@ function AlbumShowPage() {
         dispatch(fetchSongs())
     }, [albumId, dispatch])
 
+    const [currentSong, setCurrentSong] = useState('');
+
+    const handleClick = (song) => {
+        setCurrentSong(song.songUrl);
+    }
+
     return (
         <div className='albumPageBody'>
             <div className='albumPageImg'>
@@ -34,7 +40,7 @@ function AlbumShowPage() {
                 <div>
                     {albumSongs.map((song, index) => (
                         <ul>
-                            <li className='albumSongList' key={song.id}>{index + 1} {song.title}</li>
+                            <li className='albumSongList' key={song.id} onClick={() => handleClick(song)}>{index + 1} {song.title}</li>
                         </ul>
                     ))}
                 </div>
