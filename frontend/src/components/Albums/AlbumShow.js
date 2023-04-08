@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchAlbum } from "../../store/album";
 import { fetchSongs } from "../../store/song";
+import PlayBar from "../PlayBar/PlayBar";
 import "./AlbumShow.css";
 
 function AlbumShowPage() {
@@ -45,6 +46,7 @@ function AlbumShowPage() {
                     ))}
                 </div>
             </div>
+            <PlayBar songUrl={currentSong} />
         </div>
     )
 }
