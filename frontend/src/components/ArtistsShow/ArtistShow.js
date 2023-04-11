@@ -50,7 +50,7 @@ function ArtistShowPage() {
                 <div>
                     {artistSongs.map(song => (
                         <ul>
-                            <li key={song.id} onClick={handleClick}>{song.title}</li>
+                            <li key={song.id} onClick={() => handleClick(song)}>{song.title}</li>
                         </ul>
                     ))}
                 </div>
