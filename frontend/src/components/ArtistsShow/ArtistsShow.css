@@ -17,13 +17,15 @@
 
 .artistSection {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 26px;
+    font-size: 24px;
+    font-weight: bold;
     /* color: #fff; */
     margin: 20px 0px 20px 40px;
 }
 
 .artistRelatedDisplay {
     display: flex;
+    margin-left: 40px;
 }
 
 img {
@@ -31,10 +33,13 @@ img {
     height: 100px;
 }
 
+.artistSong {
+    margin: 10px 0px 10px 60px;
+    /* padding: 10px 0px 10px 0px; */
+}
+
 .artistAlbum {
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
+    /* font-size: 16px; */
     margin-left: 40px;
     padding: 10px 0px 10px 0px;
 }
@@ -65,5 +70,5 @@ img {
     display: flex;
     margin: auto;
     width: fit-content;
-    border-bottom: 1px solid rgba(125, 125, 125, 0.27);
+    /* border-bottom: 1px solid rgba(125, 125, 125, 0.27); */
 }

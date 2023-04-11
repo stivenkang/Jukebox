@@ -43,31 +43,31 @@ function ArtistShowPage() {
                 <h1 className='artistShowName'>{artist.name}</h1>
             </div>
             <div>
-                <p className='artistShowDesc'>{artist.description}</p>
-            </div>
-            <div>
                 <p className='artistSection'>Popular</p>
                 <div>
-                    {artistSongs.map(song => (
+                    {artistSongs.map((song, index) => (
                         <ul>
-                            <li key={song.id} onClick={() => handleClick(song)}>{song.title}</li>
+                            {/* <img src={album.photoUrl} alt='' /> */}
+                            <li className='artistSong' key={song.id} onClick={() => handleClick(song)}>{index + 1} {song.title}</li>
                         </ul>
                     ))}
                 </div>
 
                 <p className='artistSection'>Albums</p>
-                {/* <div>
-                    <AlbumIndexItem id='albumIndexItem' key={albums.id} album={albums}/>
-                </div> */}
                 <div className='artistRelatedDisplay'>
                     {artistAlbums.map(album => (
                         <ul>
-                            <img src={album.photoUrl} alt='' />
-                            <li className='artistAlbum' key={album.id}>{album.title}</li>
-                            {/* <AlbumIndexItem /> */}
+                            {/* <img src={album.photoUrl} alt='' /> */}
+                            {/* <li className='artistAlbum' key={album.id}>{album.title}</li> */}
+                            <AlbumIndexItem className='artistAlbum' key={album.id} album={album} />
                         </ul>
                     ))}
                 </div>
+                <div>
+                    <p className='artistSection'>About</p>
+                    <p className='artistShowDesc'>{artist.description}</p>        
+                </div>
+
             </div>
             <PlayBar songUrl={currentSong} />
         </div>
