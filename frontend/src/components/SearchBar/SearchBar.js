@@ -8,12 +8,13 @@ import { fetchAlbums } from "../../store/album";
 import { fetchSongs } from "../../store/song";
 import AlbumIndexItem from "../Albums/AlbumIndexItem";
 import ArtistIndexItem from "../ArtistsIndex/ArtistsIndexItem";
+import PlayBar from "../PlayBar/PlayBar";
 
 function SearchBar() {
     const dispatch = useDispatch();
     // const history = useHistory();
     const [searchValue, setSearchValue] = useState("");
-    const audioRef = useRef(null);
+    // const audioRef = useRef(null);
 
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
@@ -33,6 +34,12 @@ function SearchBar() {
     const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
+
+    const [currentSong, setCurrentSong] = useState('');
+
+    const handleClick = (song) => {
+        setCurrentSong(song.songUrl);
+    }
 
     // const handleClick = (artistId) => {
     //     history.push(`/aritsts/${artistId}`)
@@ -80,13 +87,15 @@ function SearchBar() {
                                             {searchSongs.slice(0, 4).map((song) => (
                                                 // <ul className='songInfo' key={song.id} onClick={() => handleClick(song.songUrl)}>
                                                 <ul className='songInfo' key={song.id}>
-                                                    <audio id='audio-player' ref={audioRef} src={song.songUrl}>{song.title}</audio>
+                                                    <audio id='audio-player' onClick={() => handleClick(song)}>{song.title}</audio>
                                                     <p>{song.title}</p>
                                                 </ul>
                                             ))}
                                         </div>
                                     </div>
+
                                 }
+                                <PlayBar songUrl={currentSong} />
                             </div>
 
                             {searchArtists.length > 0 && 
