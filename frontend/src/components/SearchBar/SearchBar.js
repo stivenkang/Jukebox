@@ -1,8 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import './SearchBar.css'
-import ArtistsIndexItem from "../ArtistsIndex/ArtistsIndexItem";
 import { fetchArtists } from "../../store/artist";
 import { fetchAlbums } from "../../store/album";
 import { fetchSongs } from "../../store/song";
@@ -14,7 +13,6 @@ function SearchBar() {
     const dispatch = useDispatch();
     // const history = useHistory();
     const [searchValue, setSearchValue] = useState("");
-    // const audioRef = useRef(null);
 
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
@@ -40,10 +38,6 @@ function SearchBar() {
     const handleClick = (song) => {
         setCurrentSong(song.songUrl);
     }
-
-    // const handleClick = (artistId) => {
-    //     history.push(`/aritsts/${artistId}`)
-    // }
 
 
     // shouldn't need to include this in the searchbar, the play functionality should be applied to all songs
@@ -85,17 +79,14 @@ function SearchBar() {
                                         <div className='searchType'>Songs</div>
                                         <div className='songResults'>
                                             {searchSongs.slice(0, 4).map((song) => (
-                                                // <ul className='songInfo' key={song.id} onClick={() => handleClick(song.songUrl)}>
-                                                <ul className='songInfo' key={song.id}>
-                                                    <audio id='audio-player' onClick={() => handleClick(song)}>{song.title}</audio>
-                                                    <p>{song.title}</p>
+                                                <ul>
+                                                    <li className='songInfo' key={song.id} onClick={() => handleClick(song)}>{song.title}</li>
                                                 </ul>
                                             ))}
                                         </div>
                                     </div>
 
                                 }
-                                <PlayBar songUrl={currentSong} />
                             </div>
 
                             {searchArtists.length > 0 && 
@@ -103,12 +94,12 @@ function SearchBar() {
                                     <div className='searchType'>Artists</div>
                                     <div className='results'>
                                         {searchArtists.map((artist) => (
-                                            <ArtistsIndexItem id='artistIndexItem' key={artist.id} artist={artist} />
+                                            <ArtistIndexItem id='artistIndexItem' key={artist.id} artist={artist} />
                                             // <ul key={artist.id}>
                                             //     <p>{artist.name}</p>
                                             //     {/* <p>{artist}</p> */}
                                             // </ul>
-                                        ))}
+                                            ))}
                                     </div>
                                 </div>
                             }
@@ -122,11 +113,12 @@ function SearchBar() {
                                             // <ul key={album.id}>
                                             //     <p>{album.title}</p>
                                             // </ul>
-                                        ))}
+                                            ))}
                                     </div>
                                 </div>
                             }
                         </>
+                        <PlayBar songUrl={currentSong} />
                     </div>
                 }
             </div>
