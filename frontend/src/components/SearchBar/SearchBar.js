@@ -8,6 +8,7 @@ import { fetchSongs } from "../../store/song";
 import AlbumIndexItem from "../Albums/AlbumIndexItem";
 import ArtistIndexItem from "../ArtistsIndex/ArtistsIndexItem";
 import PlayBar from "../PlayBar/PlayBar";
+import { receiveCurrentSong } from "../../store/currentSong";
 
 function SearchBar() {
     const dispatch = useDispatch();
@@ -36,7 +37,8 @@ function SearchBar() {
     const [currentSong, setCurrentSong] = useState('');
 
     const handleClick = (song) => {
-        setCurrentSong(song.songUrl);
+        // setCurrentSong(song.songUrl);
+        dispatch(receiveCurrentSong(song.songUrl));
     }
 
 
