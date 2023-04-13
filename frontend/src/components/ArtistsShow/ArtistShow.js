@@ -24,9 +24,14 @@ function ArtistShowPage() {
     })
 
     const [currentSong, setCurrentSong] = useState('');
+    const [showMore, setShowMore] = useState(false);
 
     const handleClick = (song) => {
         setCurrentSong(song.songUrl);
+    }
+
+    const handleShowMore = () => {
+        setShowMore(!showMore);
     }
 
     useEffect(() => {
@@ -45,13 +50,16 @@ function ArtistShowPage() {
             <div>
                 <p className='artistSection'>Popular</p>
                 <div>
-                    {artistSongs.map((song, index) => (
+                    {artistSongs.slice(0, showMore ? artistSongs.length : 5).map((song, index) => (
                         <ul>
                             {/* <img src={album.photoUrl} alt='' /> */}
                             <li className='artistSong' key={song.id} onClick={() => handleClick(song)}>{index + 1} {song.title}</li>
                         </ul>
                     ))}
                 </div>
+                {artistSongs.length > 5 && (
+                    <button className='showMore' onClick={handleShowMore}>{showMore ? 'Show Less' : 'Show More'}</button>
+                )}
 
                 <p className='artistSection'>Albums</p>
                 <div className='artistRelatedDisplay'>

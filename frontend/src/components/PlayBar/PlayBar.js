@@ -16,12 +16,21 @@ function PlayBar({songUrl}) {
     }
 
     return (
-        <AudioPlayer
-            className='playBar'
-            src={songUrl}
-            showSkipControls
-            showFilledVolume
-        />
+        // <AudioPlayer
+        //     className='playBar'
+        //     src={songUrl}
+        //     showSkipControls
+        //     showFilledVolume
+        // />
+
+        <div className='playBar'>
+            <p>?????????</p>
+            <AudioPlayer
+                src={songUrl}
+                showSkipControls
+                showFilledVolume
+            />
+        </div>
     )
 }
 
