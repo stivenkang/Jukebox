@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentSong } from '../../store/currentSong';
 import './PlayBar.css';
 
-function PlayBar({songUrl}) {
+function PlayBar() {
     // const dispatch = useDispatch();
     const currentSong = useSelector((state) => state.currentSong);
     // const currAlbumSongs = useSelector(({ currentAlbum }) => {
@@ -16,21 +16,18 @@ function PlayBar({songUrl}) {
     }
 
     return (
-        // <AudioPlayer
-        //     className='playBar'
-        //     src={songUrl}
-        //     showSkipControls
-        //     showFilledVolume
-        // />
-
-        <div className='playBar'>
-            <p>?????????</p>
-            <AudioPlayer
-                src={songUrl}
-                showSkipControls
-                showFilledVolume
-            />
-        </div>
+        <AudioPlayer
+            className='playBar'
+            src={currentSong}
+            // autoPlay
+            showFilledProgress
+            showSkipControls
+            showFilledVolume
+            defaultCurrentTime
+            defaultDuration
+            // setCurrentTime
+            // setDuration
+        />
     )
 }
 

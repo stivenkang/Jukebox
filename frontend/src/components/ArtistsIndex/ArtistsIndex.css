@@ -70,10 +70,14 @@
     justify-content: center;
 }
 
-.artistName {
+.albumName {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
     font-weight: 600;
     margin-bottom: 20px;
+}
+
+.albumCardInfo {
+    font-family: Arial, Helvetica, sans-serif;
 }

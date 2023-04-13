@@ -1,8 +1,8 @@
-export const SET_CURRENT_SONG = 'currentSong/SET_CURRENT_SONG';
+export const RECEIVE_CURRENT_SONG = 'currentSong/RECEIVE_CURRENT_SONG';
 
-export const setCurrentSong = (songId) => {
+export const receiveCurrentSong = (songId) => {
     return {
-        type: SET_CURRENT_SONG,
+        type: RECEIVE_CURRENT_SONG,
         songId
     }
 };
@@ -11,7 +11,7 @@ const currentSongReducer = (state={}, action) => {
     // const newState = {...state};
 
     switch(action.type) {
-        case SET_CURRENT_SONG:
+        case RECEIVE_CURRENT_SONG:
             return action.songId; // may have to use another useselector the get the song
         default:
             return state;

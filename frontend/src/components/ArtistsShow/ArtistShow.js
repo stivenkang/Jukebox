@@ -7,6 +7,7 @@ import { fetchSongs } from '../../store/song';
 import './ArtistsShow.css';
 import AlbumIndexItem from '../Albums/AlbumIndexItem';
 import PlayBar from '../PlayBar/PlayBar';
+import {receiveCurrentSong} from '../../store/currentSong';
 
 function ArtistShowPage() {
     const dispatch = useDispatch();
@@ -27,7 +28,7 @@ function ArtistShowPage() {
     const [showMore, setShowMore] = useState(false);
 
     const handleClick = (song) => {
-        setCurrentSong(song.songUrl);
+        dispatch(receiveCurrentSong(song.songUrl));
     }
 
     const handleShowMore = () => {

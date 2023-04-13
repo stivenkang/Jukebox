@@ -17,8 +17,8 @@ const AlbumIndexItem = ({album}) => {
     return (
         <div className='artistsList' onClick={(e) => history.push(`/albums/${album.id}`)}>
             <img className='albumImg' src={album.photoUrl} alt='' />
-            <p className='artistName'>{album.title}</p>
-            <p>{album.year} - {artistName}</p>
+            <p className='albumName'>{album.title}</p>
+            <p className='albumCardInfo'>{album.year} - {artistName}</p>
             {/* <p>{album.artistId.name}</p> */}
         </div>
     )
