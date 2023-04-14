@@ -28,7 +28,7 @@ function ArtistShowPage() {
     const [showMore, setShowMore] = useState(false);
 
     const handleClick = (song) => {
-        dispatch(receiveCurrentSong(song.songUrl));
+        dispatch(receiveCurrentSong(song));
     }
 
     const handleShowMore = () => {

@@ -28,7 +28,7 @@ function AlbumShowPage() {
 
     const handleClick = (song) => {
         // setCurrentSong(song.songUrl);
-        dispatch(receiveCurrentSong(song.songUrl));
+        dispatch(receiveCurrentSong(song));
     }
 
     return (
