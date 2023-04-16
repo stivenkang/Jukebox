@@ -1,7 +1,7 @@
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { useDispatch, useSelector } from 'react-redux';
-// import { setCurrentSong } from '../../store/currentSong';
+// import { receiveCurrentSong } from '../../store/currentSong';
 import './PlayBar.css';
 
 function PlayBar() {
@@ -38,9 +38,7 @@ function PlayBar() {
             </div>
             <div className='controlBar'>
                 <AudioPlayer
-                    // className='playBar'
                     src={currentSong.songUrl}
-                    // autoPlay
                     showFilledProgress
                     showSkipControls
                     showFilledVolume

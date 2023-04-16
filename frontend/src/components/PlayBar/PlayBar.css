@@ -20,17 +20,20 @@
     align-items: center;
     margin-left: 20px;
     width: 350px;
+    font-family: circular, Helvetica, Arial, sans-serif;
+    font-size: 14px;
 }
 
 .controlBar {
-    /* display: flex; */
-    /* flex: flex-end; */
-    /* align-items: flex-end; */
     width: 100%;
-    color: #181818;
+    /* color: #181818; */
 }
-.rhap_container {
-    color: #181818;
+.rhap_play-status--paused {
+    background-color: #181818;
+}
+
+.rhap_play-status--playing {
+    background-color: #181818;
 }
 
 .rhap_progress-section {

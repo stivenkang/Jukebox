@@ -6,7 +6,6 @@ import { fetchAlbums } from '../../store/album';
 import { fetchSongs } from '../../store/song';
 import './ArtistsShow.css';
 import AlbumIndexItem from '../Albums/AlbumIndexItem';
-import PlayBar from '../PlayBar/PlayBar';
 import {receiveCurrentSong} from '../../store/currentSong';
 
 function ArtistShowPage() {
