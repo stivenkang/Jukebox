@@ -78,7 +78,6 @@ function ArtistShowPage() {
                 </div>
 
             </div>
-            <PlayBar songUrl={currentSong} />
         </div>
     )
 }

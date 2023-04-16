@@ -48,7 +48,6 @@ function AlbumShowPage() {
                     ))}
                 </div>
             </div>
-            <PlayBar songUrl={currentSong} />
         </div>
     )
 }

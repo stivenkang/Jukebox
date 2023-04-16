@@ -15,6 +15,10 @@ function PlayBar() {
         return null;
     }
 
+    // const artist = useSelector((state) => state.artists.find(artist => artist.id === currentSong.artistId), [currentSong.artistId]);
+
+    // const artistName = artist ? artist.name : '';
+
     // const album = useSelector((state) => state.currentAlbum);
 
     // const album = useSelector((state) => {
@@ -25,14 +29,16 @@ function PlayBar() {
     // const albumImg = album ? album.imageUrl : '';
 
     return (
-        <div>
-            <div>
+        <div className='playBar'>
+            <div className='currentSong'>
                 {/* <img src={albumImg} alt='Album Cover' /> */}
                 <p>{currentSong.title}</p>
+                {/* <p>{currentSong.artistId.name}</p> */}
+                {/* <p>{artist.name}</p> */}
             </div>
-            <div>
+            <div className='controlBar'>
                 <AudioPlayer
-                    className='playBar'
+                    // className='playBar'
                     src={currentSong.songUrl}
                     // autoPlay
                     showFilledProgress
@@ -40,6 +46,7 @@ function PlayBar() {
                     showFilledVolume
                     defaultCurrentTime
                     defaultDuration
+                    disableRemotePlayback={true}
                 />
             </div>
         </div>

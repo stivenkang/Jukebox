@@ -286,7 +286,7 @@ ApplicationRecord.transaction do
     song12 = Song.create!(title: "Just Like You", album_id: 8, artist_id: 3, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Emotional+Oranges+-+Just+Like+You.mp3")
     song13 = Song.create!(title: "West Coast Love", album_id: 8, artist_id: 3, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/West+Coast+Love.mp3")
     song14 = Song.create!(title: "Love Me More", album_id: 9, artist_id: 4, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Sam+Smith+-+Love+Me+More.mp3")
-    song15 = Song.create!(title: "Unholy (ft. Kim Petras", album_id: 9, artist_id: 4, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Sam+Smith+-+Unholy+(ft.+Kim+Petras).mp3")
+    song15 = Song.create!(title: "Unholy (ft. Kim Petras)", album_id: 9, artist_id: 4, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Sam+Smith+-+Unholy+(ft.+Kim+Petras).mp3")
     song16 = Song.create!(title: "I Might", album_id: 10, artist_id: 5, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/HONNE+-+I+Might.mp3")
     song17 = Song.create!(title: "Me & You", album_id: 10, artist_id: 5, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/HONNE+-+Me+%26+You.mp3")
     song18 = Song.create!(title: "Location Unknown", album_id: 10, artist_id: 5, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/HONNE+-+Location+Unknown++(feat.+Georgia).mp3")

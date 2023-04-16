@@ -120,7 +120,6 @@ function SearchBar() {
                                 </div>
                             }
                         </>
-                        <PlayBar songUrl={currentSong} />
                     </div>
                 }
             </div>
