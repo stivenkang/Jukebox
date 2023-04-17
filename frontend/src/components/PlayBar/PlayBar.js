@@ -13,6 +13,7 @@ function PlayBar() {
     // });
 
     const songArtist = useSelector(state => state.artists[currentSong.artistId]);
+    const songAlbum = useSelector(state => state.albums[currentSong.albumId]);
     
     // const album = useSelector((state) => {
     //     const albumId = currentSong.albumId;
@@ -43,6 +44,7 @@ function PlayBar() {
 
     return (
         <div className='playBar'>
+            <img className='songAlbumImg' src={songAlbum.photoUrl} alt='' />
             <div className='currentSong'>
                 {/* <img src={albumImg} alt='Album Cover' /> */}
                 <p>{currentSong.title}</p>
