@@ -23,7 +23,6 @@ function ArtistShowPage() {
         return song.artistId === artist.id
     })
 
-    const [currentSong, setCurrentSong] = useState('');
     const [showMore, setShowMore] = useState(false);
 
     const handleClick = (song) => {
@@ -39,7 +38,6 @@ function ArtistShowPage() {
         dispatch(fetchAlbums())
         dispatch(fetchSongs())
     }, [artistId, dispatch])
-    // console.log(artistAlbums)
 
     return (
         <div className='artistPageBody'>
@@ -65,8 +63,6 @@ function ArtistShowPage() {
                 <div className='artistRelatedDisplay'>
                     {artistAlbums.map(album => (
                         <ul>
-                            {/* <img src={album.photoUrl} alt='' /> */}
-                            {/* <li className='artistAlbum' key={album.id}>{album.title}</li> */}
                             <AlbumIndexItem className='artistAlbum' key={album.id} album={album} />
                         </ul>
                     ))}

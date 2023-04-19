@@ -23,10 +23,7 @@ function AlbumShowPage() {
         dispatch(fetchSongs())
     }, [albumId, dispatch])
 
-    const [currentSong, setCurrentSong] = useState('');
-
     const handleClick = (song) => {
-        // setCurrentSong(song.songUrl);
         dispatch(receiveCurrentSong(song));
     }
 
@@ -35,7 +32,6 @@ function AlbumShowPage() {
             <div className='albumPageImg'>
                 <img className='albumShowImg' src={albums.photoUrl} alt='' />
                 <h1 className='albumShowTitle'>{albums.title}</h1>
-                {/* <p>{albumSongs}</p> */}
             </div>
             <div>
                 <p className='albumSongType'># Title</p>

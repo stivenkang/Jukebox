@@ -20,7 +20,6 @@ export const getAlbums = (state) => state.albums ? Object.values(state.albums) :
 
 export const fetchAlbums = () => async dispatch => {
     const res = await fetch(`/api/albums`)
-    // debugger
     const data = await res.json()
     return dispatch(receiveAlbums(data))
 }

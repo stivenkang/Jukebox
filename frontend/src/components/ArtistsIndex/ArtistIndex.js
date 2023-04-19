@@ -13,10 +13,6 @@ function ArtistIndexPage() {
         dispatch(fetchArtists())
     }, [dispatch])
 
-    // if (!artists) {
-    //     return null
-    // }
-
     return (
         <div className='artistIndexPage'>
             <h1 className='indexPageTitle'>Artists</h1>

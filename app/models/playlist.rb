@@ -12,16 +12,16 @@
 class Playlist < ApplicationRecord
     validates :title, :author_id, presence: true
 
-    # belongs_to :user,
-    #     foreign_key: :author_id,
-    #     class_name: :User
+    belongs_to :user,
+        foreign_key: :author_id,
+        class_name: :User
 
-    # has_many :playlist_songs,
-    #     foreign_key: :playlist_id,
-    #     class_name: :PlaylistSong
+    has_many :playlist_songs,
+        foreign_key: :playlist_id,
+        class_name: :PlaylistSong
 
-    # has_many :artists,
-    #     through: :playlist_songs,
-    #     source: :artist
+    has_many :artists,
+        through: :playlist_songs,
+        source: :artist
 
 end
