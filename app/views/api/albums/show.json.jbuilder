@@ -4,8 +4,6 @@ json.set! 'album' do
 end
 
 json.artist do
-    # json.partial! '/api/artists/artist', artist: @artist
-
     json.extract! @artist, :id, :name, :description
     # @artists.each do |artist|
     #     json.set! artist.id do
@@ -25,16 +23,3 @@ json.song do
     end
 end
 
-
-
-
-# json.album do
-#     json.partial! '/api/albums/album', album: @album
-
-#     # json.array! 'songs' do
-#     #     @songs do |song|
-#     #         json.extract! song, :title, 
-#     #         json.artist song.artist.name
-#     #     end
-#     # end
-# end

@@ -1,20 +1,22 @@
-json.playlist do
-    # json.partial! 'api/playlists/playlist', playlist: @playlist
-    json.extract! playlist, :id, :title, :description, :author_id, :song_ids
+json.set! 'playlist' do
+    json.extract! @playlist, :id, :title, :description, :author_id, :song_id
 end
 
-json.author do
+json.user do
     # json.partial! '/api/users/user', user: playlist.author
     json.extract! @playlist.user, :username
 end
 
-json.songs do
-    @playlist.playlist_songs do |playlist_song|
+json.playlist_song do
+    @playlist_songs.each do |playlist_song|
         json.set! playlist_song.id do
-            playlist_song.song.extract! song, :id, :title
+            playlist_song.extract! playlist_song, :id, :playlist_id, :song_id
         end
     end
 end
+
+
+
 
 
 # json.playlist do
