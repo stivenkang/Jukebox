@@ -9,10 +9,10 @@ const receivePlaylistSongs = (playlistSongs) => {
     }
 }
 
-const receivePlaylistSong = (playlistSong) => {
+const receivePlaylistSong = (payload) => {
     return {
         type: RECEIVE_PLAYLIST_SONG,
-        playlistSong
+        payload
     }
 }
 
@@ -54,6 +54,19 @@ export const createPlaylistSong = (playlistSong) => async dispatch => {
     }
 }
 
+// May be unnecessary since we don't update the actual playlist song but instead the playlist
+// export const updatePlaylist = (playlistSong) => async dispatch => {
+//     const res = await fetch(`/api/playlists/${playlistSong.id}`, {
+//         method: 'PATCH',
+//         headers: { 'Content-Type' : 'application/json' },
+//         body: JSON.stringify(playlistSong)
+//     });
+//     if (res.ok) {
+//         const playlistSong = await res.json()
+//         dispatch(receivePlaylistSong(playlistSong))
+//     }
+// }
+
 export const deletePlaylistSong = (playlistSongId) => async dispatch => {
     const res = await fetch(`/api/playlists/${playlistSongId}`, {
         method: 'DELETE'
@@ -68,9 +81,9 @@ const playlistSongsReducer = (state={}, action) => {
 
     switch(action.type) {
         case RECEIVE_PLAYLIST_SONGS:
-            return {...state, ...action.playlistSongs}
+            return {...newState, ...action.playlistSongs}
         case RECEIVE_PLAYLIST_SONG:
-            newState[action.playlistSong.id] = action.playlistSong
+            newState[action.payload.playlistSong.id] = action.payload.playlistSong
             return newState;
         case REMOVE_PLAYLIST_SONG:
             delete newState[action.playlistSongId]

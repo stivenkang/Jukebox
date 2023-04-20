@@ -14,14 +14,17 @@ class Playlist < ApplicationRecord
 
     belongs_to :user,
         foreign_key: :author_id,
-        class_name: :User
+        class_name: :User,
 
     has_many :playlist_songs,
         foreign_key: :playlist_id,
-        class_name: :PlaylistSong
+        class_name: :PlaylistSong,
+        dependent: :destroy
 
-    has_many :artists,
-        through: :playlist_songs,
-        source: :artist
+    # does I need below? Technically playlist can have many artists but artist does not belong to a playlist
+    # has_many :artists,
+    #     through: :playlist_songs,
+    #     source: :artist,
+    #     dependent: :destroy
 
 end

@@ -6,6 +6,7 @@ import ArtistIndex from "./components/ArtistsIndex/ArtistIndex"
 import ArtistsShowPage from "./components/ArtistsShow/ArtistShow";
 import AlbumShowPage from "./components/Albums/AlbumShow";
 import SearchBar from "./components/SearchBar/SearchBar";
+import PlaylistIndex from "./components/Playlists/PlaylistIndex";
 // import ArtistsIndexItem from './components/ArtistsIndex/ArtistsIndexItem';
 import "./index.css";
 // import './components/Sidebar/Sidebar.css';
@@ -25,6 +26,7 @@ function App() {
         </Route>
         <Route path="/albums/:albumId" component={AlbumShowPage} />
         <Route path="/search" component={SearchBar} />
+        <Route path="/playlists" component={PlaylistIndex} />
         <Route exact path="/" component={ArtistIndex} />
       </Switch>
     </>

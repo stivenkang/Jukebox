@@ -5,6 +5,8 @@ import albumsReducer from './album';
 import artistsReducer from './artist';
 import songsReducer from './song';
 import currentSongReducer from './currentSong';
+import playlistsReducer from './playlist';
+import playlistSongsReducer from './playlistSong';
 
 const rootReducer = combineReducers({
     session: sessionReducer,
@@ -12,6 +14,8 @@ const rootReducer = combineReducers({
     artists: artistsReducer,
     songs: songsReducer,
     currentSong: currentSongReducer,
+    playlist: playlistsReducer,
+    playlistSong: playlistSongsReducer,
 });
 
 let enhancer;

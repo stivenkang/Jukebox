@@ -80,9 +80,9 @@ const playlistsReducer = (state={}, action) => {
 
     switch(action.type) {
         case RECEIVE_PLAYLISTS:
-            return {...state, ...action.playlists}
+            return {...newState, ...action.playlists}
         case RECEIVE_PLAYLIST:
-            debugger
+            // debugger
             newState[action.payload.playlist.id] = action.payload.playlist
             return newState;
         case REMOVE_PLAYLIST:

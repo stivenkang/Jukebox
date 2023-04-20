@@ -33,24 +33,9 @@ function SearchBar() {
     const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
 
-    const [currentSong, setCurrentSong] = useState('');
-
     const handleClick = (song) => {
-        // setCurrentSong(song.songUrl);
         dispatch(receiveCurrentSong(song));
     }
-
-
-    // shouldn't need to include this in the searchbar, the play functionality should be applied to all songs
-    // const handleClick = (e) => {
-    //     if (audioRef.current) {
-    //         if (audioRef.current.paused) {
-    //             audioRef.current.play();
-    //         } else {
-    //             audioRef.current.pause();
-    //         }
-    //     }
-    // }
 
     
     return (

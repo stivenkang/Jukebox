@@ -6,3 +6,5 @@
         json.extract! playlist, :id, :title, :description, :author_id
     end
 end
+
+# instead of author_id, would it be better to have user_id or will that overlap with the user?
