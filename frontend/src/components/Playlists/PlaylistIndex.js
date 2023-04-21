@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPlaylists } from '../../store/playlist';
 import PlaylistIndexItem from './PlaylistIndexItem';
+import './Playlist.css';
 
 function PlaylistIndex() {
     const dispatch = useDispatch();
@@ -13,9 +14,9 @@ function PlaylistIndex() {
     }, []);
 
     return (
-        <div>
+        <div className='playlistPageBody'>
             <div>
-            <p>This is the playlist</p>
+                <p>This is the playlist index</p>
                 
             </div>
             {/* <div>
