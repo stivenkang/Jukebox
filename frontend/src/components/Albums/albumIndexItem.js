@@ -19,7 +19,6 @@ const AlbumIndexItem = ({album}) => {
             <img className='albumImg' src={album.photoUrl} alt='' />
             <p className='albumName'>{album.title}</p>
             <p className='albumCardInfo'>{album.year} - {artistName}</p>
-            {/* <p>{album.artistId.name}</p> */}
         </div>
     )
 }
