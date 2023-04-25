@@ -14,7 +14,7 @@ class Playlist < ApplicationRecord
 
     belongs_to :user,
         foreign_key: :author_id,
-        class_name: :User,
+        class_name: :User
 
     has_many :playlist_songs,
         foreign_key: :playlist_id,
