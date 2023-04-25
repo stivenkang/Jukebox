@@ -96,8 +96,22 @@
 .plSBar {
     height: 30px;
     width: 400px;
-    /* margin-right: 10px; */
     background-color: #FFFFFF1A;
     color: white;
     border-radius: 7px;
+}
+
+
+/* CSS for PlaylistAddSong */
+
+.plAdd {
+    width: 100%;
+    height: 50px;
+
+}
+
+.plAddImg {
+    width: 30px;
+    height: 30px;
+
 }
