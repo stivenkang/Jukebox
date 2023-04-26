@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPlaylist, updatePlaylist } from '../../store/playlist';
 import SearchBar from '../SearchBar/SearchBar';
+import PlaylistResLine from './PlaylistResLine';
 import './Playlist.css';
 
 import { fetchArtists } from "../../store/artist";
@@ -85,7 +86,8 @@ function PlaylistCreate() {
                                             <div className='searchType'>Artists</div>
                                             <div className='results'>
                                                 {searchArtists.map((artist) => (
-                                                    <p>{artist.name}</p>
+                                                    <PlaylistResLine />
+                                                    // <p>{artist.name}</p>
                                                 ))}
                                             </div>
                                         </div>

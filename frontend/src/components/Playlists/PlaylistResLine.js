@@ -10,11 +10,11 @@ function PlaylistAddSong() {
     const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
     const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
 
-    useEffect(() => {
-        dispatch(fetchArtists())
-        dispatch(fetchAlbums())
-        dispatch(fetchSongs())
-    }, []);
+    // useEffect(() => {
+    //     dispatch(fetchArtists())
+    //     dispatch(fetchAlbums())
+    //     dispatch(fetchSongs())
+    // }, []);
 
     // useEffect(() => {
 
@@ -27,10 +27,11 @@ function PlaylistAddSong() {
 
     return (
         <div className='plAdd'>
-            <img className='plAddImg' src={} alt='' />
+            {/* <img className='plAddImg' src={} alt='' /> */}
             <div>
-
                 {/* Name of artist, album, song, etc */}
+                <p>{artists.name}</p>
+                
                 {/* Actual type (Artist, Album, Actual Artist Name) */}
             </div>
         </div>

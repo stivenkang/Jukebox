@@ -15,13 +15,12 @@ function PlaylistIndex() {
 
     return (
         <div className='playlistPageBody'>
-            <div>
-                <p>This is the playlist index</p>
-                
+            <p className='plIndTitle' >Playlists</p>
+            <div className='plIndDisplay'>
+                {playlists.map((playlist) => { return (
+                    <PlaylistIndexItem key={playlist.id} playlist={playlist} />
+                )})}
             </div>
-            {/* <div>
-                <PlaylistIndexItem />
-            </div> */}
         </div>
     )
 }
