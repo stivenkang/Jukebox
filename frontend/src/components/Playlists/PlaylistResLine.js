@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import './Playlist.css';
 
 function PlaylistAddSong() {
-    const history = useHistory();
+    // const history = useHistory();
 
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
@@ -31,6 +31,7 @@ function PlaylistAddSong() {
             <div>
                 {/* Name of artist, album, song, etc */}
                 <p>{artists.name}</p>
+                {/* <p>{artistName}</p> */}
                 
                 {/* Actual type (Artist, Album, Actual Artist Name) */}
             </div>
