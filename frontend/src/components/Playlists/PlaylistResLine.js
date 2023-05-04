@@ -14,6 +14,7 @@ function PlaylistAddSong({song}) {
 
     const artistName = artists.find(artist => artist.id === song.artistId)?.name;
     const albumImg = albums.find(album => album.id === song.albumId)?.photoUrl;
+    const albumTitle = albums.find(album => album.id === song.albumId)?.title;
 
     const handleClick = (song) => {
         dispatch(receiveCurrentSong(song));
@@ -25,6 +26,12 @@ function PlaylistAddSong({song}) {
             <div className='plSInfo'>
                 <p className='plSTitle'>{song.title}</p>
                 <p className='plSArtist'>{artistName}</p>                
+            </div>
+            <div className='plSAlbumInfo'>
+                <p className='plSAlbum'>{albumTitle}</p>
+            </div>
+            <div className='plAddButton'>
+                <p>Add</p>
             </div>
         </div>
     )
