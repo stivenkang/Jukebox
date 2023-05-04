@@ -17,8 +17,7 @@ function PlaylistCreate() {
     useEffect(() => {
         dispatch(createPlaylist())
     }, [dispatch]);
-
-
+    
 
     const [searchValue, setSearchValue] = useState("");
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);

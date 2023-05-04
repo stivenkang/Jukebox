@@ -1,19 +1,33 @@
 import React from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { createPlaylist } from '../../store/playlist';
 import sidebarLogo from '../../assets/spotify-logo-inverted.png';
-import SideBarOptions from './SideBarOptions';
+import SideBarPlaylists from './SideBarPlaylists';
 import './SideBar.css';
 
 function SideBar() {
     const sessionUser = useSelector(state => state.session.user);
+    const dispatch = useDispatch();
+
+    const handleCreatePlaylist = async () => {
+        const playlist = {
+            name: 'New Playlist',
+            userId: sessionUser.id,
+            songIds: [],
+        };
+        await dispatch(createPlaylist(playlist))
+    }
 
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
-            <div className='sideBarPlaylists'>
+            <div className='sideBarPlaylists' onClick={handleCreatePlaylist}>
                 <NavLink id='sideBarPlaylistsButton' exact to="/playlists/create"><i className="fa-regular fa-square-plus"></i><span style={{marginLeft: '15px'}}>Create Playlist</span></NavLink>
+
+                {/* <i className="fa-regular fa-square-plus"></i>
+                <span style={{marginLeft: '15px'}}>Create Playlist</span> */}
             </div>
         );
     } else {
@@ -39,7 +53,7 @@ function SideBar() {
                 </div>
                 {sessionLinks}
                 {/* <div className='sideBarLine'> */}
-                    <SideBarOptions />
+                    <SideBarPlaylists />
                 {/* </div> */}
             </div>
         </div>

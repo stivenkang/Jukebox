@@ -23,6 +23,16 @@
     margin: 20px 0px 20px 40px;
 }
 
+.artistSongs {
+    margin-left: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* font-family: circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif; */
+    font-family: Arial, Helvetica, sans-serif;
+    gap: 20px;
+}
+
 .artistRelatedDisplay {
     display: flex;
     margin-left: 40px;
@@ -31,12 +41,6 @@
 img {
     width: 100px;
     height: 100px;
-}
-
-.artistSong {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 10px 0px 10px 60px;
-    /* padding: 10px 0px 10px 0px; */
 }
 
 .artistAlbum {

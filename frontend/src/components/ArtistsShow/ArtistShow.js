@@ -6,7 +6,7 @@ import { fetchAlbums } from '../../store/album';
 import { fetchSongs } from '../../store/song';
 import './ArtistsShow.css';
 import AlbumIndexItem from '../Albums/AlbumIndexItem';
-import {receiveCurrentSong} from '../../store/currentSong';
+import PlaylistResLine from '../Playlists/PlaylistResLine';
 
 function ArtistShowPage() {
     const dispatch = useDispatch();
@@ -24,10 +24,6 @@ function ArtistShowPage() {
     })
 
     const [showMore, setShowMore] = useState(false);
-
-    const handleClick = (song) => {
-        dispatch(receiveCurrentSong(song));
-    }
 
     const handleShowMore = () => {
         setShowMore(!showMore);
@@ -49,9 +45,12 @@ function ArtistShowPage() {
                 <p className='artistSection'>Popular</p>
                 <div>
                     {artistSongs.slice(0, showMore ? artistSongs.length : 5).map((song, index) => (
-                        <ul>
+                        <ul className='artistSongs'>
                             {/* <img src={album.photoUrl} alt='' /> */}
-                            <li className='artistSong' key={song.id} onClick={() => handleClick(song)}>{index + 1} {song.title}</li>
+                            {/* <li className='artistSong' key={song.id} onClick={() => handleClick(song)}>{index + 1} {song.title}</li> */}
+
+                            <p>{index + 1}</p>
+                            <PlaylistResLine song={song} />
                         </ul>
                     ))}
                 </div>
