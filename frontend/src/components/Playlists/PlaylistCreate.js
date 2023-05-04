@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPlaylist, updatePlaylist } from '../../store/playlist';
-import SearchBar from '../SearchBar/SearchBar';
 import PlaylistResLine from './PlaylistResLine';
 import './Playlist.css';
 
@@ -40,9 +39,9 @@ function PlaylistCreate() {
     const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
 
-    const handleClick = (song) => {
-        dispatch(receiveCurrentSong(song));
-    }
+    // const handleClick = (song) => {
+    //     dispatch(receiveCurrentSong(song));
+    // }
     
 
     return (
@@ -56,67 +55,30 @@ function PlaylistCreate() {
             </div>
             <div className='playlistCreateBody'>
                 <p className='plSearchHead'>Let's find something for your playlist</p>
-                {/* <SearchBar className='plSearch'/> */}
                 <div>
                     <input 
                         className='plSBar' 
                         type='search'
                         onChange={handleChange}
-                        placeholder='Seach for songs'>
+                        placeholder='Search for songs'>
                     </input>
                     <div className='plSRes'>
                         {searchValue !== '' &&
                             <div>
-                                <>
-                                    {searchSongs.length > 0 &&
-                                        <div className='searchSongsRes'>
-                                            <div className='searchType'>Songs</div>
-                                            <div className='songResults'>
-                                                {searchSongs.map((song) => (
-                                                    <ul>
-                                                        <li className='songInfo' key={song.id} onClick={() => handleClick(song)}>{song.title}</li>
-                                                    </ul>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    }
-
-                                    {searchArtists.length > 0 && 
-                                        <div className='searchRes'>
-                                            <div className='searchType'>Artists</div>
-                                            <div className='results'>
-                                                {searchArtists.map((artist) => (
-                                                    <PlaylistResLine />
-                                                    // <p>{artist.name}</p>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    }
-
-                                    {searchAlbums.length > 0 &&
-                                        <div className='searchRes'>
-                                            <div className='searchType'>Albums</div>
-                                            <div className='results'>
-                                                {searchAlbums.map((album) => (
-                                                    <p>{album.title}</p>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    }
-                                </>
+                                {searchSongs.length > 0 &&
+                                    <div className='plSongResults'>
+                                        {searchSongs.map((song) => (
+                                            <ul>
+                                                <PlaylistResLine song={song}/>
+                                                {/* <li className='songInfo' key={song.id} onClick={() => handleClick(song)}>{song.title}</li> */}
+                                            </ul>
+                                        ))}
+                                    </div>
+                                }
                             </div>
                         }
                     </div>
                 </div>
-
-                {/* SearchBar component currently includes the top searchbar and also displays
-                the results in the body with a full background color of grey. Possibly need
-                to refactor the searchbar so its just the bar and the results would appear
-                in the body which would a separate component or included somewhere else? */}
-
-                {/* SearchBar component includes the display of results which is different for the playlist.
-                Will have to add searchbar code (may be redundant) into playlist create and create its own
-                display results to add to the playlist */}
             </div>
         </div>
     )

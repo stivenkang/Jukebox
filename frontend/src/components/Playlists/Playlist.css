@@ -96,6 +96,10 @@
     padding: 24px 0px;
 }
 
+.plSongResults {
+    margin: 0px 0px 0px 10px;
+}
+
 /* .plSearch {
     display: flex;
     flex-direction: column;
@@ -116,19 +120,46 @@
     background-color: #FFFFFF1A;
     color: white;
     border-radius: 7px;
+    margin-bottom: 10px;
 }
 
 
 /* CSS for PlaylistAddSong */
 
 .plAdd {
-    width: 100%;
+    width: 100vw;
     height: 50px;
+    border: 1px solid yellow;
+    margin-top: 10px;
 
+    display: flex;
+    align-items: center;
 }
 
 .plAddImg {
     width: 30px;
     height: 30px;
+    display: flex;
+    align-items: center;
+}
 
+.plSInfo {
+
+}
+
+.plSTitle {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    margin: 0px 0px 0px 5px;
+    padding: 0px 0px 0px 5px;
+
+}
+
+.plSArtist {
+    font-size: 12px;
+    font-weight: 400;
+    font-family: circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    margin: 5px 0px 0px 5px;
+    padding: 0px 0px 0px 5px;
 }

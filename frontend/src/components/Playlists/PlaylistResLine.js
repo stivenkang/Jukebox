@@ -1,39 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { receiveCurrentSong } from "../../store/currentSong";
 import './Playlist.css';
 
-function PlaylistAddSong() {
+function PlaylistAddSong({song}) {
     // const history = useHistory();
+    const dispatch = useDispatch();
 
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
-    const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
+    // const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
 
-    // useEffect(() => {
-    //     dispatch(fetchArtists())
-    //     dispatch(fetchAlbums())
-    //     dispatch(fetchSongs())
-    // }, []);
+    const artistName = artists.find(artist => artist.id === song.artistId)?.name;
+    const albumImg = albums.find(album => album.id === song.albumId)?.photoUrl;
 
-    // useEffect(() => {
-
-    // })
-
-    const artistName = artists.find(artist => artist.id === albums.artistId)?.name;
-
-    const [input, setInput] = useState('');
-
+    const handleClick = (song) => {
+        dispatch(receiveCurrentSong(song));
+    }
 
     return (
-        <div className='plAdd'>
-            {/* <img className='plAddImg' src={} alt='' /> */}
-            <div>
-                {/* Name of artist, album, song, etc */}
-                <p>{artists.name}</p>
-                {/* <p>{artistName}</p> */}
-                
-                {/* Actual type (Artist, Album, Actual Artist Name) */}
+        <div className='plAdd' onClick={() => handleClick(song)}>
+            <img className='plAddImg' src={albumImg} alt='Album Cover' />
+            <div className='plSInfo'>
+                <p className='plSTitle'>{song.title}</p>
+                <p className='plSArtist'>{artistName}</p>                
             </div>
         </div>
     )
