@@ -6,13 +6,14 @@ import { fetchAlbum } from "../../store/album";
 import { receiveCurrentSong } from "../../store/currentSong";
 import { fetchSongs } from "../../store/song";
 import "./AlbumShow.css";
+import PlaylistResLine from '../Playlists/PlaylistResLine';
 
 function AlbumShowPage() {
     const dispatch = useDispatch();
     const { albumId } = useParams();
     const albums = useSelector(state => state.albums[albumId] ? state.albums[albumId] : [])
     const songs = useSelector(state => state.songs ? state.songs : [])
-    // const artist = useSelector(state => albums.artistId ? state.artists[albums.artistId] : null)
+    const artists = useSelector(state => albums.artistId ? state.artists[albums.artistId] : null)
 
     const albumSongs = Object.values(songs).filter(song => {
         return song.albumId === albums.id
@@ -23,22 +24,31 @@ function AlbumShowPage() {
         dispatch(fetchSongs())
     }, [albumId, dispatch])
 
-    const handleClick = (song) => {
-        dispatch(receiveCurrentSong(song));
-    }
+    // const handleClick = (song) => {
+    //     dispatch(receiveCurrentSong(song));
+    // }
+
+    // const album = albums.find(album => album.id === albumId);
+    // const artistName = artists.find(artist => artist.id === album.artistId)?.name;
 
     return (
         <div className='albumPageBody'>
             <div className='albumPageImg'>
                 <img className='albumShowImg' src={albums.photoUrl} alt='' />
-                <h1 className='albumShowTitle'>{albums.title}</h1>
+                <div className='albumInfo'>
+                    <h1 className='albumShowTitle'>{albums.title}</h1>
+                    {/* <h3 className='albumShowArtist'>{artistName}</h3> */}
+                </div>
             </div>
             <div>
                 <p className='albumSongType'># Title</p>
                 <div>
                     {albumSongs.map((song, index) => (
-                        <ul>
-                            <li className='albumSongList' key={song.id} onClick={() => handleClick(song)}>{index + 1} {song.title}</li>
+                        <ul className='albumSongList'>
+                            {/* <li className='albumSongList' key={song.id} onClick={() => handleClick(song)}>{index + 1} {song.title}</li> */}
+
+                            <p>{index + 1}</p>
+                            <PlaylistResLine song={song} />
                         </ul>
                     ))}
                 </div>
