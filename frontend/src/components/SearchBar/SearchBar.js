@@ -5,9 +5,10 @@ import './SearchBar.css'
 import { fetchArtists } from "../../store/artist";
 import { fetchAlbums } from "../../store/album";
 import { fetchSongs } from "../../store/song";
+import { receiveCurrentSong } from "../../store/currentSong";
 import AlbumIndexItem from "../Albums/AlbumIndexItem";
 import ArtistIndexItem from "../ArtistsIndex/ArtistsIndexItem";
-import { receiveCurrentSong } from "../../store/currentSong";
+import PlaylistResLine from '../Playlists/PlaylistResLine';
 
 function SearchBar() {
     const dispatch = useDispatch();
@@ -28,14 +29,13 @@ function SearchBar() {
         dispatch(fetchSongs())
     }, []);
 
-    // debugger
     const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
 
-    const handleClick = (song) => {
-        dispatch(receiveCurrentSong(song));
-    }
+    // const handleClick = (song) => {
+    //     dispatch(receiveCurrentSong(song));
+    // }
 
     
     return (
@@ -66,7 +66,8 @@ function SearchBar() {
                                         <div className='songResults'>
                                             {searchSongs.slice(0, 4).map((song) => (
                                                 <ul>
-                                                    <li className='songInfo' key={song.id} onClick={() => handleClick(song)}>{song.title}</li>
+                                                    {/* <li className='songInfo' key={song.id} onClick={() => handleClick(song)}>{song.title}</li> */}
+                                                    <PlaylistResLine song={song} />
                                                 </ul>
                                             ))}
                                         </div>

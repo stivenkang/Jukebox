@@ -5,7 +5,7 @@ import { receiveCurrentSong } from "../../store/currentSong";
 import { updatePlaylist } from '../../store/playlist';
 import './Playlist.css';
 
-function PlaylistAddSong({song}) {
+function PlaylistResLine({song}) {
     const history = useHistory();
     const dispatch = useDispatch();
     const location = useLocation();
@@ -54,4 +54,4 @@ function PlaylistAddSong({song}) {
     )
 }
 
-export default PlaylistAddSong;
+export default PlaylistResLine;
