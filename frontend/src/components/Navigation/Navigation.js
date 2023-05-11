@@ -66,7 +66,7 @@ function Navigation() {
   }
 
   return (
-    <div className="nav">
+    <div>
       {/* {history && (
         <>
         <button className='navPrev' onClick={() => history.goBack()}>{'<'}</button>

@@ -13,9 +13,9 @@ function SideBar() {
 
     const handleCreatePlaylist = async () => {
         const playlist = {
-            name: 'New Playlist',
-            userId: sessionUser.id,
-            songIds: [],
+            title: 'New Playlist',
+            authorId: sessionUser.id,
+            // playlistSongIds: [],
         };
         await dispatch(createPlaylist(playlist))
     }
@@ -24,10 +24,10 @@ function SideBar() {
     if (sessionUser) {
         sessionLinks = (
             <div className='sideBarPlaylists' onClick={handleCreatePlaylist}>
-                <NavLink id='sideBarPlaylistsButton' exact to="/playlists/create"><i className="fa-regular fa-square-plus"></i><span style={{marginLeft: '15px'}}>Create Playlist</span></NavLink>
+                {/* <NavLink id='sideBarPlaylistsButton' exact to="/playlists/create"><i className="fa-regular fa-square-plus"></i><span style={{marginLeft: '15px'}}>Create Playlist</span></NavLink> */}
 
-                {/* <i className="fa-regular fa-square-plus"></i>
-                <span style={{marginLeft: '15px'}}>Create Playlist</span> */}
+                <i className="fa-regular fa-square-plus"></i>
+                <span style={{marginLeft: '15px'}}>Create Playlist</span>
             </div>
         );
     } else {

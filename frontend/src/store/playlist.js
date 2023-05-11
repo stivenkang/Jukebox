@@ -1,3 +1,5 @@
+import csrfFetch from './csrf';
+
 export const RECEIVE_PLAYLISTS = 'playlists/receivePlaylists'
 export const RECEIVE_PLAYLIST = 'plyalists/receivePlaylist'
 export const REMOVE_PLAYLIST = 'playlists/removePlaylist'
@@ -43,10 +45,11 @@ export const fetchPlaylist = (playlistId) => async dispatch => {
 }
 
 export const createPlaylist = (playlist) => async dispatch => {
-    const res = await fetch(`/api/playlists`, {
+    // Added csrf to the fetch below since there was an error with authenticity
+    const res = await csrfFetch(`/api/playlists`, {
         method: 'POST',
         headers: { 'Content-Type' : 'application/json' },
-        body: JSON.stringify(playlist)
+        body: JSON.stringify({playlist: playlist})
     });
     if (res.ok) {
         const playlist = await res.json()

@@ -14,6 +14,7 @@ class Api::PlaylistsController < ApplicationController
 
     def create
         @playlist = Playlist.new(playlist_params)
+        # @playlist.author_id = current_user.id
         if @playlist.save
             render :show
         else
@@ -42,7 +43,9 @@ class Api::PlaylistsController < ApplicationController
     private
 
     def playlist_params
-        params.require(:playlist).permit(:title, :user_id, :id)
+        params.require(:playlist).permit(:title, :author_id)
+
+        # params.require(:playlist).permit(:title, :user_id, :id)
         # double check what playlist params should permit
     end
 end
