@@ -12,8 +12,8 @@ function SideBarOptions() {
     }
 
     return (
-        <div className='loggedInSideBarOptions'>
-            <div className='loggedInPlaylists'>
+        <div className='loginSBOpt'>
+            <div className='loginPlaylists'>
                 {/* <NavLink id='loggedInPlaylistsButton' exact to='/playlists'>
                     <p>Playlists would go here</p>
                     {playlists.map((playlist) => { return (
@@ -22,8 +22,7 @@ function SideBarOptions() {
                 </NavLink> */}
 
                 {playlists.map(playlist => {
-                    console.log(playlist.title);
-                    return <p key={playlist.id}>{playlist.title}</p>
+                    return <p className='loginPLLine' key={playlist.id}>{playlist.title}</p>
                 })}
             </div>
         </div>
