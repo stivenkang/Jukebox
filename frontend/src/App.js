@@ -27,7 +27,7 @@ function App() {
         </Route>
         <Route path="/albums/:albumId" component={AlbumShowPage} />
         <Route path="/search" component={SearchBar} />
-        <Route path="/playlists/create" component={PlaylistCreate} />
+        <Route path="/playlists/:playlistId" component={PlaylistCreate} />
         <Route path="/playlists" component={PlaylistIndex} />
         <Route exact path="/" component={ArtistIndex} />
       </Switch>

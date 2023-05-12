@@ -8,20 +8,17 @@ import { fetchArtists } from "../../store/artist";
 import { fetchAlbums } from "../../store/album";
 import { fetchSongs } from "../../store/song";
 import { receiveCurrentSong } from "../../store/currentSong";
+import playlistSongsReducer from '../../store/playlistSong';
 
-function PlaylistCreate() {
+function PlaylistCreate({playlist}) {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
+    // const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : [])
 
-
-    useEffect(() => {
-        dispatch(createPlaylist())
-    }, [dispatch]);
-    
 
     const [searchValue, setSearchValue] = useState("");
-    const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
-    const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
+    // const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
+    // const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
     const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
 
     const handleChange = (e) => {
@@ -34,13 +31,9 @@ function PlaylistCreate() {
         dispatch(fetchSongs())
     }, []);
 
-    const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
-    const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
+    // const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
+    // const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
-
-    // const handleClick = (song) => {
-    //     dispatch(receiveCurrentSong(song));
-    // }
     
 
     return (
@@ -48,7 +41,7 @@ function PlaylistCreate() {
             <div className='playlistCreateHead'>
                 {/* needs an img container to hold a grid of 4x4 of top 4 albums */}
                 <div>
-                    <h1>Playlist Title</h1>
+                    <h1>New Playlist #{playlist.id}</h1>
                     <p className='plUN'>{sessionUser.username}</p>
                 </div>
             </div>
@@ -69,7 +62,6 @@ function PlaylistCreate() {
                                         {searchSongs.map((song) => (
                                             <ul>
                                                 <PlaylistResLine song={song}/>
-                                                {/* <li className='songInfo' key={song.id} onClick={() => handleClick(song)}>{song.title}</li> */}
                                             </ul>
                                         ))}
                                     </div>
