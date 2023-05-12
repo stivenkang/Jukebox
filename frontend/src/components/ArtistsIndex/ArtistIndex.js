@@ -6,8 +6,7 @@ import './ArtistsIndex.css';
 
 function ArtistIndexPage() {
     const dispatch = useDispatch();
-    const artists = useSelector(state => 
-        state.artists ? Object.values(state.artists) : [])
+    const artists = useSelector(state => state.artists ? Object.values(state.artists) : [])
 
     useEffect(() => {
         dispatch(fetchArtists())

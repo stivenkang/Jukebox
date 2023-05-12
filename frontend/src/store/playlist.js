@@ -30,17 +30,20 @@ export const getPlaylists = (state) => state.playlists ? Object.values(state.pla
 
 export const fetchPlaylists = () => async dispatch => {
     const res = await fetch(`/api/playlists`)
-    if (res.ok) {
-        const playlists = await res.json()
-        dispatch(receivePlaylists(playlists))
-    }
+    const playlists = await res.json()
+    return dispatch(receivePlaylists(playlists))
+
+    // if (res.ok) {
+    //     const playlists = await res.json()
+    //     dispatch(receivePlaylists(playlists))
+    // }
 }
 
 export const fetchPlaylist = (playlistId) => async dispatch => {
     const res = await fetch(`/api/playlists/${playlistId}`)
     if (res.ok) {
         const playlist = await res.json()
-        dispatch(receivePlaylist(playlist))
+        return dispatch(receivePlaylist(playlist))
     }
 }
 

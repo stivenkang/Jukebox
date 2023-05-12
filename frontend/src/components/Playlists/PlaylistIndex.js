@@ -6,7 +6,6 @@ import './Playlist.css';
 
 function PlaylistIndex() {
     const dispatch = useDispatch();
-
     const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : []);
 
     useEffect(() => {

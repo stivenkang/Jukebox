@@ -5,6 +5,7 @@ import './SideBar.css';
 
 function SideBarOptions() {
     const sessionUser = useSelector(state => state.session.user)
+    const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : []);
 
     if (!sessionUser) {
         return null;
@@ -13,9 +14,17 @@ function SideBarOptions() {
     return (
         <div className='loggedInSideBarOptions'>
             <div className='loggedInPlaylists'>
-                <NavLink id='loggedInPlaylistsButton' exact to='/playlists'>
+                {/* <NavLink id='loggedInPlaylistsButton' exact to='/playlists'>
                     <p>Playlists would go here</p>
-                </NavLink>
+                    {playlists.map((playlist) => { return (
+                        <p>{playlist.title}</p>
+                    )})}
+                </NavLink> */}
+
+                {playlists.map(playlist => {
+                    console.log(playlist.title);
+                    return <p key={playlist.id}>{playlist.title}</p>
+                })}
             </div>
         </div>
     )
