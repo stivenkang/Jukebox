@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { NavLink, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { createPlaylist } from '../../store/playlist';
 import { fetchPlaylists } from '../../store/playlist';
@@ -11,6 +10,8 @@ import './SideBar.css';
 function SideBar() {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
+    const history = useHistory();
+    const [newPlaylistId, setNewPlaylistId] = useState(null);
 
     useEffect(() => {
         dispatch(fetchPlaylists())
@@ -22,7 +23,8 @@ function SideBar() {
             authorId: sessionUser.id,
             // playlistSongIds: [],
         };
-        await dispatch(createPlaylist(playlist))
+        const newPlaylist = await dispatch(createPlaylist(playlist));
+        setNewPlaylistId(newPlaylist.id);
     }
 
     let sessionLinks;
@@ -31,6 +33,9 @@ function SideBar() {
             <div>
                 <div className='sideBarPlaylists' onClick={handleCreatePlaylist}>
                     <NavLink id='sideBarPlaylistsButton' exact to="/playlists/:playlistId"><i className="fa-regular fa-square-plus"></i><span style={{marginLeft: '15px'}}>Create Playlist</span></NavLink>
+
+                    {/* Below creates a playlist but won't navigate to the newly created playlist by the playlist id.... */}
+                    {/* <NavLink id='sideBarPlaylistsButton' exact to={newPlaylistId ? `/playlists/${newPlaylistId}` : "#"}><i className="fa-regular fa-square-plus"></i><span style={{marginLeft: '15px'}}>Create Playlist</span></NavLink> */}                    
                 </div>
                 {/* <SideBarPlaylists /> */}
             </div>
