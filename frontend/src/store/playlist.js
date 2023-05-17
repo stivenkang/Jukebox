@@ -67,8 +67,8 @@ export const updatePlaylist = (playlist) => async dispatch => {
         body: JSON.stringify(playlist)
     });
     if (res.ok) {
-        const playlist = await res.json()
-        dispatch(receivePlaylist(playlist))
+        const data = await res.json()
+        dispatch(receivePlaylist(data))
     }
 }
 

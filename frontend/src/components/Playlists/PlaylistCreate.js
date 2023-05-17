@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createPlaylist, updatePlaylist } from '../../store/playlist';
+import { useParams } from 'react-router-dom';
+import { updatePlaylist } from '../../store/playlist';
 import PlaylistResLine from './PlaylistResLine';
 import './Playlist.css';
 
@@ -9,33 +10,38 @@ import { fetchAlbums } from "../../store/album";
 import { fetchSongs } from "../../store/song";
 import { receiveCurrentSong } from "../../store/currentSong";
 import playlistSongsReducer from '../../store/playlistSong';
-import { useParams } from 'react-router-dom';
 
 function PlaylistCreate({playlist}) {
     const { playlistId } = useParams();
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
-    // const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : [])
-
-
-    const [searchValue, setSearchValue] = useState("");
-    const [playlistTitle, setPlaylistTitle] = useState("");
+    const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
     // const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     // const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
-    const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
+    // const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : [])
+    
+    const [searchValue, setSearchValue] = useState("");
+    const [playlistTitle, setPlaylistTitle] = useState("");
+    const [edit, setEdit] = useState(false);
+    const [title, setTitle] = useState("New Playlist #")
 
     const handleChange = (e) => {
         setSearchValue(e.target.value);
     }
 
-    // const handlePlaylistTitleChange = (e) => {
-    //     setPlaylistTitle(e.target.value);
-    // }
+    const handlePlaylistTitleChange = (e) => {
+        setPlaylistTitle(e.target.value);
+    }
 
-    // const handleFormSubmit = (e) => {
-    //     e.preventDefault();
-    //     dispatch(updatePlaylist({ id: playlist.id, title: playlistTitle }));
-    // }
+    const handleTitleClick = () => {
+        setEdit(true)
+    }
+
+    const handleUpdate = (e) => {
+        e.preventDefault();
+        dispatch(updatePlaylist());
+        setEdit(false);
+    }
 
     useEffect(() => {
         dispatch(fetchArtists())
@@ -52,8 +58,25 @@ function PlaylistCreate({playlist}) {
         <div className='playlistCreate'>
             <div className='playlistCreateHead'>
                 {/* needs an img container to hold a grid of 4x4 of top 4 albums */}
-                <div>
+                {/* <div>
                     <h1>New Playlist #{playlistId}</h1>
+                    <p className='plUN'>{sessionUser.username}</p>
+                </div> */}
+
+                <div>
+                    {edit ? (
+                        <form onSubmit={handleUpdate}>
+                            <input
+                                type='text'
+                                value={playlistTitle}
+                                onChange={handlePlaylistTitleChange}
+                                // placeholder='New Playlist #{playlistId}'
+                            />
+                            <button type='submit'>Save</button>
+                        </form>
+                    ) : (
+                        <h1 onClick={handleTitleClick}>New Playlist #{playlistId}</h1>
+                    )}
                     <p className='plUN'>{sessionUser.username}</p>
                 </div>
             </div>
@@ -85,7 +108,6 @@ function PlaylistCreate({playlist}) {
             </div>
         </div>
     )
-
 }
 
 export default PlaylistCreate;
