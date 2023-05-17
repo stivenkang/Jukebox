@@ -74,9 +74,17 @@
     font-size: 72px;
     font-weight: 800;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    display: flex;
+    align-items: center;
 
     margin: 100px 0px 0px 100px;
     padding: 0px 0px 0px 50px;
+}
+
+.plImg {
+    width: 200px;
+    height: 200px;
+    margin-right: 50px;
 }
 
 .plUN {

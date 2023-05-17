@@ -24,6 +24,7 @@ function PlaylistCreate({playlist}) {
     const [playlistTitle, setPlaylistTitle] = useState("");
     const [edit, setEdit] = useState(false);
     const [title, setTitle] = useState("New Playlist #")
+    const [plCover, setPlCover] = useState([]);
 
     const handleChange = (e) => {
         setSearchValue(e.target.value);
@@ -49,6 +50,11 @@ function PlaylistCreate({playlist}) {
         dispatch(fetchSongs())
     }, []);
 
+    // useEffect(() => {
+    //     const albumCovers = songs.slice(0, 4).map((song) => song.album.coverPhoto);
+    //     setPlCover(albumCovers);
+    // }, [songs]);
+
     // const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     // const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
@@ -57,7 +63,17 @@ function PlaylistCreate({playlist}) {
     return (
         <div className='playlistCreate'>
             <div className='playlistCreateHead'>
-                {/* needs an img container to hold a grid of 4x4 of top 4 albums */}
+
+                <img className='plImg'></img>
+
+                {/* Rough draft of img container for each playlist */}
+                {/* <div className='plImgCont'>
+                    {plCover.map((coverPhoto, index) => (
+                        <img key={index} className='plImg' src={coverPhoto} alt='Playlist Cover' />
+                    ))}
+                </div> */}
+
+
                 {/* <div>
                     <h1>New Playlist #{playlistId}</h1>
                     <p className='plUN'>{sessionUser.username}</p>
