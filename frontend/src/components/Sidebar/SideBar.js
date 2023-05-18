@@ -17,22 +17,32 @@ function SideBar() {
         dispatch(fetchPlaylists())
     }, []);
 
-    const handleCreatePlaylist = async () => {
-        const playlist = {
-            title: 'New Playlist',
-            authorId: sessionUser.id,
-            // playlistSongIds: [],
-        };
-        const newPlaylist = await dispatch(createPlaylist(playlist));
-        setNewPlaylistId(newPlaylist.id);
+    // const handleCreatePlaylist = async () => {
+    //     const playlist = {
+    //         title: 'New Playlist',
+    //         authorId: sessionUser.id,
+    //         // playlistSongIds: [],
+    //     };
+    //     const newPlaylist = await dispatch(createPlaylist(playlist));
+    //     setNewPlaylistId(newPlaylist.id);
+    // }
+
+    const handleCreatePlaylist = () => {
+        dispatch(createPlaylist(sessionUser, history))
+        dispatch(fetchPlaylists())
     }
 
     let sessionLinks;
     if (sessionUser) {
         sessionLinks = (
             <div>
-                <div className='sideBarPlaylists' onClick={handleCreatePlaylist}>
-                    <NavLink id='sideBarPlaylistsButton' exact to="/playlists/:playlistId"><i className="fa-regular fa-square-plus"></i><span style={{marginLeft: '15px'}}>Create Playlist</span></NavLink>
+                <div className='sideBarPlaylists'>
+                    {/* <NavLink id='sideBarPlaylistsButton' exact to="/playlists/:playlistId"><i className="fa-regular fa-square-plus"></i><span style={{marginLeft: '15px'}}>Create Playlist</span></NavLink> */}
+
+                    <div id='sideBarPlaylistsButton' onClick={handleCreatePlaylist}>
+                        <i className="fa-regular fa-square-plus"></i>
+                        <span style={{marginLeft: '15px'}}>Create Playlist</span>
+                    </div>
 
                     {/* Below creates a playlist but won't navigate to the newly created playlist by the playlist id.... */}
                     {/* <NavLink id='sideBarPlaylistsButton' exact to={newPlaylistId ? `/playlists/${newPlaylistId}` : "#"}><i className="fa-regular fa-square-plus"></i><span style={{marginLeft: '15px'}}>Create Playlist</span></NavLink> */}                    

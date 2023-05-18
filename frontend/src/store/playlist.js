@@ -32,33 +32,44 @@ export const fetchPlaylists = () => async dispatch => {
     const res = await fetch(`/api/playlists`)
     const playlists = await res.json()
     return dispatch(receivePlaylists(playlists))
-
-    // if (res.ok) {
-    //     const playlists = await res.json()
-    //     dispatch(receivePlaylists(playlists))
-    // }
 }
 
 export const fetchPlaylist = (playlistId) => async dispatch => {
     const res = await fetch(`/api/playlists/${playlistId}`)
-    if (res.ok) {
+    // if (res.ok) {
         const playlist = await res.json()
         return dispatch(receivePlaylist(playlist))
-    }
+    // }
 }
 
-export const createPlaylist = (playlist) => async dispatch => {
-    // Added csrf to the fetch below since there was an error with authenticity
-    const res = await csrfFetch(`/api/playlists`, {
+// export const createPlaylist = (playlist) => async dispatch => {
+//     // Added csrf to the fetch below since there was an error with authenticity
+//     const res = await csrfFetch(`/api/playlists`, {
+//         method: 'POST',
+//         headers: { 'Content-Type' : 'application/json' },
+//         body: JSON.stringify({playlist: playlist})
+//     });
+//     if (res.ok) {
+//         const playlist = await res.json()
+//         dispatch(receivePlaylist(playlist))
+//     }
+// }
+export const createPlaylist = (sessionUser, history) => async dispatch => {
+    debugger
+    const res = await fetch(`/api/playlists`, {
         method: 'POST',
-        headers: { 'Content-Type' : 'application/json' },
-        body: JSON.stringify({playlist: playlist})
+        headers: { 'Content-Type' : 'application/json', "Authorization": `Bearer ${sessionUser.token}`, },
+        body: JSON.stringify({playlist: {
+            title: "New Playlist",
+        }})
     });
     if (res.ok) {
         const playlist = await res.json()
         dispatch(receivePlaylist(playlist))
+        history.push(`/playlists/${playlist.id}`)
     }
 }
+
 
 export const updatePlaylist = (playlist) => async dispatch => {
     const res = await fetch(`/api/playlists/${playlist.id}`, {
@@ -71,6 +82,17 @@ export const updatePlaylist = (playlist) => async dispatch => {
         dispatch(receivePlaylist(data))
     }
 }
+// export const updatePlaylist = (updatedPlaylist) => async dispatch => {
+//     const res = await fetch(`/api/playlists/${updatedPlaylist.id}`, {
+//         method: 'PATCH',
+//         headers: { 'Content-Type' : 'application/json' },
+//         body: JSON.stringify(updatedPlaylist)
+//     });
+//     if (res.ok) {
+//         const data = await res.json()
+//         dispatch(receivePlaylist(data))
+//     }
+// }
 
 export const deletePlaylist = (playlistId) => async dispatch => {
     const res = await fetch(`/api/playlists/${playlistId}`, {

@@ -40,7 +40,8 @@ function PlaylistCreate({playlist}) {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        dispatch(updatePlaylist());
+        const updatedPlaylist = { id: playlistId, title: playlistTitle };
+        dispatch(updatePlaylist(updatedPlaylist));
         setEdit(false);
     }
 
