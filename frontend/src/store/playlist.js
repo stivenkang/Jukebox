@@ -71,11 +71,11 @@ export const createPlaylist = (sessionUser, history) => async dispatch => {
 }
 
 
-export const updatePlaylist = (playlist) => async dispatch => {
-    const res = await fetch(`/api/playlists/${playlist.id}`, {
+export const updatePlaylist = (playlistId) => async dispatch => {
+    const res = await fetch(`/api/playlists/${playlistId}`, {
         method: 'PATCH',
         headers: { 'Content-Type' : 'application/json' },
-        body: JSON.stringify(playlist)
+        body: JSON.stringify(playlistId)
     });
     if (res.ok) {
         const data = await res.json()

@@ -16,6 +16,7 @@ function PlaylistCreate({playlist}) {
     const dispatch = useDispatch();
     const sessionUser = useSelector((state) => state.session.user);
     const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
+    const playlistSongs = useSelector(state => state.playlistSongs ? Object.values(state.playlistSongs) : []);
     // const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     // const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
     // const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : [])
@@ -97,6 +98,15 @@ function PlaylistCreate({playlist}) {
                     <p className='plUN'>{sessionUser.username}</p>
                 </div>
             </div>
+
+            <div>
+                {/* Should display the songs that have been saved into the 
+                current playlist as playlistresline without the add button */}
+                {playlistSongs.map((playlistSong) => (
+                    <PlaylistResLine key={playlistSong.id} playlistSong={playlistSong} />
+                ))}
+            </div>
+
             <div className='playlistCreateBody'>
                 <p className='plSearchHead'>Let's find something for your playlist</p>
                 <div>

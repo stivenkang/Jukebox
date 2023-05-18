@@ -168,6 +168,7 @@
 
 .plSInfo {
     width: 650px;
+    cursor: pointer;
 }
 
 .plSTitle {
@@ -189,6 +190,7 @@
 
 .plSAlbumInfo {
     width: 450px;
+    cursor: pointer;
 }
 
 .plSAlbum {
@@ -210,6 +212,7 @@
     font-size: 14px;
     font-weight: 500;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+    cursor: pointer;
 
     display: flex;
     justify-content: center;

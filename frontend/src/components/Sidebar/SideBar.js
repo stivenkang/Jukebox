@@ -11,7 +11,7 @@ function SideBar() {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
     const history = useHistory();
-    const [newPlaylistId, setNewPlaylistId] = useState(null);
+    // const [newPlaylistId, setNewPlaylistId] = useState(null);
 
     useEffect(() => {
         dispatch(fetchPlaylists())

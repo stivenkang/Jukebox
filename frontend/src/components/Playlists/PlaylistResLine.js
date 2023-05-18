@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { receiveCurrentSong } from "../../store/currentSong";
 import { updatePlaylist } from '../../store/playlist';
@@ -9,6 +9,7 @@ function PlaylistResLine({song}) {
     const history = useHistory();
     const dispatch = useDispatch();
     const location = useLocation();
+    const { playlistId } = useParams();
 
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
@@ -27,7 +28,7 @@ function PlaylistResLine({song}) {
 
     return (
         <div className='plAdd'>
-            {location.pathname === '/playlists/create' ? (
+            {location.pathname === `/playlists/${playlistId}` ? (
                 <>
                     <img className='plAddImg' src={album.photoUrl} alt='Album Cover' />
                     <div className='plSInfo' onClick={() => handleClick(song)}>
