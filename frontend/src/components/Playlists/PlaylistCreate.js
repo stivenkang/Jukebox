@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { updatePlaylist } from '../../store/playlist';
+import { useParams, useHistory } from 'react-router-dom';
+import { updatePlaylist, deletePlaylist } from '../../store/playlist';
 import PlaylistResLine from './PlaylistResLine';
 import './Playlist.css';
 
@@ -14,6 +14,7 @@ import playlistSongsReducer from '../../store/playlistSong';
 function PlaylistCreate({playlist}) {
     const { playlistId } = useParams();
     const dispatch = useDispatch();
+    const history = useHistory();
     const sessionUser = useSelector((state) => state.session.user);
     const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
     const playlistSongs = useSelector(state => state.playlistSongs ? Object.values(state.playlistSongs) : []);
@@ -44,6 +45,11 @@ function PlaylistCreate({playlist}) {
         const updatedPlaylist = { id: playlistId, title: playlistTitle };
         dispatch(updatePlaylist(updatedPlaylist));
         setEdit(false);
+    }
+
+    const handleDelete = () => {
+        dispatch(deletePlaylist(playlistId))
+        history.push('/')
     }
 
     useEffect(() => {
@@ -96,6 +102,10 @@ function PlaylistCreate({playlist}) {
                         <h1 onClick={handleTitleClick}>New Playlist #{playlistId}</h1>
                     )}
                     <p className='plUN'>{sessionUser.username}</p>
+                </div>
+                
+                <div className='plDelete' onClick={handleDelete}>
+                    <p className='plDeleteButton'>Delete</p>
                 </div>
             </div>
 

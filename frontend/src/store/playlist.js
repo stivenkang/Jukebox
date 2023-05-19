@@ -42,34 +42,34 @@ export const fetchPlaylist = (playlistId) => async dispatch => {
     // }
 }
 
-// export const createPlaylist = (playlist) => async dispatch => {
-//     // Added csrf to the fetch below since there was an error with authenticity
-//     const res = await csrfFetch(`/api/playlists`, {
-//         method: 'POST',
-//         headers: { 'Content-Type' : 'application/json' },
-//         body: JSON.stringify({playlist: playlist})
-//     });
-//     if (res.ok) {
-//         const playlist = await res.json()
-//         dispatch(receivePlaylist(playlist))
-//     }
-// }
-export const createPlaylist = (sessionUser, history) => async dispatch => {
-    debugger
-    const res = await fetch(`/api/playlists`, {
+export const createPlaylist = (playlist) => async dispatch => {
+    // Added csrf to the fetch below since there was an error with authenticity
+    const res = await csrfFetch(`/api/playlists`, {
         method: 'POST',
         headers: { 'Content-Type' : 'application/json' },
-        body: JSON.stringify({playlist: {
-            title: "New Playlist",
-            author_id: sessionUser,
-        }})
+        body: JSON.stringify({playlist: playlist})
     });
     if (res.ok) {
         const playlist = await res.json()
         dispatch(receivePlaylist(playlist))
-        history.push(`/playlists/${playlist.id}`)
     }
 }
+// export const createPlaylist = (sessionUser, history) => async dispatch => {
+//     debugger
+//     const res = await fetch(`/api/playlists`, {
+//         method: 'POST',
+//         headers: { 'Content-Type' : 'application/json' },
+//         body: JSON.stringify({playlist: {
+//             title: "New Playlist",
+//             author_id: sessionUser,
+//         }})
+//     });
+//     if (res.ok) {
+//         const playlist = await res.json()
+//         dispatch(receivePlaylist(playlist))
+//         history.push(`/playlists/${playlist.id}`)
+//     }
+// }
 
 
 export const updatePlaylist = (playlistId) => async dispatch => {
