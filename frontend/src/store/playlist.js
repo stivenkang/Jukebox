@@ -58,9 +58,10 @@ export const createPlaylist = (sessionUser, history) => async dispatch => {
     debugger
     const res = await fetch(`/api/playlists`, {
         method: 'POST',
-        headers: { 'Content-Type' : 'application/json', "Authorization": `Bearer ${sessionUser.token}`, },
+        headers: { 'Content-Type' : 'application/json' },
         body: JSON.stringify({playlist: {
             title: "New Playlist",
+            author_id: sessionUser,
         }})
     });
     if (res.ok) {
