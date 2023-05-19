@@ -1,7 +1,9 @@
-const RECEIVE_PLAYLIST_SONGS = 'playlistSong/receivePlaylistSongs'
+import csrfFetch from "./csrf"
+
+export const RECEIVE_PLAYLIST_SONGS = 'playlistSong/receivePlaylistSongs'
 // const RECEIVE_PLAYLIST_SONG = 'playlistSong/receivePlaylistSong'
-const REMOVE_PLAYLIST_SONG = 'playlistSong/removePlaylistSong'
-const ADD_PLAYLIST_SONG = 'playlistSong/addPlaylistSong'
+export const REMOVE_PLAYLIST_SONG = 'playlistSong/removePlaylistSong'
+export const ADD_PLAYLIST_SONG = 'playlistSong/addPlaylistSong'
 
 const receivePlaylistSongs = (playlistSongs) => {
     return {
@@ -50,11 +52,11 @@ export const fetchPlaylistSongs = (playlistId) => async dispatch => {
 //     }
 // }
 
-export const createPlaylistSong = (playlistId, playlistSong) => async dispatch => {
-    const res = await fetch(`/api/playlists/${playlistId}/playlistSongs`, {
+export const createPlaylistSong = (playlistId, songId) => async dispatch => {
+    const res = await csrfFetch(`/api/playlist_songs`, {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'},
-        body: JSON.stringify(playlistSong)
+        body: JSON.stringify({playlist_song: {playlistId, songId}})
     })
     if (res.ok) {
         const playlistSong = await res.json()
@@ -80,9 +82,9 @@ const playlistSongsReducer = (state={}, action) => {
         // case RECEIVE_PLAYLIST_SONG:
         //     newState[action.payload.playlistSong.id] = action.payload.playlistSong
         //     return newState;
-        case ADD_PLAYLIST_SONG:
-            newState[action.playlistSong.id] = action.playlistSong;
-            return newState;
+        // case ADD_PLAYLIST_SONG:
+        //     newState[action.playlistSong.id] = action.playlistSong;
+        //     return newState;
         case REMOVE_PLAYLIST_SONG:
             delete newState[action.playlistSongId]
             return newState;

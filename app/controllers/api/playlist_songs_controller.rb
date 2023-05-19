@@ -11,6 +11,7 @@ class Api::PlaylistSongsController < ApplicationController
 
     def create
         @playlist_song = PlaylistSong.new(playlist_song_params)
+        @song = Song.find_by(id: playlist_song_params[:song_id])
         if @playlist_song.save
             render :show
         else
@@ -30,6 +31,6 @@ class Api::PlaylistSongsController < ApplicationController
     private
 
     def playlist_song_params
-        params.require(:playlist_song).permit(:id, :playlist_id, :song_id)
+        params.require(:playlist_song).permit(:playlist_id, :song_id)
     end
 end

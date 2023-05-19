@@ -11,7 +11,6 @@ function SideBar() {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
     const history = useHistory();
-    // const [newPlaylistId, setNewPlaylistId] = useState(null);
 
     useEffect(() => {
         dispatch(fetchPlaylists())
@@ -24,7 +23,7 @@ function SideBar() {
             // playlistSongIds: [],
         };
         const newPlaylist = await dispatch(createPlaylist(playlist));
-        // setNewPlaylistId(newPlaylist.id);
+        history.push(`/playlists/${newPlaylist.id}`);
     }
 
     // const handleCreatePlaylist = () => {

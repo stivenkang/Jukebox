@@ -3,6 +3,7 @@ import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { receiveCurrentSong } from "../../store/currentSong";
 import { updatePlaylist } from '../../store/playlist';
+import { createPlaylistSong } from '../../store/playlistSong';
 import './Playlist.css';
 
 function PlaylistResLine({song}) {
@@ -23,7 +24,7 @@ function PlaylistResLine({song}) {
     }
 
     const handleAddClick = (song) => {
-        dispatch(updatePlaylist(song))
+        dispatch(createPlaylistSong(playlistId, song.id))
     }
 
     return (
