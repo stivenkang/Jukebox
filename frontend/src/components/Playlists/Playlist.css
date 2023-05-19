@@ -96,6 +96,15 @@
     margin: 10px 0px 0px 0px;
 }
 
+.plDelete {
+    color: white;
+    font-size: 14px;
+    font-weight: 800;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+
+    margin: 10px 0px 0px 200px;
+}
+
 .playlistCreateBody {
     /* display: flex;
     flex-direction: column; */

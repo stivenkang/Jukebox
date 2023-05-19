@@ -43,8 +43,7 @@ export const fetchPlaylist = (playlistId) => async dispatch => {
 }
 
 export const createPlaylist = (playlist) => async dispatch => {
-    // Added csrf to the fetch below since there was an error with authenticity
-    const res = await csrfFetch(`/api/playlists`, {
+    const res = await fetch(`/api/playlists`, {
         method: 'POST',
         headers: { 'Content-Type' : 'application/json' },
         body: JSON.stringify({playlist: playlist})

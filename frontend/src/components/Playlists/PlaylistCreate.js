@@ -103,10 +103,10 @@ function PlaylistCreate({playlist}) {
                     )}
                     <p className='plUN'>{sessionUser.username}</p>
                 </div>
-                
-                <div className='plDelete' onClick={handleDelete}>
-                    <p className='plDeleteButton'>Delete</p>
-                </div>
+            </div>
+
+            <div className='plDelete' onClick={handleDelete}>
+                <p>Delete Playlist</p>
             </div>
 
             <div>
