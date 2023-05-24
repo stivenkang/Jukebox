@@ -1,5 +1,6 @@
 import csrfFetch from './csrf';
 import { ADD_PLAYLIST_SONG } from './playlistSong';
+// import { RECEIVE_PLAYLIST_SONGS, fetchPlaylistSongs } from './playlistSong';
 
 export const RECEIVE_PLAYLISTS = 'playlists/receivePlaylists'
 export const RECEIVE_PLAYLIST = 'playlists/receivePlaylist'
@@ -42,6 +43,13 @@ export const fetchPlaylist = (playlistId) => async dispatch => {
         return dispatch(receivePlaylist(playlist))
     // }
 }
+
+// fetching playlist songs
+// export const fetchPLSongs = (playlistId) => async dispatch => {
+//     const res = await fetch(`/api/playlists/${playlistId}/playlistSongs`)
+//     const data = await res.json()
+//     return dispatch(fetchPlaylistSongs(data))
+// }
 
 export const createPlaylist = (playlist) => async dispatch => {
     const res = await csrfFetch(`/api/playlists`, {
@@ -109,17 +117,18 @@ const playlistsReducer = (state={}, action) => {
 
     switch(action.type) {
         case RECEIVE_PLAYLISTS:
-            // create an iteration that will add just the song id's into the state instead of all the info
-            return {...newState, ...action.playlists}
+            for (const playlist in action.playlists) {
+                const songIds = action.playlists[playlist].playlistSongs.map((playlistSong) => playlistSong.song_id);
+                newState[playlist] = { ...action.playlists[playlist], playlistSongs: songIds };
+            };  
+            return newState;
         case RECEIVE_PLAYLIST:
-            // debugger
             newState[action.payload.playlist.id] = action.payload.playlist
             return newState;
         case REMOVE_PLAYLIST:
             delete newState[action.playlistId]
             return newState;
         case ADD_PLAYLIST_SONG:
-            debugger
             newState[action.playlistSong.playlistSong.playlistId].playlistSongs.push(action.playlistSong.song)
             return newState;
         default:
