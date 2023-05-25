@@ -17,10 +17,13 @@ function PlaylistCreate({playlist}) {
     const history = useHistory();
     const sessionUser = useSelector((state) => state.session.user);
     const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
-    const playlistSongs = useSelector(state => state.playlistSongs ? Object.values(state.playlistSongs) : []);
     // const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     // const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
     // const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : [])
+    const playlistSongs = useSelector(state => {
+        const playlist = state.playlists[playlistId]
+        return playlist ? playlist.playlistSongs : [];
+    });
     
     const [searchValue, setSearchValue] = useState("");
     const [playlistTitle, setPlaylistTitle] = useState("");
@@ -109,11 +112,12 @@ function PlaylistCreate({playlist}) {
                 <p>Delete Playlist</p>
             </div>
 
-            <div>
+            <div className='dkdk'>
                 {/* Should display the songs that have been saved into the 
                 current playlist as playlistresline without the add button */}
                 {playlistSongs.map((playlistSong) => (
-                    <PlaylistResLine key={playlistSong.id} playlistSong={playlistSong} />
+                    // <PlaylistResLine key={playlistSong} playlistSong={playlistSong} />
+                    <p>{playlistSong}</p>
                 ))}
             </div>
 
