@@ -9,7 +9,7 @@ import { fetchArtists } from "../../store/artist";
 import { fetchAlbums } from "../../store/album";
 import { fetchSongs } from "../../store/song";
 import { receiveCurrentSong } from "../../store/currentSong";
-import playlistSongsReducer from '../../store/playlistSong';
+import { fetchPlaylistSongs } from '../../store/playlistSong';
 
 function PlaylistCreate({playlist}) {
     const { playlistId } = useParams();
@@ -24,7 +24,10 @@ function PlaylistCreate({playlist}) {
         const playlist = state.playlists[playlistId]
         return playlist ? playlist.playlistSongs : [];
     });
+    const playlistSongIds = playlistSongs.map(playlistSong => playlistSong);
+    const songsInPlaylist = songs.filter(song => playlistSongIds.includes(song.id));
     
+
     const [searchValue, setSearchValue] = useState("");
     const [playlistTitle, setPlaylistTitle] = useState("");
     const [edit, setEdit] = useState(false);
@@ -50,6 +53,7 @@ function PlaylistCreate({playlist}) {
         setEdit(false);
     }
 
+
     const handleDelete = () => {
         dispatch(deletePlaylist(playlistId))
         history.push('/')
@@ -59,7 +63,8 @@ function PlaylistCreate({playlist}) {
         dispatch(fetchArtists())
         dispatch(fetchAlbums())
         dispatch(fetchSongs())
-    }, []);
+        dispatch(fetchPlaylistSongs())
+    }, [dispatch]);
 
     // useEffect(() => {
     //     const albumCovers = songs.slice(0, 4).map((song) => song.album.coverPhoto);
@@ -115,9 +120,9 @@ function PlaylistCreate({playlist}) {
             <div className='dkdk'>
                 {/* Should display the songs that have been saved into the 
                 current playlist as playlistresline without the add button */}
-                {playlistSongs.map((playlistSong) => (
-                    // <PlaylistResLine key={playlistSong} playlistSong={playlistSong} />
-                    <p>{playlistSong}</p>
+                {songsInPlaylist.map((song) => (
+                    // <PlaylistResLine key={song} song={song} />
+                    <p>{song.title}</p>
                 ))}
             </div>
 
