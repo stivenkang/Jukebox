@@ -105,23 +105,35 @@
     margin: 10px 0px 0px 200px;
 }
 
-.dkdk {
-    color: white;
-    margin: 10px 0px 0px 150px;
+.plSongDisplay {
+    margin: 30px 0px 0px 130px;
+}
 
+.plColumnSign {
+    display: flex;
+    flex-direction: row;
+    gap: 640px;
+    margin: 10px 0px 10px 20px;
+    /* border-bottom: 1px solid grey; */
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
+}
+
+.dkdk {
+    margin: 10px 0px 0px 0px;
+    border-top: 1px solid grey;
 }
 
 .playlistCreateBody {
     /* display: flex;
     flex-direction: column; */
-    margin: 50px 0px 0px 100px;
+    margin: 50px 0px 0px 130px;
 
     font-size: 24px;
     font-weight: 800;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 
     border-top: 1px solid #818181;
-    padding: 30px 32px 0px 32px;
+    /* padding: 30px 32px 0px 0px; */
 }
 
 .plSearchHead {

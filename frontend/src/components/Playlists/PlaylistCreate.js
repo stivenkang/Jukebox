@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
-import { updatePlaylist, deletePlaylist } from '../../store/playlist';
+import { fetchPlaylist, updatePlaylist, deletePlaylist } from '../../store/playlist';
 import PlaylistResLine from './PlaylistResLine';
 import './Playlist.css';
 
@@ -63,7 +63,8 @@ function PlaylistCreate({playlist}) {
         dispatch(fetchArtists())
         dispatch(fetchAlbums())
         dispatch(fetchSongs())
-        dispatch(fetchPlaylistSongs())
+        // dispatch(fetchPlaylist())
+        // dispatch(fetchPlaylistSongs())
     }, [dispatch]);
 
     // useEffect(() => {
@@ -117,13 +118,19 @@ function PlaylistCreate({playlist}) {
                 <p>Delete Playlist</p>
             </div>
 
-            <div className='dkdk'>
-                {/* Should display the songs that have been saved into the 
-                current playlist as playlistresline without the add button */}
-                {songsInPlaylist.map((song) => (
-                    // <PlaylistResLine key={song} song={song} />
-                    <p>{song.title}</p>
-                ))}
+            <div className='plSongDisplay'>
+                <div className='plColumnSign'>
+                    <p># Title </p>
+                    <p>Album</p>
+                </div>
+
+
+                <div className='dkdk'>
+                    {songsInPlaylist.map((song) => (
+                        // <PlaylistResLine key={song} song={song} />
+                        <p>{song.title}</p>
+                    ))}
+                </div>
             </div>
 
             <div className='playlistCreateBody'>
