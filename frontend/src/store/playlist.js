@@ -31,13 +31,13 @@ export const getPlaylist = (playlistId) => (state) => state.playlists ? state.pl
 export const getPlaylists = (state) => state.playlists ? Object.values(state.playlists) : []
 
 export const fetchPlaylists = () => async dispatch => {
-    const res = await fetch(`/api/playlists`)
+    const res = await csrfFetch(`/api/playlists`)
     const playlists = await res.json()
     return dispatch(receivePlaylists(playlists))
 }
 
 export const fetchPlaylist = (playlistId) => async dispatch => {
-    const res = await fetch(`/api/playlists/${playlistId}`)
+    const res = await csrfFetch(`/api/playlists/${playlistId}`)
     // if (res.ok) {
         const playlist = await res.json()
         return dispatch(receivePlaylist(playlist))
@@ -59,7 +59,8 @@ export const createPlaylist = (playlist) => async dispatch => {
     });
     if (res.ok) {
         const playlist = await res.json()
-        dispatch(receivePlaylist(playlist))
+        return dispatch(receivePlaylist(playlist))
+        // history.push(`/playlists/${playlist.id}`);
     }
 }
 // export const createPlaylist = (sessionUser, history) => async dispatch => {
@@ -104,7 +105,7 @@ export const updatePlaylist = (playlistId) => async dispatch => {
 // }
 
 export const deletePlaylist = (playlistId) => async dispatch => {
-    const res = await fetch(`/api/playlists/${playlistId}`, {
+    const res = await csrfFetch(`/api/playlists/${playlistId}`, {
         method: 'DELETE'
     });
     if (res.ok) {

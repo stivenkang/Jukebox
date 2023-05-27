@@ -112,8 +112,8 @@
 .plColumnSign {
     display: flex;
     flex-direction: row;
-    gap: 640px;
-    margin: 10px 0px 10px 20px;
+    gap: 670px;
+    margin: 10px 0px 10px 0px;
     /* border-bottom: 1px solid grey; */
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 }
@@ -121,6 +121,15 @@
 .dkdk {
     margin: 10px 0px 0px 0px;
     border-top: 1px solid grey;
+}
+
+.dk {
+    display: flex;
+    align-items: center;
+}
+
+.plSongsIndex {
+    margin-right: 20px;
 }
 
 .playlistCreateBody {

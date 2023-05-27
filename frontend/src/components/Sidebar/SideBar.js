@@ -22,6 +22,7 @@ function SideBar() {
             authorId: sessionUser.id,
             // playlistSongIds: [],
         };
+        // await dispatch(createPlaylist(playlist))
         const newPlaylist = await dispatch(createPlaylist(playlist));
         history.push(`/playlists/${newPlaylist.id}`);
     }

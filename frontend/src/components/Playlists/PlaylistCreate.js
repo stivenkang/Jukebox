@@ -124,11 +124,13 @@ function PlaylistCreate({playlist}) {
                     <p>Album</p>
                 </div>
 
-
                 <div className='dkdk'>
-                    {songsInPlaylist.map((song) => (
-                        // <PlaylistResLine key={song} song={song} />
-                        <p>{song.title}</p>
+                    {songsInPlaylist.map((song, index) => (
+                        <div className='dk'>
+                            {/* <p className='plSongsIndex'>{index + 1}</p>
+                            <PlaylistResLine key={song} song={song} /> */}
+                            <p className='plSongsIndex'>{index + 1} {song.title}</p>
+                        </div>
                     ))}
                 </div>
             </div>
