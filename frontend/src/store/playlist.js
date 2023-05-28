@@ -58,8 +58,9 @@ export const createPlaylist = (playlist) => async dispatch => {
         body: JSON.stringify({playlist: playlist})
     });
     if (res.ok) {
-        const playlist = await res.json()
-        return dispatch(receivePlaylist(playlist))
+        const newPlaylist = await res.json()
+        dispatch(receivePlaylist(newPlaylist))
+        return newPlaylist;
         // history.push(`/playlists/${playlist.id}`);
     }
 }

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { createPlaylist } from '../../store/playlist';
-import { fetchPlaylists } from '../../store/playlist';
+import { fetchPlaylists, createPlaylist } from '../../store/playlist';
 import sidebarLogo from '../../assets/spotify-logo-inverted.png';
 import SideBarPlaylists from './SideBarPlaylists';
 import './SideBar.css';
@@ -24,7 +23,7 @@ function SideBar() {
         };
         // await dispatch(createPlaylist(playlist))
         const newPlaylist = await dispatch(createPlaylist(playlist));
-        history.push(`/playlists/${newPlaylist.id}`);
+        history.push(`/playlists/${newPlaylist.playlist.id}`);
     }
 
     // const handleCreatePlaylist = () => {
