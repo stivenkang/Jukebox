@@ -30,15 +30,10 @@ function SideBar() {
         sessionLinks = (
             <div>
                 <div className='sideBarPlaylists' onClick={handleCreatePlaylist}>
-                    {/* <NavLink id='sideBarPlaylistsButton' exact to="/playlists/:playlistId"><i className="fa-regular fa-square-plus"></i><span style={{marginLeft: '15px'}}>Create Playlist</span></NavLink> */}
-
                     <div id='sideBarPlaylistsButton' >
                         <i className="fa-regular fa-square-plus"></i>
                         <span style={{marginLeft: '15px'}}>Create Playlist</span>
-                    </div>
-
-                    {/* Below creates a playlist but won't navigate to the newly created playlist by the playlist id.... */}
-                    {/* <NavLink id='sideBarPlaylistsButton' exact to={newPlaylistId ? `/playlists/${newPlaylistId}` : "#"}><i className="fa-regular fa-square-plus"></i><span style={{marginLeft: '15px'}}>Create Playlist</span></NavLink> */}                    
+                    </div>                  
                 </div>
                 {/* <SideBarPlaylists /> */}
             </div>

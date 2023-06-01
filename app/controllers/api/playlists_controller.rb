@@ -25,10 +25,6 @@ class Api::PlaylistsController < ApplicationController
 
     def update
         @playlist = Playlist.find_by(id: params[:id])
-        # debugger
-        
-        # @playlist.update(playlist_params)
-        # render :show
 
         if @playlist.update(playlist_params)
             render json: @playlist

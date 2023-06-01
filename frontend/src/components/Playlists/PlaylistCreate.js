@@ -11,7 +11,7 @@ import { fetchSongs } from "../../store/song";
 import { receiveCurrentSong } from "../../store/currentSong";
 import { fetchPlaylistSongs } from '../../store/playlistSong';
 
-function PlaylistCreate({playlist}) {
+function PlaylistCreate() {
     const { playlistId } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
@@ -19,7 +19,8 @@ function PlaylistCreate({playlist}) {
     const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
     // const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     // const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
-    // const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : [])
+    // const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : []);
+    const playlist = useSelector((state) => state.playlists[playlistId])
     const playlistSongs = useSelector(state => {
         const playlist = state.playlists[playlistId]
         return playlist ? playlist.playlistSongs : [];
@@ -31,7 +32,6 @@ function PlaylistCreate({playlist}) {
     const [searchValue, setSearchValue] = useState("");
     const [playlistTitle, setPlaylistTitle] = useState("");
     const [edit, setEdit] = useState(false);
-    const [title, setTitle] = useState("New Playlist #")
     const [plCover, setPlCover] = useState([]);
 
     const handleChange = (e) => {
@@ -48,8 +48,10 @@ function PlaylistCreate({playlist}) {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        const updatedPlaylist = { id: playlistId, title: playlistTitle };
-        dispatch(updatePlaylist(updatedPlaylist));
+        // const updatedPlaylist = { id: playlistId, title: playlistTitle };
+        // dispatch(updatePlaylist(updatedPlaylist));
+
+        dispatch(updatePlaylist({title: playlistTitle}))
         setEdit(false);
     }
 
@@ -63,9 +65,15 @@ function PlaylistCreate({playlist}) {
         dispatch(fetchArtists())
         dispatch(fetchAlbums())
         dispatch(fetchSongs())
-        dispatch(fetchPlaylist(playlist))
-        // dispatch(fetchPlaylistSongs())
-    }, [dispatch, playlist]);
+        dispatch(fetchPlaylist(playlistId))
+        // dispatch(updatePlaylist(playlistId))
+    }, [dispatch, playlistId]);
+
+    useEffect(() => {
+        if (playlist) {
+            setPlaylistTitle(playlist.title);
+        }
+    }, [playlist]);
 
     // useEffect(() => {
     //     const albumCovers = songs.slice(0, 4).map((song) => song.album.coverPhoto);
@@ -75,7 +83,11 @@ function PlaylistCreate({playlist}) {
     // const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     // const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
-    
+
+    if (!playlist) {
+        return <div>Loading...</div>;
+    }
+
 
     return (
         <div className='playlistCreate'>
@@ -108,8 +120,12 @@ function PlaylistCreate({playlist}) {
                             <button type='submit'>Save</button>
                         </form>
                     ) : (
-                        <h1 onClick={handleTitleClick}>New Playlist #{playlistId}</h1>
+                        // <h1 onClick={handleTitleClick}>New Playlist #{playlistId}</h1>
+                        <h1 onClick={handleTitleClick}>{playlistTitle}</h1>
                     )}
+
+                    
+
                     <p className='plUN'>{sessionUser.username}</p>
                 </div>
             </div>

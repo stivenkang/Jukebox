@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { fetchPlaylist } from '../../store/playlist';
 import './SideBar.css';
 
@@ -21,12 +21,6 @@ function SideBarOptions() {
     return (
         <div className='loginSBOpt'>
             <div className='loginPlaylists'>
-                {/* <NavLink id='loggedInPlaylistsButton' exact to='/playlists'>
-                    {playlists.map((playlist) => { return (
-                        <p>{playlist.title}</p>
-                    )})}
-                </NavLink> */}
-
                 {playlists.map(playlist => {
                     return <p className='loginPLLine' onClick={(e) => history.push(`/playlists/${playlist.id}`)} key={playlist.id}>{playlist.title}</p>
                 })}

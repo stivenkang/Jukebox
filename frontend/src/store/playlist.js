@@ -64,32 +64,31 @@ export const createPlaylist = (playlist) => async dispatch => {
     }
 }
 
-export const updatePlaylist = (updatedPlaylist) => async dispatch => {
-    // const res = await csrfFetch(`/api/playlists/${playlistId}`, {
-    //     method: 'PATCH',
-    //     headers: { 'Content-Type' : 'application/json' },
-    //     body: JSON.stringify(playlistId)
-    // });
-    // if (res.ok) {
-    //     const data = await res.json()
-    //     dispatch(receivePlaylist(data))
-    //     debugger
-    //     return data;
-    // }
-
-    const { id, title } = updatedPlaylist;
-
-    const res = await csrfFetch(`/api/playlists/${id}`, {
-      method: 'PATCH',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title }),
+export const updatePlaylist = (playlistId, formData) => async dispatch => {
+    const res = await csrfFetch(`/api/playlists/${playlistId}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type' : 'application/json' },
+        body: JSON.stringify(formData)
     });
-  
     if (res.ok) {
-      const data = await res.json();
-      dispatch(receivePlaylist(data));
-      return data;
+        const data = await res.json()
+        dispatch(receivePlaylist(data))
+        return data;
     }
+
+    // const { id, title } = updatedPlaylist;
+
+    // const res = await csrfFetch(`/api/playlists/${id}`, {
+    //   method: 'PATCH',
+    //   headers: { 'Content-Type': 'application/json' },
+    //   body: JSON.stringify({ title }),
+    // });
+  
+    // if (res.ok) {
+    //   const data = await res.json();
+    //   dispatch(receivePlaylist(data));
+    //   return data;
+    // }
 }
 // export const updatePlaylist = (updatedPlaylist) => async dispatch => {
 //     const res = await fetch(`/api/playlists/${updatedPlaylist.id}`, {
