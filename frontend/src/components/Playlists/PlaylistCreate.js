@@ -63,9 +63,9 @@ function PlaylistCreate({playlist}) {
         dispatch(fetchArtists())
         dispatch(fetchAlbums())
         dispatch(fetchSongs())
-        // dispatch(fetchPlaylist())
+        dispatch(fetchPlaylist(playlist))
         // dispatch(fetchPlaylistSongs())
-    }, [dispatch]);
+    }, [dispatch, playlist]);
 
     // useEffect(() => {
     //     const albumCovers = songs.slice(0, 4).map((song) => song.album.coverPhoto);

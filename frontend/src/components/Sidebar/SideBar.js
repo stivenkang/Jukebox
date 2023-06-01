@@ -21,15 +21,9 @@ function SideBar() {
             authorId: sessionUser.id,
             // playlistSongIds: [],
         };
-        // await dispatch(createPlaylist(playlist))
         const newPlaylist = await dispatch(createPlaylist(playlist));
         history.push(`/playlists/${newPlaylist.playlist.id}`);
     }
-
-    // const handleCreatePlaylist = () => {
-    //     dispatch(createPlaylist(sessionUser, history))
-    //     dispatch(fetchPlaylists())
-    // }
 
     let sessionLinks;
     if (sessionUser) {

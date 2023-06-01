@@ -25,9 +25,16 @@ class Api::PlaylistsController < ApplicationController
 
     def update
         @playlist = Playlist.find_by(id: params[:id])
+        # debugger
         
-        @playlist.update(playlist_params)
-        render :show
+        # @playlist.update(playlist_params)
+        # render :show
+
+        if @playlist.update(playlist_params)
+            render json: @playlist
+        else
+            render json: { error: 'Failed to update the playlist' }, status: :unprocessable_entity
+        end
     end
 
     def destroy

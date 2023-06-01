@@ -61,36 +61,34 @@ export const createPlaylist = (playlist) => async dispatch => {
         const newPlaylist = await res.json()
         dispatch(receivePlaylist(newPlaylist))
         return newPlaylist;
-        // history.push(`/playlists/${playlist.id}`);
     }
 }
-// export const createPlaylist = (sessionUser, history) => async dispatch => {
-//     debugger
-//     const res = await fetch(`/api/playlists`, {
-//         method: 'POST',
-//         headers: { 'Content-Type' : 'application/json' },
-//         body: JSON.stringify({playlist: {
-//             title: "New Playlist",
-//             author_id: sessionUser,
-//         }})
-//     });
-//     if (res.ok) {
-//         const playlist = await res.json()
-//         dispatch(receivePlaylist(playlist))
-//         history.push(`/playlists/${playlist.id}`)
-//     }
-// }
 
+export const updatePlaylist = (updatedPlaylist) => async dispatch => {
+    // const res = await csrfFetch(`/api/playlists/${playlistId}`, {
+    //     method: 'PATCH',
+    //     headers: { 'Content-Type' : 'application/json' },
+    //     body: JSON.stringify(playlistId)
+    // });
+    // if (res.ok) {
+    //     const data = await res.json()
+    //     dispatch(receivePlaylist(data))
+    //     debugger
+    //     return data;
+    // }
 
-export const updatePlaylist = (playlistId) => async dispatch => {
-    const res = await csrfFetch(`/api/playlists/${playlistId}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type' : 'application/json' },
-        body: JSON.stringify(playlistId)
+    const { id, title } = updatedPlaylist;
+
+    const res = await csrfFetch(`/api/playlists/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title }),
     });
+  
     if (res.ok) {
-        const data = await res.json()
-        dispatch(receivePlaylist(data))
+      const data = await res.json();
+      dispatch(receivePlaylist(data));
+      return data;
     }
 }
 // export const updatePlaylist = (updatedPlaylist) => async dispatch => {
