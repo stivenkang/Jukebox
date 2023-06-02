@@ -118,7 +118,19 @@ const playlistsReducer = (state={}, action) => {
             };  
             return newState;
         case RECEIVE_PLAYLIST:
-            newState[action.payload.playlist.id] = action.payload.playlist
+            // The code below asigns the entire action.payload.playlist as a value to a key of the newState
+            // which is why in the next state, there is another "playlist" that has a key of [object Object]
+            // with the value being the entire playlist information
+
+            // newState[action.payload.playlist] = action.payload.playlist
+            // debugger
+
+            // code below actually updates the newState and overrides current information to replace the state info
+            const playlistId = action.payload.playlist.id;
+            newState[playlistId] = {
+                // ...newState[playlistId],
+                ...action.payload.playlist
+            };
             // debugger
             return newState;
         case REMOVE_PLAYLIST:

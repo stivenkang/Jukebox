@@ -48,9 +48,6 @@ function PlaylistCreate() {
 
     const handleUpdate = (e) => {
         e.preventDefault();
-        // const updatedPlaylist = { id: playlistId, title: playlistTitle };
-        // dispatch(updatePlaylist(updatedPlaylist));
-
         dispatch(updatePlaylist({id: playlistId, title: playlistTitle}))
         setEdit(false);
     }
@@ -84,9 +81,9 @@ function PlaylistCreate() {
     // const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
 
-    if (!playlist) {
-        return <div>Loading...</div>;
-    }
+    // if (!playlist) {
+    //     return <div>Loading...</div>;
+    // }
 
 
     return (
@@ -100,12 +97,6 @@ function PlaylistCreate() {
                     {plCover.map((coverPhoto, index) => (
                         <img key={index} className='plImg' src={coverPhoto} alt='Playlist Cover' />
                     ))}
-                </div> */}
-
-
-                {/* <div>
-                    <h1>New Playlist #{playlistId}</h1>
-                    <p className='plUN'>{sessionUser.username}</p>
                 </div> */}
 
                 <div>
@@ -123,8 +114,6 @@ function PlaylistCreate() {
                         // <h1 onClick={handleTitleClick}>New Playlist #{playlistId}</h1>
                         <h1 onClick={handleTitleClick}>{playlistTitle}</h1>
                     )}
-
-                    
 
                     <p className='plUN'>{sessionUser.username}</p>
                 </div>
