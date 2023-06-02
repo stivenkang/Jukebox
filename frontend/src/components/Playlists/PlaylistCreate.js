@@ -131,11 +131,11 @@ function PlaylistCreate() {
 
                 <div className='dkdk'>
                     {songsInPlaylist.map((song, index) => (
-                        <div className='dk'>
+                        <li className='dk'>
                             {/* <p className='plSongsIndex'>{index + 1}</p>
                             <PlaylistResLine key={song} song={song} /> */}
                             <p className='plSongsIndex'>{index + 1} {song.title}</p>
-                        </div>
+                        </li>
                     ))}
                 </div>
             </div>

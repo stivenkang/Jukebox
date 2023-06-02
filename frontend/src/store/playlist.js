@@ -123,12 +123,12 @@ const playlistsReducer = (state={}, action) => {
             // with the value being the entire playlist information
 
             // newState[action.payload.playlist] = action.payload.playlist
-            // debugger
 
+            
             // code below actually updates the newState and overrides current information to replace the state info
             const playlistId = action.payload.playlist.id;
             newState[playlistId] = {
-                // ...newState[playlistId],
+                ...newState[playlistId],
                 ...action.payload.playlist
             };
             // debugger
