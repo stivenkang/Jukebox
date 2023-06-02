@@ -51,7 +51,7 @@ function PlaylistCreate() {
         // const updatedPlaylist = { id: playlistId, title: playlistTitle };
         // dispatch(updatePlaylist(updatedPlaylist));
 
-        dispatch(updatePlaylist({title: playlistTitle}))
+        dispatch(updatePlaylist({id: playlistId, title: playlistTitle}))
         setEdit(false);
     }
 

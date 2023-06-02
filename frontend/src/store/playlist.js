@@ -64,34 +64,30 @@ export const createPlaylist = (playlist) => async dispatch => {
     }
 }
 
-export const updatePlaylist = (playlistId, formData) => async dispatch => {
-    const res = await csrfFetch(`/api/playlists/${playlistId}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type' : 'application/json' },
-        body: JSON.stringify(formData)
-    });
-    if (res.ok) {
-        const data = await res.json()
-        dispatch(receivePlaylist(data))
-        return data;
-    }
-
-    // const { id, title } = updatedPlaylist;
-
-    // const res = await csrfFetch(`/api/playlists/${id}`, {
-    //   method: 'PATCH',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ title }),
+export const updatePlaylist = (updatedPlaylist) => async dispatch => {
+    // const res = await csrfFetch(`/api/playlists/${playlistId}`, {
+    //     method: 'PATCH',
+    //     headers: { 'Content-Type' : 'application/json' },
+    //     body: JSON.stringify({title})
     // });
+
+    const { id, title } = updatedPlaylist;
+    const res = await csrfFetch(`/api/playlists/${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ title }),
+    });
+
+    // debugger
   
-    // if (res.ok) {
-    //   const data = await res.json();
-    //   dispatch(receivePlaylist(data));
-    //   return data;
-    // }
+    if (res.ok) {
+      const data = await res.json();
+      dispatch(receivePlaylist(data));
+      return data;
+    }
 }
 // export const updatePlaylist = (updatedPlaylist) => async dispatch => {
-//     const res = await fetch(`/api/playlists/${updatedPlaylist.id}`, {
+//     const res = await csrfFetch(`/api/playlists/${updatedPlaylist.id}`, {
 //         method: 'PATCH',
 //         headers: { 'Content-Type' : 'application/json' },
 //         body: JSON.stringify(updatedPlaylist)
@@ -123,6 +119,7 @@ const playlistsReducer = (state={}, action) => {
             return newState;
         case RECEIVE_PLAYLIST:
             newState[action.payload.playlist.id] = action.payload.playlist
+            // debugger
             return newState;
         case REMOVE_PLAYLIST:
             delete newState[action.playlistId]
