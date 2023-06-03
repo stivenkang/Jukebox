@@ -28,6 +28,7 @@ class Api::PlaylistsController < ApplicationController
 
         if @playlist.update(playlist_params)
             render :show
+            # render json: @playlist
         else
             render json: { error: 'Failed to update the playlist' }, status: :unprocessable_entity
         end

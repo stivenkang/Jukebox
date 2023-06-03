@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPlaylists, createPlaylist } from '../../store/playlist';
@@ -10,19 +10,39 @@ function SideBar() {
     const sessionUser = useSelector(state => state.session.user);
     const dispatch = useDispatch();
     const history = useHistory();
+    const playlists = useSelector(state => state.playlists ? Object.values(state.playlists) : []);
+
 
     useEffect(() => {
         dispatch(fetchPlaylists())
-    }, []);
+    }, [dispatch]);
 
     const handleCreatePlaylist = async () => {
+        // const highestId = Math.max(playlists.map((playlist) => playlist.id));
+        // const nextId = highestId >= 0 ? highestId + 1 : 1;
+
+        // code below takes into account if the playlists array is empty ... supposedly
+        // const highestId = playlists.reduce((maxId, playlist) => Math.max(maxId, playlist.id), 0);
+        // const nextId = highestId + 1;
+
+        // const playlistIds = playlists.map((playlist) => playlist.id);
+        // const maxId = Math.max(...playlistIds);
+        // const nextId = maxId >= 0 ? maxId + 1 : 1;
+
+        const nextId = playlists.length + 1;
+
         const playlist = {
+            id: nextId,
             title: 'New Playlist',
             authorId: sessionUser.id,
             // playlistSongIds: [],
         };
         const newPlaylist = await dispatch(createPlaylist(playlist));
+        debugger
         history.push(`/playlists/${newPlaylist.playlist.id}`);
+
+        // await dispatch(createPlaylist(playlist));
+        // history.push(`/playlists/${playlist.id}`);
     }
 
     let sessionLinks;

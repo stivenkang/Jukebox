@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { receiveCurrentSong } from "../../store/currentSong";
-import { updatePlaylist } from '../../store/playlist';
+import { fetchPlaylist, updatePlaylist } from '../../store/playlist';
 import { createPlaylistSong } from '../../store/playlistSong';
 import './Playlist.css';
 
@@ -26,6 +26,10 @@ function PlaylistResLine({song}) {
     const handleAddClick = (song) => {
         dispatch(createPlaylistSong(playlistId, song.id))
     }
+
+    // useEffect(() => {
+    //     dispatch(fetchPlaylist(playlistId))
+    // }, [dispatch])
 
     return (
         <div className='plAdd'>

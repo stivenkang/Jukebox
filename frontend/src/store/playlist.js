@@ -62,6 +62,11 @@ export const createPlaylist = (playlist) => async dispatch => {
         dispatch(receivePlaylist(newPlaylist))
         return newPlaylist;
     }
+
+    // if (res.ok) {
+    //     const data = await res.json()
+    //     dispatch(receivePlaylist(data))
+    // }
 }
 
 export const updatePlaylist = (updatedPlaylist) => async dispatch => {
@@ -77,8 +82,6 @@ export const updatePlaylist = (updatedPlaylist) => async dispatch => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ title }),
     });
-
-    // debugger
   
     if (res.ok) {
       const data = await res.json();
@@ -86,17 +89,6 @@ export const updatePlaylist = (updatedPlaylist) => async dispatch => {
       return data;
     }
 }
-// export const updatePlaylist = (updatedPlaylist) => async dispatch => {
-//     const res = await csrfFetch(`/api/playlists/${updatedPlaylist.id}`, {
-//         method: 'PATCH',
-//         headers: { 'Content-Type' : 'application/json' },
-//         body: JSON.stringify(updatedPlaylist)
-//     });
-//     if (res.ok) {
-//         const data = await res.json()
-//         dispatch(receivePlaylist(data))
-//     }
-// }
 
 export const deletePlaylist = (playlistId) => async dispatch => {
     const res = await csrfFetch(`/api/playlists/${playlistId}`, {
@@ -118,20 +110,11 @@ const playlistsReducer = (state={}, action) => {
             };  
             return newState;
         case RECEIVE_PLAYLIST:
-            // The code below asigns the entire action.payload.playlist as a value to a key of the newState
-            // which is why in the next state, there is another "playlist" that has a key of [object Object]
-            // with the value being the entire playlist information
-
-            // newState[action.payload.playlist] = action.payload.playlist
-
-            
-            // code below actually updates the newState and overrides current information to replace the state info
             const playlistId = action.payload.playlist.id;
             newState[playlistId] = {
                 ...newState[playlistId],
                 ...action.payload.playlist
             };
-            // debugger
             return newState;
         case REMOVE_PLAYLIST:
             delete newState[action.playlistId]
