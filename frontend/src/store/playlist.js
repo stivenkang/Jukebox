@@ -56,7 +56,9 @@ export const createPlaylist = (playlist) => async dispatch => {
         method: 'POST',
         headers: { 'Content-Type' : 'application/json' },
         body: JSON.stringify({playlist: playlist})
+        // body: JSON.stringify(playlist)
     });
+    debugger
     if (res.ok) {
         const newPlaylist = await res.json()
         dispatch(receivePlaylist(newPlaylist))

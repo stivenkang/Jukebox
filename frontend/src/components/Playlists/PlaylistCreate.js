@@ -3,13 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { fetchPlaylist, updatePlaylist, deletePlaylist } from '../../store/playlist';
 import PlaylistResLine from './PlaylistResLine';
+import PlaylistSongLine from './PlaylistSongLine';
 import './Playlist.css';
 
 import { fetchArtists } from "../../store/artist";
 import { fetchAlbums } from "../../store/album";
 import { fetchSongs } from "../../store/song";
-import { receiveCurrentSong } from "../../store/currentSong";
-import { fetchPlaylistSongs } from '../../store/playlistSong';
 
 function PlaylistCreate() {
     const { playlistId } = useParams();
@@ -22,8 +21,8 @@ function PlaylistCreate() {
     // const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : []);
     const playlist = useSelector((state) => state.playlists[playlistId])
     const playlistSongs = useSelector(state => {
-        const playlist = state.playlists[playlistId]
-        return playlist ? playlist.playlistSongs : [];
+        const currPlaylist = state.playlists[playlistId]
+        return currPlaylist ? currPlaylist.playlistSongs : [];
     });
     const playlistSongIds = playlistSongs.map(playlistSong => playlistSong);
     const songsInPlaylist = songs.filter(song => playlistSongIds.includes(song.id));
@@ -81,10 +80,6 @@ function PlaylistCreate() {
     // const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
 
-    // if (!playlist) {
-    //     return <div>Loading...</div>;
-    // }
-
 
     return (
         <div className='playlistCreate'>
@@ -133,8 +128,12 @@ function PlaylistCreate() {
                     {songsInPlaylist.map((song, index) => (
                         <div className='dk' key={index}>
                             {/* <p className='plSongsIndex'>{index + 1}</p>
-                            <PlaydivstResLine key={song} song={song} /> */}
-                            <p className='plSongsIndex'>{index + 1} {song.title}</p>
+                            <PlaylistResLine key={song} song={song} /> */}
+
+                            {/* <p className='plSongsIndex'>{index + 1} {song.title}</p> */}
+
+                            <p className='plSongsIndex'>{index + 1}</p>
+                            <PlaylistSongLine key={song} song={song} />
                         </div>
                     ))}
                 </div>

@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useHistory, useLocation, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { receiveCurrentSong } from "../../store/currentSong";
-import { fetchPlaylist, updatePlaylist } from '../../store/playlist';
 import { createPlaylistSong } from '../../store/playlistSong';
 import './Playlist.css';
 

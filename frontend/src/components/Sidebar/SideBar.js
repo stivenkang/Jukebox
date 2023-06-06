@@ -25,11 +25,11 @@ function SideBar() {
         // const highestId = playlists.reduce((maxId, playlist) => Math.max(maxId, playlist.id), 0);
         // const nextId = highestId + 1;
 
-        // const playlistIds = playlists.map((playlist) => playlist.id);
-        // const maxId = Math.max(...playlistIds);
-        // const nextId = maxId >= 0 ? maxId + 1 : 1;
+        const playlistIds = playlists.map((playlist) => playlist.id);
+        const maxId = Math.max(...playlistIds);
+        const nextId = maxId >= 0 ? maxId + 1 : 1;
 
-        const nextId = playlists.length + 1;
+        // const nextId = playlists.length + 1;
 
         const playlist = {
             id: nextId,
@@ -38,7 +38,7 @@ function SideBar() {
             // playlistSongIds: [],
         };
         const newPlaylist = await dispatch(createPlaylist(playlist));
-        debugger
+        // debugger
         history.push(`/playlists/${newPlaylist.playlist.id}`);
 
         // await dispatch(createPlaylist(playlist));
