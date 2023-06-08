@@ -22,11 +22,10 @@ function PlaylistCreate() {
     const playlist = useSelector((state) => state.playlists[playlistId])
     const playlistSongs = useSelector(state => {
         const currPlaylist = state.playlists[playlistId]
-        return currPlaylist ? currPlaylist.playlistSongs : [];
+        return currPlaylist ? Object.values(currPlaylist.playlistSongs) : [];
     });
     const playlistSongIds = playlistSongs.map(playlistSong => playlistSong);
     const songsInPlaylist = songs.filter(song => playlistSongIds.includes(song.id));
-    
 
     const [searchValue, setSearchValue] = useState("");
     const [playlistTitle, setPlaylistTitle] = useState("");
@@ -62,7 +61,6 @@ function PlaylistCreate() {
         dispatch(fetchAlbums())
         dispatch(fetchSongs())
         dispatch(fetchPlaylist(playlistId))
-        // dispatch(updatePlaylist(playlistId))
     }, [dispatch, playlistId]);
 
     useEffect(() => {
