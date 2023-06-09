@@ -24,7 +24,7 @@ function PlaylistCreate() {
         const currPlaylist = state.playlists[playlistId]
         return currPlaylist ? Object.values(currPlaylist.playlistSongs) : [];
     });
-    const playlistSongIds = playlistSongs.map(playlistSong => playlistSong);
+    const playlistSongIds = playlistSongs.map(playlistSong => playlistSong.song_id);
     const songsInPlaylist = songs.filter(song => playlistSongIds.includes(song.id));
 
     const [searchValue, setSearchValue] = useState("");
