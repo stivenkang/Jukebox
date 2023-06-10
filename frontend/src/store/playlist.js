@@ -91,24 +91,33 @@ export const createPlaylist = (playlist) => async dispatch => {
 //     }
 // }
 
-export const updatePlaylist = (updatedPlaylist, songId) => async (dispatch, getState) => {
-    const { id, title } = updatedPlaylist;
-    const playlists = getState().playlists;
-
+export const updatePlaylist = (playlistId, updatedPlaylist, songId) => async (dispatch, getState) => {
+    const { playlists } = getState();
+    // const playlistArray = Object.values(playlists);
     debugger
-  
-    const existingPlaylist = playlists.find((playlist) => playlist.id === id);  
+
+    // Find the existing playlist object
+    // let existingPlaylist = playlistArray.find((playlist) => playlist.id === playlistId);
+    let existingPlaylist = playlists[playlistId]
+
+    if (!existingPlaylist) {
+        console.error('Playlist not found');
+        return;
+    }
+
+    // Remove the song from the playlistSongs array
     const updatedPlaylistSongs = existingPlaylist.playlistSongs.filter(
-      (playlistSong) => playlistSong.songId !== songId
+        (playlistSong) => playlistSong.songId !== songId
     );
-  
+
+    // Create the updated playlist object with the modified playlistSongs array
     const updatedPlaylistObject = {
-      ...existingPlaylist,
-      title,
-      playlistSongs: updatedPlaylistSongs,
+        ...existingPlaylist,
+        ...updatedPlaylist,
+        playlistSongs: updatedPlaylistSongs,
     };
   
-    const res = await csrfFetch(`/api/playlists/${id}`, {
+    const res = await csrfFetch(`/api/playlists/${playlistId}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedPlaylistObject),
