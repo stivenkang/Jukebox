@@ -8,9 +8,7 @@ import AlbumShowPage from "./components/Albums/AlbumShow";
 import SearchBar from "./components/SearchBar/SearchBar";
 import PlaylistIndex from "./components/Playlists/PlaylistIndex";
 import PlaylistCreate from "./components/Playlists/PlaylistCreate";
-// import ArtistsIndexItem from './components/ArtistsIndex/ArtistsIndexItem';
 import "./index.css";
-// import './components/Sidebar/Sidebar.css';
 
 function App() {
   return (
@@ -19,12 +17,7 @@ function App() {
       <Switch>
         <Route path="/login" component={LoginFormPage} />
         <Route path="/signup" component={SignupFormPage} />
-        <Route path="/artists/:artistId">
-          {/* <div className='body'>
-              <Body />
-            </div> */}
-          <ArtistsShowPage />
-        </Route>
+        <Route path="/artists/:artistId" component={ArtistsShowPage} />
         <Route path="/albums/:albumId" component={AlbumShowPage} />
         <Route path="/search" component={SearchBar} />
         <Route path="/playlists/:playlistId" component={PlaylistCreate} />

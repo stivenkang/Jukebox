@@ -1,5 +1,5 @@
 import csrfFetch from './csrf';
-import { ADD_PLAYLIST_SONG } from './playlistSong';
+import { ADD_PLAYLIST_SONG, REMOVE_PLAYLIST_SONG } from './playlistSong';
 // import { RECEIVE_PLAYLIST_SONGS, fetchPlaylistSongs } from './playlistSong';
 
 export const RECEIVE_PLAYLISTS = 'playlists/receivePlaylists'
@@ -70,18 +70,48 @@ export const createPlaylist = (playlist) => async dispatch => {
     // }
 }
 
-export const updatePlaylist = (updatedPlaylist) => async dispatch => {
-    // const res = await csrfFetch(`/api/playlists/${playlistId}`, {
-    //     method: 'PATCH',
-    //     headers: { 'Content-Type' : 'application/json' },
-    //     body: JSON.stringify({title})
-    // });
+// export const updatePlaylist = (updatedPlaylist) => async dispatch => {
+//     // const res = await csrfFetch(`/api/playlists/${playlistId}`, {
+//     //     method: 'PATCH',
+//     //     headers: { 'Content-Type' : 'application/json' },
+//     //     body: JSON.stringify({title})
+//     // });
 
+//     const { id, title } = updatedPlaylist;
+//     const res = await csrfFetch(`/api/playlists/${id}`, {
+//       method: 'PATCH',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify({ title }),
+//     });
+  
+//     if (res.ok) {
+//       const data = await res.json();
+//       dispatch(receivePlaylist(data));
+//       return data;
+//     }
+// }
+
+export const updatePlaylist = (updatedPlaylist, songId) => async (dispatch, getState) => {
     const { id, title } = updatedPlaylist;
+    const playlists = getState().playlists;
+
+    debugger
+  
+    const existingPlaylist = playlists.find((playlist) => playlist.id === id);  
+    const updatedPlaylistSongs = existingPlaylist.playlistSongs.filter(
+      (playlistSong) => playlistSong.songId !== songId
+    );
+  
+    const updatedPlaylistObject = {
+      ...existingPlaylist,
+      title,
+      playlistSongs: updatedPlaylistSongs,
+    };
+  
     const res = await csrfFetch(`/api/playlists/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ title }),
+      body: JSON.stringify(updatedPlaylistObject),
     });
   
     if (res.ok) {
@@ -89,7 +119,7 @@ export const updatePlaylist = (updatedPlaylist) => async dispatch => {
       dispatch(receivePlaylist(data));
       return data;
     }
-}
+};
 
 export const deletePlaylist = (playlistId) => async dispatch => {
     const res = await csrfFetch(`/api/playlists/${playlistId}`, {
@@ -123,6 +153,9 @@ const playlistsReducer = (state={}, action) => {
         case ADD_PLAYLIST_SONG:
             newState[action.playlistSong.playlistSong.playlistId].playlistSongs.push(action.playlistSong.song)
             return newState;
+        case REMOVE_PLAYLIST_SONG:
+            delete newState[action.playlistSong.playlistSong_id]
+            return newState
         default:
             return state;
     }

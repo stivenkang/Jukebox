@@ -44,14 +44,6 @@ export const fetchPlaylistSongs = (playlistId) => async dispatch => {
     }
 }
 
-// export const fetchPlaylistSong = (playlistSongId) => async dispatch => {
-//     const res = await fetch(`/api/playlistSongs/${playlistSongId}`)
-//     if (res.ok) {
-//         const playlistSong = await res.json()
-//         dispatch(receivePlaylistSong(playlistSong))
-//     }
-// }
-
 export const createPlaylistSong = (playlistId, songId) => async dispatch => {
     const res = await csrfFetch(`/api/playlist_songs`, {
         method: 'POST',
@@ -65,9 +57,13 @@ export const createPlaylistSong = (playlistId, songId) => async dispatch => {
 }
 
 export const deletePlaylistSong = (playlistId, songId) => async dispatch => {
-    const res = await fetch(`/api/playlists/${playlistId}/playlistSongs/${songId}`, {
-        method: 'DELETE'
+    // debugger
+    const res = await csrfFetch(`/api/playlists/${playlistId}/playlist_songs/${songId}`, {
+        method: 'DELETE',
+        // headers: {'Content-Type' : 'application/json'},
+        // body: JSON.stringify({playlist_song: {playlistId, playlistSongId}})
     })
+
     if (res.ok) {
         dispatch(removePlaylistSong(songId))
     }
