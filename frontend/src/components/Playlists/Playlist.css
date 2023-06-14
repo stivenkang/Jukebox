@@ -77,14 +77,22 @@
     display: flex;
     align-items: center;
 
-    margin: 100px 0px 0px 100px;
+    margin: 100px 0px 50px 100px;
     padding: 0px 0px 0px 50px;
 }
 
-.plImg {
-    width: 200px;
-    height: 200px;
+.plImgCont {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
+    grid-template-rows: repeat(2, 1fr); /* Two rows with equal height */
     margin-right: 50px;
+}
+
+.plImg {
+    width: 100px;
+    height: 100px;
+    margin: 0px 0px 0px 0px;
+    /* object-fit: cover; */
 }
 
 .plUN {

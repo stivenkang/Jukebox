@@ -30,6 +30,3 @@ function usersReducer(state={}, action) {
 }
 
 export default usersReducer;
-
-
-// do I need a users reducer?

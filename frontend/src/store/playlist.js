@@ -70,57 +70,12 @@ export const createPlaylist = (playlist) => async dispatch => {
     // }
 }
 
-// export const updatePlaylist = (updatedPlaylist) => async dispatch => {
-//     // const res = await csrfFetch(`/api/playlists/${playlistId}`, {
-//     //     method: 'PATCH',
-//     //     headers: { 'Content-Type' : 'application/json' },
-//     //     body: JSON.stringify({title})
-//     // });
-
-//     const { id, title } = updatedPlaylist;
-//     const res = await csrfFetch(`/api/playlists/${id}`, {
-//       method: 'PATCH',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify({ title }),
-//     });
-  
-//     if (res.ok) {
-//       const data = await res.json();
-//       dispatch(receivePlaylist(data));
-//       return data;
-//     }
-// }
-
-export const updatePlaylist = (playlistId, updatedPlaylist, songId) => async (dispatch, getState) => {
-    const { playlists } = getState();
-    // const playlistArray = Object.values(playlists);
-    debugger
-
-    // Find the existing playlist object
-    // let existingPlaylist = playlistArray.find((playlist) => playlist.id === playlistId);
-    let existingPlaylist = playlists[playlistId]
-
-    if (!existingPlaylist) {
-        console.error('Playlist not found');
-        return;
-    }
-
-    // Remove the song from the playlistSongs array
-    const updatedPlaylistSongs = existingPlaylist.playlistSongs.filter(
-        (playlistSong) => playlistSong.songId !== songId
-    );
-
-    // Create the updated playlist object with the modified playlistSongs array
-    const updatedPlaylistObject = {
-        ...existingPlaylist,
-        ...updatedPlaylist,
-        playlistSongs: updatedPlaylistSongs,
-    };
-  
-    const res = await csrfFetch(`/api/playlists/${playlistId}`, {
+export const updatePlaylist = (updatedPlaylist) => async dispatch => {
+    const { id, title } = updatedPlaylist;
+    const res = await csrfFetch(`/api/playlists/${id}`, {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updatedPlaylistObject),
+      body: JSON.stringify({ title }),
     });
   
     if (res.ok) {
@@ -128,7 +83,46 @@ export const updatePlaylist = (playlistId, updatedPlaylist, songId) => async (di
       dispatch(receivePlaylist(data));
       return data;
     }
-};
+}
+
+// export const updatePlaylist = (playlistId, updatedPlaylist, songId) => async (dispatch, getState) => {
+//     const { playlists } = getState();
+//     // const playlistArray = Object.values(playlists);
+//     debugger
+
+//     // Find the existing playlist object
+//     // let existingPlaylist = playlistArray.find((playlist) => playlist.id === playlistId);
+//     let existingPlaylist = playlists[playlistId]
+
+//     if (!existingPlaylist) {
+//         console.error('Playlist not found');
+//         return;
+//     }
+
+//     // Remove the song from the playlistSongs array
+//     const updatedPlaylistSongs = existingPlaylist.playlistSongs.filter(
+//         (playlistSong) => playlistSong.songId !== songId
+//     );
+
+//     // Create the updated playlist object with the modified playlistSongs array
+//     const updatedPlaylistObject = {
+//         ...existingPlaylist,
+//         ...updatedPlaylist,
+//         playlistSongs: updatedPlaylistSongs,
+//     };
+  
+//     const res = await csrfFetch(`/api/playlists/${playlistId}`, {
+//       method: 'PATCH',
+//       headers: { 'Content-Type': 'application/json' },
+//       body: JSON.stringify(updatedPlaylistObject),
+//     });
+  
+//     if (res.ok) {
+//       const data = await res.json();
+//       dispatch(receivePlaylist(data));
+//       return data;
+//     }
+// };
 
 export const deletePlaylist = (playlistId) => async dispatch => {
     const res = await csrfFetch(`/api/playlists/${playlistId}`, {
