@@ -52,7 +52,7 @@ export const createPlaylistSong = (playlistId, songId) => async dispatch => {
     })
     if (res.ok) {
         const playlistSong = await res.json()
-        debugger
+        // debugger
         dispatch(addPlaylistSong(playlistSong))
     }
 }
@@ -66,6 +66,7 @@ export const deletePlaylistSong = (playlist_songId) => async dispatch => {
 
     if (res.ok) {
         const playlistSong = await res.json()
+        debugger
         dispatch(removePlaylistSong(playlistSong))
     }
 }

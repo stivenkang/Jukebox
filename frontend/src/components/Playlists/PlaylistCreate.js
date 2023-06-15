@@ -25,9 +25,12 @@ function PlaylistCreate() {
         return currPlaylist ? Object.values(currPlaylist.playlistSongs) : [];
     });
     const playlistSongIds = playlistSongs.map(playlistSong => playlistSong?.song_id);
-    const songsInPlaylist = songs.filter(song => playlistSongIds.includes(song.id));
+    // const songsInPlaylist = songs.filter(song => playlistSongIds.includes(song.id));
+    const songsInPlaylist = playlistSongIds.map(playlistSongId => songs.find(song => song.id === playlistSongId));
+
     const albumCovers = songsInPlaylist.slice(0, 4).map(song => {
         const album = albums.find(album => album.id === song.albumId);
+        // debugger
         return album ? album.photoUrl : null;
     });
 
@@ -93,7 +96,7 @@ function PlaylistCreate() {
                                 type='text'
                                 value={playlistTitle}
                                 onChange={handlePlaylistTitleChange}
-                                placeholder='New Title'
+                                // placeholder='New Title'
                             />
                             <button type='submit'>Save</button>
                         </form>

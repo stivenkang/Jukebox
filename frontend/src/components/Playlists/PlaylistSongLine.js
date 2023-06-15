@@ -24,13 +24,7 @@ function PlaylistSongLine({song, index}) {
     }
 
     const handleRemoveClick = () => {
-        // console.log(song)
         dispatch(deletePlaylistSong(playlistSongs[index].id))
-        
-        // const updatedPlaylistSongs = playlistSongs.filter((playlistSong) => playlistSong.id !== song.id);
-        // dispatch(updatePlaylist(playlistId, updatedPlaylistSongs));
-
-        // dispatch(updatePlaylist(playlistId, song.id))
     }
 
     useEffect(() => {
@@ -42,7 +36,7 @@ function PlaylistSongLine({song, index}) {
         <div className='plAdd'>
             <img className='plAddImg' src={album?.photoUrl || ''} alt='Album Cover' />
             <div className='plSInfo' onClick={() => handleClick(song)}>
-                <p className='plSTitle'>{song.title}</p>
+                <p className='plSTitle'>{song?.title}</p>
                 <p className='plSArtist'>{artistName}</p>                
             </div>
             <div className='plSAlbumInfo' onClick={(e) => history.push(`/albums/${album.id}`)}>

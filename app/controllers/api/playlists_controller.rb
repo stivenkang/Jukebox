@@ -49,8 +49,5 @@ class Api::PlaylistsController < ApplicationController
 
     def playlist_params
         params.require(:playlist).permit(:title, :author_id)
-
-        # params.require(:playlist).permit(:title, :user_id, :id)
-        # double check what playlist params should permit
     end
 end
