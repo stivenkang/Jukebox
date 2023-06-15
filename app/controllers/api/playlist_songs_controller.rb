@@ -20,9 +20,9 @@ class Api::PlaylistSongsController < ApplicationController
     end
 
     def destroy
-        @playlist_song = PlaylistSong.find_by(id: params[:id])
-        # @song = Song.find_by(id: playlist_song_params[:song_id])
-        debugger
+        # @playlist_song = PlaylistSong.find_by(id: params[:id])
+        @playlist_song = PlaylistSong.find_by(id: playlist_song_params[:song_id])
+        @song = Song.find_by(id: playlist_song_params[:song_id])
 
         if @playlist_song.destroy
         else

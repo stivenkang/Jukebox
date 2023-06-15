@@ -16,8 +16,8 @@ function PlaylistCreate() {
     const history = useHistory();
     const sessionUser = useSelector((state) => state.session.user);
     const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
-    // const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
+    // const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     // const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : []);
     const playlist = useSelector((state) => state.playlists[playlistId])
     const playlistSongs = useSelector(state => {
@@ -26,10 +26,9 @@ function PlaylistCreate() {
     });
     const playlistSongIds = playlistSongs.map(playlistSong => playlistSong.song_id);
     const songsInPlaylist = songs.filter(song => playlistSongIds.includes(song.id));
-    // const albumCovers = songsInPlaylist.slice(0, 4).map(song => song.album.photoUrl);
     const albumCovers = songsInPlaylist.slice(0, 4).map(song => {
         const album = albums.find(album => album.id === song.albumId);
-        return album ? album.coverPhoto : null;
+        return album ? album.photoUrl : null;
     });
 
     const [searchValue, setSearchValue] = useState("");
@@ -73,14 +72,6 @@ function PlaylistCreate() {
         }
     }, [playlist]);
 
-    // useEffect(() => {
-    //     const albumCovers = playlistSongs.slice(0, 4).map((playlistSong) => {
-    //         const album = albums.find((album) => album.id === playlistSong.album_id);
-    //         return album ? album.photoUrl : null;
-    //     });
-    //     setPlCover(albumCovers);
-    // }, [playlistSongs, albums]);
-
     // const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     // const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
@@ -89,10 +80,6 @@ function PlaylistCreate() {
     return (
         <div className='playlistCreate'>
             <div className='playlistCreateHead'>
-
-                {/* <img className='plImg'></img> */}
-
-                {/* Rough draft of img container for each playlist */}
                 <div className='plImgCont'>
                     {albumCovers.map((coverPhoto, index) => (
                         <img key={index} className='plImg' src={coverPhoto} alt='' />

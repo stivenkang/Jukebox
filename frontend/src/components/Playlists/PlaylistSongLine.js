@@ -23,12 +23,12 @@ function PlaylistSongLine({song}) {
     }
 
     const handleRemoveClick = (song) => {
-        // dispatch(deletePlaylistSong(playlistId, song.id))
+        dispatch(deletePlaylistSong(playlistId, song.id))
         
         // const updatedPlaylistSongs = playlistSongs.filter((playlistSong) => playlistSong.id !== song.id);
         // dispatch(updatePlaylist(playlistId, updatedPlaylistSongs));
-        
-        dispatch(updatePlaylist(playlistId, song.id))
+
+        // dispatch(updatePlaylist(playlistId, song.id))
     }
 
     useEffect(() => {
