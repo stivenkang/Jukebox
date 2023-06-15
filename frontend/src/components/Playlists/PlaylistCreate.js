@@ -30,7 +30,6 @@ function PlaylistCreate() {
 
     const albumCovers = songsInPlaylist.slice(0, 4).map(song => {
         const album = albums.find(album => album.id === song.albumId);
-        // debugger
         return album ? album.photoUrl : null;
     });
 
@@ -56,7 +55,6 @@ function PlaylistCreate() {
         setEdit(false);
     }
 
-
     const handleDelete = () => {
         dispatch(deletePlaylist(playlistId))
         history.push('/')
@@ -78,7 +76,6 @@ function PlaylistCreate() {
     // const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     // const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
-
 
     return (
         <div className='playlistCreate'>
