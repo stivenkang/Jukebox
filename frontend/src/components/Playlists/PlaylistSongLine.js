@@ -6,7 +6,7 @@ import { fetchPlaylist, updatePlaylist } from '../../store/playlist';
 import { deletePlaylistSong } from '../../store/playlistSong';
 import './Playlist.css';
 
-function PlaylistSongLine({song}) {
+function PlaylistSongLine({song, index}) {
     const history = useHistory();
     const dispatch = useDispatch();
     const { playlistId } = useParams();
@@ -14,6 +14,7 @@ function PlaylistSongLine({song}) {
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
     // const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
+    const playlistSongs = useSelector(state => state.playlists[playlistId].playlistSongs ? state.playlists[playlistId].playlistSongs : []);
 
     const artistName = artists.find(artist => artist.id === song.artistId)?.name;
     const album = albums.find(album => album.id === song.albumId);
@@ -22,8 +23,9 @@ function PlaylistSongLine({song}) {
         dispatch(receiveCurrentSong(song));
     }
 
-    const handleRemoveClick = (song) => {
-        dispatch(deletePlaylistSong(playlistId, song.id))
+    const handleRemoveClick = () => {
+        // console.log(song)
+        dispatch(deletePlaylistSong(playlistSongs[index].id))
         
         // const updatedPlaylistSongs = playlistSongs.filter((playlistSong) => playlistSong.id !== song.id);
         // dispatch(updatePlaylist(playlistId, updatedPlaylistSongs));

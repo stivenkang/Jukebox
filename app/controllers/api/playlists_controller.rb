@@ -38,7 +38,7 @@ class Api::PlaylistsController < ApplicationController
         @playlist = Playlist.find_by(id: params[:id])
 
         if @playlist.destroy
-
+            render :show
         else
             render json: { errors: @playlist.errors.full_messages }, status: 422
         end

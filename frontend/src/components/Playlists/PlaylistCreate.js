@@ -24,7 +24,7 @@ function PlaylistCreate() {
         const currPlaylist = state.playlists[playlistId]
         return currPlaylist ? Object.values(currPlaylist.playlistSongs) : [];
     });
-    const playlistSongIds = playlistSongs.map(playlistSong => playlistSong.song_id);
+    const playlistSongIds = playlistSongs.map(playlistSong => playlistSong?.song_id);
     const songsInPlaylist = songs.filter(song => playlistSongIds.includes(song.id));
     const albumCovers = songsInPlaylist.slice(0, 4).map(song => {
         const album = albums.find(album => album.id === song.albumId);
@@ -93,7 +93,7 @@ function PlaylistCreate() {
                                 type='text'
                                 value={playlistTitle}
                                 onChange={handlePlaylistTitleChange}
-                                // placeholder='New Playlist #{playlistId}'
+                                placeholder='New Title'
                             />
                             <button type='submit'>Save</button>
                         </form>
@@ -119,13 +119,8 @@ function PlaylistCreate() {
                 <div className='dkdk'>
                     {songsInPlaylist.map((song, index) => (
                         <div className='dk' key={index}>
-                            {/* <p className='plSongsIndex'>{index + 1}</p>
-                            <PlaylistResLine key={song} song={song} /> */}
-
-                            {/* <p className='plSongsIndex'>{index + 1} {song.title}</p> */}
-
                             <p className='plSongsIndex'>{index + 1}</p>
-                            <PlaylistSongLine key={song} song={song} />
+                            <PlaylistSongLine key={song} index={index} song={song} />
                         </div>
                     ))}
                 </div>
