@@ -26,10 +26,6 @@ function PlaylistResLine({song}) {
         dispatch(createPlaylistSong(playlistId, song.id))
     }
 
-    // useEffect(() => {
-    //     dispatch(fetchPlaylist(playlistId))
-    // }, [dispatch])
-
     return (
         <div className='plAdd'>
             {location.pathname === `/playlists/${playlistId}` ? (

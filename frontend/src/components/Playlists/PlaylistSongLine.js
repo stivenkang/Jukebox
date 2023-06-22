@@ -10,13 +10,29 @@ function PlaylistSongLine({song, index}) {
     const dispatch = useDispatch();
     const { playlistId } = useParams();
 
-    const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
-    const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
-    // const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
-    const playlistSongs = useSelector(state => state.playlists[playlistId].playlistSongs ? state.playlists[playlistId].playlistSongs : []);
+    const artists = useSelector((state) => state.artists ? Object.values(state.artists) : []);
+    const albums = useSelector((state) => state.albums ? Object.values(state.albums) : []);
+    // const songs = useSelector((state) => state.songs ? Object.values(state.songs) : []);
+    const playlistSongs = useSelector((state) => state.playlists[playlistId].playlistSongs ? state.playlists[playlistId].playlistSongs : []);
 
-    const artistName = artists.find(artist => artist.id === song.artistId)?.name;
-    const album = albums.find(album => album.id === song.albumId);
+    const artist = artists.find((artist) => artist.id === song.artistId);
+    const artistName = artist ? artist.name : null;
+
+    // const artistName = artists.find(artist => {
+    //     if (!artist) {
+    //         return null;
+    //     }
+    //     // debugger
+    //     // return artist.id === song.artistId?.name;
+
+    //     if (artist.id === song.artistId) {
+    //         return artist.name;
+    //     }
+    //     // debugger
+    //     // return null
+    // });
+
+    const album = albums.find((album) => album.id === song.albumId);
     
     const handleClick = (song) => {
         dispatch(receiveCurrentSong(song));
@@ -26,13 +42,16 @@ function PlaylistSongLine({song, index}) {
         dispatch(deletePlaylistSong(playlistSongs[index].id))
     }
 
+    // if (!artists || !albums) {return null}
+
 
     return (
         <div className='plAdd'>
             <img className='plAddImg' src={album?.photoUrl || ''} alt='Album Cover' />
             <div className='plSInfo' onClick={() => handleClick(song)}>
                 <p className='plSTitle'>{song?.title}</p>
-                <p className='plSArtist'>{artistName}</p>                
+                <p className='plSArtist'>{artistName}</p>
+                {/* <p className='plSArtist'>{artistName ? artistName[0] : null}</p> */}
             </div>
             <div className='plSAlbumInfo' onClick={(e) => history.push(`/albums/${album.id}`)}>
                 <p className='plSAlbum'>{album?.title || ''}</p>

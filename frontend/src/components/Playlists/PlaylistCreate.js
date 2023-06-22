@@ -20,6 +20,7 @@ function PlaylistCreate() {
     // const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     // const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : []);
     const playlist = useSelector((state) => state.playlists[playlistId])
+    
     const playlistSongs = useSelector(state => {
         const currPlaylist = state.playlists[playlistId]
         return currPlaylist ? Object.values(currPlaylist.playlistSongs) : [];
@@ -29,6 +30,10 @@ function PlaylistCreate() {
     const songsInPlaylist = playlistSongIds.map(playlistSongId => songs.find(song => song.id === playlistSongId));
 
     const albumCovers = songsInPlaylist.slice(0, 4).map(song => {
+        if (!song) {
+            return null;
+        }
+        
         const album = albums.find(album => album.id === song.albumId);
         return album ? album.photoUrl : null;
     });
@@ -76,6 +81,8 @@ function PlaylistCreate() {
     // const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     // const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
+
+    if (!songs || !albums) {return null}
 
     return (
         <div className='playlistCreate'>
