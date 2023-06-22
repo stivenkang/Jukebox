@@ -25,9 +25,12 @@ function PlaylistCreate() {
         const currPlaylist = state.playlists[playlistId]
         return currPlaylist ? Object.values(currPlaylist.playlistSongs) : [];
     });
-    const playlistSongIds = playlistSongs.map(playlistSong => playlistSong?.song_id);
-    // const songsInPlaylist = songs.filter(song => playlistSongIds.includes(song.id));
-    const songsInPlaylist = playlistSongIds.map(playlistSongId => songs.find(song => song.id === playlistSongId));
+    // const playlistSongIds = playlistSongs.map(playlistSong => playlistSong?.song_id);
+    // // const songsInPlaylist = songs.filter(song => playlistSongIds.includes(song.id));
+    // const songsInPlaylist = playlistSongIds.map(playlistSongId => songs.find(song => song.id === playlistSongId));
+    
+    const songsInPlaylist = playlistSongs.map(playlistSong => songs.find(song => song.id === playlistSong));
+
 
     const albumCovers = songsInPlaylist.slice(0, 4).map(song => {
         if (!song) {
@@ -81,7 +84,7 @@ function PlaylistCreate() {
     // const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     // const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
-
+    
     if (!songs || !albums) {return null}
 
     return (

@@ -1,6 +1,9 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchPlaylists } from '../../store/playlist';
+import { fetchArtists } from "../../store/artist";
+import { fetchAlbums } from "../../store/album";
+import { fetchSongs } from '../../store/song';
 import PlaylistIndexItem from './PlaylistIndexItem';
 import './Playlist.css';
 
@@ -10,6 +13,9 @@ function PlaylistIndex() {
 
     useEffect(() => {
         dispatch(fetchPlaylists())
+        dispatch(fetchArtists())
+        dispatch(fetchAlbums())
+        dispatch(fetchSongs())
     }, []);
 
     return (
