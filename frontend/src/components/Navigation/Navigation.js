@@ -9,7 +9,7 @@ import "./Navigation.css";
 
 function Navigation() {
   const location = useLocation();
-  // const history = useHistory();
+  const history = useHistory();
   const sessionUser = useSelector((state) => state.session.user);
 
   let searchBar = null;
@@ -22,8 +22,9 @@ function Navigation() {
     sessionLinks = (
       <>
         <div className="navTop">
-          <NavLink className='navPrev' to='#'>{'<'}</NavLink>
-          <NavLink className='navNext' to='#'>{'>'}</NavLink>
+          <NavLink className='navPrev' to='#' onClick={() => history.goBack()}>{'<'}</NavLink>
+          <NavLink className='navNext' to='#' onClick={() => history.goForward()}>{'>'}</NavLink>
+
           <div className="searchFunc">
             {searchBar}
           </div>
@@ -67,12 +68,6 @@ function Navigation() {
 
   return (
     <div>
-      {/* {history && (
-        <>
-        <button className='navPrev' onClick={() => history.goBack()}>{'<'}</button>
-        <button className='navNext' onClick={() => history.goForward()}>{'>'}</button>
-        </>
-      )} */}
       {sessionLinks}
     </div>
   );

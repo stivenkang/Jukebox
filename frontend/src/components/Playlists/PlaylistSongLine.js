@@ -12,11 +12,11 @@ function PlaylistSongLine({song, index}) {
 
     const artists = useSelector((state) => state.artists ? Object.values(state.artists) : []);
     const albums = useSelector((state) => state.albums ? Object.values(state.albums) : []);
-    // const songs = useSelector((state) => state.songs ? Object.values(state.songs) : []);
+    const songs = useSelector((state) => state.songs ? Object.values(state.songs) : []);
     const playlistSongs = useSelector((state) => state.playlists[playlistId].playlistSongs ? state.playlists[playlistId].playlistSongs : []);
 
-    const artist = artists.find((artist) => artist.id === song.artistId);
-    const artistName = artist ? artist.name : null;
+    // const artist = artists.find((artist) => artist.id === song.artistId);
+    // const artistName = artist ? artist.name : null;
 
     // const artistName = artists.find(artist => {
     //     if (!artist) {
@@ -32,6 +32,8 @@ function PlaylistSongLine({song, index}) {
     //     // return null
     // });
 
+    const artistName = artists && songs ? artists.find(artist => artist.id === song.artistId)?.name || null : null;
+
     const album = albums.find((album) => album.id === song.albumId);
     
     const handleClick = (song) => {
@@ -42,7 +44,7 @@ function PlaylistSongLine({song, index}) {
         dispatch(deletePlaylistSong(playlistSongs[index].id))
     }
 
-    // if (!artists || !albums) {return null}
+    if (!artists || !albums || !songs) {return null}
 
 
     return (

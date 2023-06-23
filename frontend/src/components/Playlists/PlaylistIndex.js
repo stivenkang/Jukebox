@@ -16,7 +16,7 @@ function PlaylistIndex() {
         dispatch(fetchArtists())
         dispatch(fetchAlbums())
         dispatch(fetchSongs())
-    }, []);
+    }, [dispatch]);
 
     return (
         <div className='playlistPageBody'>
