@@ -65,6 +65,15 @@
     padding-left: 60px;
 }
 
+.songResult {
+    display: flex;
+    align-items: center;
+}
+
+.songResultIndex {
+    margin-right: 20px;
+}
+
 .songInfo {
     
 }

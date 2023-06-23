@@ -1,18 +1,15 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
 import './SearchBar.css'
 import { fetchArtists } from "../../store/artist";
 import { fetchAlbums } from "../../store/album";
 import { fetchSongs } from "../../store/song";
-import { receiveCurrentSong } from "../../store/currentSong";
 import AlbumIndexItem from "../Albums/AlbumIndexItem";
 import ArtistIndexItem from "../ArtistsIndex/ArtistsIndexItem";
 import PlaylistResLine from '../Playlists/PlaylistResLine';
 
 function SearchBar() {
     const dispatch = useDispatch();
-    // const history = useHistory();
     const [searchValue, setSearchValue] = useState("");
 
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
@@ -32,10 +29,6 @@ function SearchBar() {
     const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
-
-    // const handleClick = (song) => {
-    //     dispatch(receiveCurrentSong(song));
-    // }
 
     
     return (
@@ -64,9 +57,9 @@ function SearchBar() {
                                     <div className='searchSongsRes'>
                                         <div className='searchType'>Songs</div>
                                         <div className='songResults'>
-                                            {searchSongs.slice(0, 4).map((song) => (
-                                                <ul>
-                                                    {/* <li className='songInfo' key={song.id} onClick={() => handleClick(song)}>{song.title}</li> */}
+                                            {searchSongs.slice(0, 4).map((song, index) => (
+                                                <ul className='songResult'>
+                                                    <p className='songResultIndex'>{index + 1}</p>
                                                     <PlaylistResLine song={song} />
                                                 </ul>
                                             ))}
@@ -82,11 +75,7 @@ function SearchBar() {
                                     <div className='results'>
                                         {searchArtists.map((artist) => (
                                             <ArtistIndexItem id='artistIndexItem' key={artist.id} artist={artist} />
-                                            // <ul key={artist.id}>
-                                            //     <p>{artist.name}</p>
-                                            //     {/* <p>{artist}</p> */}
-                                            // </ul>
-                                            ))}
+                                        ))}
                                     </div>
                                 </div>
                             }
@@ -97,10 +86,7 @@ function SearchBar() {
                                     <div className='results'>
                                         {searchAlbums.map((album) => (
                                             <AlbumIndexItem id='albumIndexItem' key={album.id} album={album} />
-                                            // <ul key={album.id}>
-                                            //     <p>{album.title}</p>
-                                            // </ul>
-                                            ))}
+                                        ))}
                                     </div>
                                 </div>
                             }

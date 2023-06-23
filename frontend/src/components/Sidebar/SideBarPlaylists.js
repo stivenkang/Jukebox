@@ -1,18 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { fetchPlaylist } from '../../store/playlist';
 import './SideBar.css';
 
 function SideBarOptions() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user)
     const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : []);
-
-    // useEffect(() => {
-    //     dispatch(fetchPlaylist(playlistId))
-    // }, []);
 
     if (!sessionUser) {
         return null;
