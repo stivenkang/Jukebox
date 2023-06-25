@@ -52,7 +52,7 @@ function Navigation() {
   } else {
     sessionLinks = (
       <>
-        <div className="navTop">
+        <div className="navTopLoggedOut">
           <NavLink className="navSignup" to="/signup">
             Sign Up
           </NavLink>
