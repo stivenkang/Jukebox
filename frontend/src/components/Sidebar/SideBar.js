@@ -18,18 +18,19 @@ function SideBar() {
     }, [dispatch]);
 
     const handleCreatePlaylist = async () => {
-        // const highestId = Math.max(playlists.map((playlist) => playlist.id));
-        // const nextId = highestId >= 0 ? highestId + 1 : 1;
-
         // code below takes into account if the playlists array is empty ... supposedly
-        // const highestId = playlists.reduce((maxId, playlist) => Math.max(maxId, playlist.id), 0);
-        // const nextId = highestId + 1;
+        // need to test by deleting all playlists and see if the newly created playlist is 1
+        const highestId = playlists.reduce((maxId, playlist) => Math.max(maxId, playlist.id), 0);
+        const nextId = highestId + 1;
 
-        const playlistIds = playlists.map((playlist) => playlist.id);
-        const maxId = Math.max(...playlistIds);
-        const nextId = maxId >= 0 ? maxId + 1 : 1;
+        // const playlistIds = playlists.map((playlist) => playlist.id);
+        // const maxId = Math.max(...playlistIds);
+        // const nextId = maxId >= 0 ? maxId + 1 : 1;
 
         // const nextId = playlists.length + 1;
+
+        // const maxId = playlists.length > 0 ? playlists.reduce((maxId, playlist) => Math.max(maxId, playlist.id), 0) : -1;
+        // const nextId = maxId + 1;
 
         const playlist = {
             id: nextId,
@@ -37,12 +38,12 @@ function SideBar() {
             authorId: sessionUser.id,
             // playlistSongIds: [],
         };
-        const newPlaylist = await dispatch(createPlaylist(playlist));
         // debugger
+        const newPlaylist = await dispatch(createPlaylist(playlist));
         history.push(`/playlists/${newPlaylist.playlist.id}`);
 
-        // await dispatch(createPlaylist(playlist));
-        // history.push(`/playlists/${playlist.id}`);
+        // await dispatch(createPlaylist(playlist))
+        // history.push(`/playlists/${playlist.id}`)
     }
 
     let sessionLinks;
@@ -55,7 +56,6 @@ function SideBar() {
                         <span style={{marginLeft: '15px'}}>Create Playlist</span>
                     </div>                  
                 </div>
-                {/* <SideBarPlaylists /> */}
             </div>
             
         );

@@ -43,13 +43,6 @@ export const fetchPlaylist = (playlistId) => async dispatch => {
     // }
 }
 
-// fetching playlist songs
-// export const fetchPLSongs = (playlistId) => async dispatch => {
-//     const res = await fetch(`/api/playlists/${playlistId}/playlistSongs`)
-//     const data = await res.json()
-//     return dispatch(fetchPlaylistSongs(data))
-// }
-
 export const createPlaylist = (playlist) => async dispatch => {
     const res = await csrfFetch(`/api/playlists`, {
         method: 'POST',
@@ -109,7 +102,6 @@ const playlistsReducer = (state={}, action) => {
             delete newState[action.playlistId]
             return newState;
         case ADD_PLAYLIST_SONG:
-            debugger
             newState[action.playlistSong.playlistSong.playlistId].playlistSongs.push(action.playlistSong.playlistSong)
             return newState;
         case REMOVE_PLAYLIST_SONG:
