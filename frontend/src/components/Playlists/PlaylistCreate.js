@@ -25,12 +25,7 @@ function PlaylistCreate() {
         const currPlaylist = state.playlists[playlistId]
         return currPlaylist ? Object.values(currPlaylist.playlistSongs) : [];
     });
-    // const playlistSongIds = playlistSongs.map(playlistSong => playlistSong?.song_id);
-    // // const songsInPlaylist = songs.filter(song => playlistSongIds.includes(song.id));
-    // const songsInPlaylist = playlistSongIds.map(playlistSongId => songs.find(song => song.id === playlistSongId));
-
     const songsInPlaylist = playlistSongs.map(playlistSong => songs.find(song => song.id === playlistSong));
-
 
     const albumCovers = songsInPlaylist.slice(0, 4).map(song => {
         if (!song) {
@@ -40,8 +35,6 @@ function PlaylistCreate() {
         const album = albums.find(album => album.id === song.albumId);
         return album ? album.photoUrl : null;
     });
-
-    // debugger
 
     const [searchValue, setSearchValue] = useState("");
     const [playlistTitle, setPlaylistTitle] = useState("");

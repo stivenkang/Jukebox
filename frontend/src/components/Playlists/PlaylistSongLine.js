@@ -11,29 +11,13 @@ function PlaylistSongLine({song, index}) {
     const { playlistId } = useParams();
 
     const artists = useSelector((state) => state.artists ? Object.values(state.artists) : []);
-    const albums = useSelector((state) => state.albums ? Object.values(state.albums) : []);
     const songs = useSelector((state) => state.songs ? Object.values(state.songs) : []);
+    const albums = useSelector((state) => state.albums ? Object.values(state.albums) : []);
     const playlistSongs = useSelector((state) => state.playlists[playlistId].playlistSongs ? state.playlists[playlistId].playlistSongs : []);
 
-    // const artist = artists.find((artist) => artist.id === song.artistId);
-    // const artistName = artist ? artist.name : null;
-
-    // const artistName = artists.find(artist => {
-    //     if (!artist) {
-    //         return null;
-    //     }
-    //     // debugger
-    //     // return artist.id === song.artistId?.name;
-
-    //     if (artist.id === song.artistId) {
-    //         return artist.name;
-    //     }
-    //     // debugger
-    //     // return null
-    // });
-
-    const artistName = artists && songs ? artists.find(artist => artist.id === song.artistId)?.name || null : null;
-
+    const artist = artists.find((artist) => artist.id === song.artistId);
+    const artistName = artist ? artist.name : null;
+    
     const album = albums.find((album) => album.id === song.albumId);
     
     const handleClick = (song) => {
@@ -53,7 +37,6 @@ function PlaylistSongLine({song, index}) {
             <div className='plSInfo' onClick={() => handleClick(song)}>
                 <p className='plSTitle'>{song?.title}</p>
                 <p className='plSArtist'>{artistName}</p>
-                {/* <p className='plSArtist'>{artistName ? artistName[0] : null}</p> */}
             </div>
             <div className='plSAlbumInfo' onClick={(e) => history.push(`/albums/${album.id}`)}>
                 <p className='plSAlbum'>{album?.title || ''}</p>

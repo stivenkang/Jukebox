@@ -116,7 +116,7 @@
     font-weight: 800;
     font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 
-    margin: 10px 0px 0px 0px;
+    margin: 40px 0px 0px 0px;
 }
 
 .plDelete {
@@ -217,11 +217,11 @@
 }
 
 .plAddImg {
-    width: 30px;
-    height: 30px;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .plSInfo {
