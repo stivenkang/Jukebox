@@ -19,13 +19,23 @@ function PlaylistCreate() {
     const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     // const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : []);
-    const playlist = useSelector((state) => state.playlists[playlistId])
+    const playlist = useSelector((state) => state.playlists[playlistId] ? state.playlists[playlistId] : {})
     
     const playlistSongs = useSelector(state => {
         const currPlaylist = state.playlists[playlistId]
         return currPlaylist ? Object.values(currPlaylist.playlistSongs) : [];
+        // if (currPlaylist) {
+        //     return Object.values(currPlaylist.playlistSongs);
+        // } else {
+        //     return [];
+        // }
     });
-    const songsInPlaylist = playlistSongs.map(playlistSong => songs.find(song => song.id === playlistSong));
+    // const songsInPlaylist = playlistSongs.map(playlistSong => songs.find(song => song.id === playlistSong));
+    const songsInPlaylist = playlistSongs.map(playlistSong => {
+        if (songs.length > 0) {
+            return songs.find(song => song.id === playlistSong)
+        }
+    });
 
     const albumCovers = songsInPlaylist.slice(0, 4).map(song => {
         if (!song) {
@@ -64,24 +74,43 @@ function PlaylistCreate() {
     }
 
     useEffect(() => {
-        dispatch(fetchArtists())
-        dispatch(fetchAlbums())
-        dispatch(fetchSongs())
-        dispatch(fetchPlaylist(playlistId))
+        if (Object.values(artists).length === 0) {
+            dispatch(fetchArtists())   
+        }
+        if (Object.values(albums).length === 0) {
+            dispatch(fetchAlbums())   
+        }
+        if (Object.values(songs).length === 0) {
+            dispatch(fetchSongs())   
+        }
+        if (Object.values(playlist).length === 0) {
+            dispatch(fetchPlaylist(playlistId))
+        }
+
+        // dispatch(fetchArtists())
+        // dispatch(fetchAlbums())
+        // dispatch(fetchSongs())
+        // dispatch(fetchPlaylist(playlistId))
     }, [dispatch, playlistId]);
 
+    // useEffect(() => {
+    //     if (playlist) {
+    //         setPlaylistTitle(playlist.title);
+    //     }
+    // }, [playlist]);
+
     useEffect(() => {
-        if (playlist) {
+        if (Object.values(playlist).length > 0 && !playlistTitle) {
             setPlaylistTitle(playlist.title);
         }
-    }, [playlist]);
+    }, [playlist, playlistTitle]);
 
     // const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     // const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     
     if (!songs || !albums || !artists) {return null}
-
+    // debugger
     return (
         <div className='playlistCreate'>
             <div className='playlistCreateHead'>

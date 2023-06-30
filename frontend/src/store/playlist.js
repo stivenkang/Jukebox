@@ -1,4 +1,5 @@
 import csrfFetch from './csrf';
+import { merge } from 'lodash';
 import { ADD_PLAYLIST_SONG, REMOVE_PLAYLIST_SONG } from './playlistSong';
 
 export const RECEIVE_PLAYLISTS = 'playlists/receivePlaylists'
@@ -82,7 +83,8 @@ export const deletePlaylist = (playlistId) => async dispatch => {
 }
 
 const playlistsReducer = (state={}, action) => {
-    const newState = {...state}
+    // const newState = {...state}
+    const newState = merge({}, state)
 
     switch(action.type) {
         case RECEIVE_PLAYLISTS:
@@ -93,10 +95,7 @@ const playlistsReducer = (state={}, action) => {
             return newState;
         case RECEIVE_PLAYLIST:
             const playlistId = action.payload.playlist.id;
-            newState[playlistId] = {
-                ...newState[playlistId],
-                // ...action.payload.playlist
-            };
+            newState[playlistId] = action.payload.playlist
             return newState;
         case REMOVE_PLAYLIST:
             delete newState[action.playlistId]

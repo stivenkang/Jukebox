@@ -15,10 +15,10 @@ function PlaylistSongLine({song, index}) {
     const albums = useSelector((state) => state.albums ? Object.values(state.albums) : []);
     const playlistSongs = useSelector((state) => state.playlists[playlistId].playlistSongs ? state.playlists[playlistId].playlistSongs : []);
 
-    const artist = artists.find((artist) => artist.id === song.artistId);
+    const artist = artists.find((artist) => artist.id === song?.artistId);
     const artistName = artist ? artist.name : null;
     
-    const album = albums.find((album) => album.id === song.albumId);
+    const album = albums.find((album) => album.id === song?.albumId);
     
     const handleClick = (song) => {
         dispatch(receiveCurrentSong(song));
