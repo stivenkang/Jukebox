@@ -24,11 +24,6 @@ function PlaylistCreate() {
     const playlistSongs = useSelector(state => {
         const currPlaylist = state.playlists[playlistId]
         return currPlaylist ? Object.values(currPlaylist.playlistSongs) : [];
-        // if (currPlaylist) {
-        //     return Object.values(currPlaylist.playlistSongs);
-        // } else {
-        //     return [];
-        // }
     });
     // const songsInPlaylist = playlistSongs.map(playlistSong => songs.find(song => song.id === playlistSong));
     const songsInPlaylist = playlistSongs.map(playlistSong => {
@@ -93,24 +88,19 @@ function PlaylistCreate() {
         // dispatch(fetchPlaylist(playlistId))
     }, [dispatch, playlistId]);
 
-    // useEffect(() => {
-    //     if (playlist) {
-    //         setPlaylistTitle(playlist.title);
-    //     }
-    // }, [playlist]);
-
     useEffect(() => {
-        if (Object.values(playlist).length > 0 && !playlistTitle) {
+        if (playlist) {
             setPlaylistTitle(playlist.title);
         }
-    }, [playlist, playlistTitle]);
+        // debugger
+    }, [playlist]);
 
     // const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     // const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     
     if (!songs || !albums || !artists) {return null}
-    // debugger
+
     return (
         <div className='playlistCreate'>
             <div className='playlistCreateHead'>
@@ -132,7 +122,6 @@ function PlaylistCreate() {
                             <button type='submit'>Save</button>
                         </form>
                     ) : (
-                        // <h1 onClick={handleTitleClick}>New Playlist #{playlistId}</h1>
                         <h1 onClick={handleTitleClick}>{playlistTitle}</h1>
                     )}
 
