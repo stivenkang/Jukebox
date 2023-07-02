@@ -1,12 +1,23 @@
 import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './PlayBar.css';
+
+// import { playNextSong, playPreviousSong } from '../../store/currentSong';
 
 function PlayBar() {
     const currentSong = useSelector((state) => state.currentSong);
     const songArtist = useSelector(state => state.artists[currentSong.artistId]);
     const songAlbum = useSelector(state => state.albums[currentSong.albumId]);
+    const dispatch = useDispatch();
+
+    // const handleNextSong = () => {
+    //     dispatch(playNextSong()); // Dispatch the action to play the next song
+    // };
+    
+    // const handlePreviousSong = () => {
+    //     dispatch(playPreviousSong()); // Dispatch the action to play the previous song
+    // };
 
     if (!currentSong || !songArtist) {
         return (
@@ -42,6 +53,10 @@ function PlayBar() {
                     defaultCurrentTime
                     defaultDuration
                     disableRemotePlayback={true}
+
+                    // autoPlayAfterSrcChange
+                    // onClickNext={handleNextSong}
+                    // onClickPrevious={handlePreviousSong}
                 />
             </div>
         </div>
