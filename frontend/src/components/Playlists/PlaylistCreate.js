@@ -114,12 +114,14 @@ function PlaylistCreate() {
                     {edit ? (
                         <form onSubmit={handleUpdate}>
                             <input
+                                className='titleChange'
                                 type='text'
                                 value={playlistTitle}
                                 onChange={handlePlaylistTitleChange}
+                                style={{ fontSize: '25px' }}
                                 // placeholder='New Title'
                             />
-                            <button type='submit'>Save</button>
+                            <button style={{ fontSize: '25px', color: 'grey' }} type='submit'>Save</button>
                         </form>
                     ) : (
                         <h1 onClick={handleTitleClick}>{playlistTitle}</h1>
