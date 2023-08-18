@@ -50,29 +50,24 @@
 .searchFunc {
     display: flex;
     justify-content: center;
-    margin-right: 450px;
+
+    /* margin-right: 450px; */
+    padding-right: 600px;
 }
 
 .icons {
     display: flex;
-    justify-content: flex-end;
-    /* position: relative; */
-    /* align-items: center; */
-    /* margin-right: 20px; */
+    align-items: center;
+
+    /* position: absolute; */
 }
 
 #navLinkedIn {
-    /* position: relative;
-    display: flex;
-    justify-content: flex-end; */
     padding: 0px 10px 0px 10px;
     color: white;
 }
 
 #navGithub {
-    /* position: relative;
-    display: flex;
-    justify-content: flex-end; */
     padding: 0px 10px 0px 10px;
     color: white;
 }
@@ -105,7 +100,7 @@
 .profileButton {
     display: flex;
     /* justify-content: flex-end; */
-    margin-left: 20px;
+    margin-left: 10px;
     margin-right: 10px;
 }
 
@@ -118,8 +113,6 @@
     align-items: center; */
 
     margin-right: 20px;
-    /* height: 50px; */
-
     color: white;
 }
 
@@ -129,5 +122,11 @@
 
 .profile-dropdown {
     color: white;
+    width: 100px;
+}
+
+.logout {
+    color: white;
+    width: 60px;
 }
 
