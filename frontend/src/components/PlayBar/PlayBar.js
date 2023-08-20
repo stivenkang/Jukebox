@@ -26,7 +26,7 @@ function PlayBar() {
                     <AudioPlayer
                         src={null}
                         showFilledProgress
-                        showSkipControls
+                        // showSkipControls
                         showFilledVolume
                         defaultCurrentTime
                         defaultDuration
@@ -48,7 +48,7 @@ function PlayBar() {
                     src={currentSong.songUrl}
                     autoPlay
                     showFilledProgress
-                    showSkipControls
+                    // showSkipControls
                     showFilledVolume
                     defaultCurrentTime
                     defaultDuration
