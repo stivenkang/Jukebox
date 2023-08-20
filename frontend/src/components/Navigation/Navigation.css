@@ -53,19 +53,18 @@
     align-items: center;
     width: 100%;
 
-    margin-right: 400px;
-    padding-left: 50px;
+    margin-right: 445px;
+    /* padding-left: 50px; */
     /* padding-right: 400px; */
 }
 
 .icons {
     display: flex;
     align-items: center;
-    margin-right: 100px;
-    /* padding-right: 150px; */
+    /* margin-right: 100px; */
+    padding-right: 100px;
+    
     /* flex-grow: 1; */
-
-    /* position: absolute; */
 }
 
 #navLinkedIn {
