@@ -49,15 +49,21 @@
 
 .searchFunc {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    align-items: center;
+    width: 100%;
 
-    /* margin-right: 450px; */
-    padding-right: 600px;
+    margin-right: 400px;
+    padding-left: 50px;
+    /* padding-right: 400px; */
 }
 
 .icons {
     display: flex;
     align-items: center;
+    margin-right: 100px;
+    /* padding-right: 150px; */
+    /* flex-grow: 1; */
 
     /* position: absolute; */
 }
@@ -99,7 +105,6 @@
 
 .profileButton {
     display: flex;
-    /* justify-content: flex-end; */
     margin-left: 10px;
     margin-right: 10px;
 }
