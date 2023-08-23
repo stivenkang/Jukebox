@@ -4,6 +4,13 @@
     padding-bottom: 15px;
 }
 
+.logoImgS {
+    width: 12%;
+    height: 80px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+}
+
 .signInfo {
     display: flex;
     justify-content: center;

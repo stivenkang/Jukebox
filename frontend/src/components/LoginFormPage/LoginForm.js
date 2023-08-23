@@ -39,7 +39,7 @@ function LoginFormPage() {
     return (
         <div className="outer">
             <div className="loginLogo">
-                <img src={logo} alt='' />
+                <img className='logoImgL' src={logo} alt='' />
             </div>
             <a href="https://www.linkedin.com/in/stiven-kang-69a9ab258/">
                 <button type="linkedIn" className="linkedInButton">LINKEDIN</button>

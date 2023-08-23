@@ -41,7 +41,7 @@ function SignupFormPage() {
   return (
     <div>
         <div className="signinLogo">
-            <img src={logo} alt='' />
+            <img className='logoImgS' src={logo} alt='' />
         </div>
         <p className="signInfo">Sign up for free to start listening.</p>
         <p className="title">Sign up with your email address</p>
