@@ -46,9 +46,6 @@ function ArtistShowPage() {
                 <div>
                     {artistSongs.slice(0, showMore ? artistSongs.length : 5).map((song, index) => (
                         <ul className='artistSongs'>
-                            {/* <img src={album.photoUrl} alt='' /> */}
-                            {/* <li className='artistSong' key={song.id} onClick={() => handleClick(song)}>{index + 1} {song.title}</li> */}
-
                             <p>{index + 1}</p>
                             <PlaylistResLine song={song} />
                         </ul>
