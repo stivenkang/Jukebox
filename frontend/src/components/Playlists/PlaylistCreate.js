@@ -14,11 +14,11 @@ function PlaylistCreate() {
     const { playlistId } = useParams();
     const dispatch = useDispatch();
     const history = useHistory();
+    
     const sessionUser = useSelector((state) => state.session.user);
     const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
     const albums = useSelector(state => state.albums ? Object.values(state.albums) : []);
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
-    // const playlists = useSelector((state) => state.playlists ? Object.values(state.playlists) : []);
     const playlist = useSelector((state) => state.playlists[playlistId] ? state.playlists[playlistId] : {})
     
     const playlistSongs = useSelector(state => {
@@ -81,25 +81,28 @@ function PlaylistCreate() {
         if (Object.values(playlist).length === 0) {
             dispatch(fetchPlaylist(playlistId))
         }
-
-        // dispatch(fetchArtists())
-        // dispatch(fetchAlbums())
-        // dispatch(fetchSongs())
-        // dispatch(fetchPlaylist(playlistId))
     }, [dispatch, playlistId]);
+    // }, [dispatch, playlistId, artists, albums, songs, playlist]);
+    // code above gets rid of the maximum depth error but also refetches artists, albums, songs... multiple times
+
+    // useEffect(() => {
+    //     // console.log(artists)
+    //     // console.log(albums)
+    //     // console.log(songs)
+    //     // console.log(playlist)
+    // }, [artists, albums, songs, playlist]);
 
     useEffect(() => {
         if (playlist) {
             setPlaylistTitle(playlist.title);
         }
-        // debugger
-    }, [playlist]);
+    }, [dispatch, playlist]);
 
     // const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     // const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     const searchSongs = searchValue !== '' && songs.filter((song) => song.title && song.title.toLowerCase().startsWith(searchValue.toLowerCase()));
     
-    if (!songs || !albums || !artists) {return null}
+    // if (!songs || !albums || !artists) {return null}
 
     return (
         <div className='playlistCreate'>
