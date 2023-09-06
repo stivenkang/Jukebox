@@ -81,16 +81,15 @@ function PlaylistCreate() {
         if (Object.values(playlist).length === 0) {
             dispatch(fetchPlaylist(playlistId))
         }
+
+        // console.log(artists)
+        // console.log(albums)
+        // console.log(songs)
+        // console.log(playlist)
+
     }, [dispatch, playlistId]);
     // }, [dispatch, playlistId, artists, albums, songs, playlist]);
     // code above gets rid of the maximum depth error but also refetches artists, albums, songs... multiple times
-
-    // useEffect(() => {
-    //     // console.log(artists)
-    //     // console.log(albums)
-    //     // console.log(songs)
-    //     // console.log(playlist)
-    // }, [artists, albums, songs, playlist]);
 
     useEffect(() => {
         if (playlist) {

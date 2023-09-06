@@ -57,10 +57,11 @@ export const createPlaylistSong = (playlistId, songId) => async dispatch => {
 }
 
 export const deletePlaylistSong = (playlist_songId) => async dispatch => {
+    debugger
     const res = await csrfFetch(`/api/playlist_songs/${playlist_songId}`, {
         method: 'DELETE',
         headers: {'Content-Type' : 'application/json'},
-        // body: JSON.stringify({playlist_song: {playlistId, songId}})
+        // body: JSON.stringify({playlist_song: {playlistId, playlist_songId}})
     })
 
     if (res.ok) {

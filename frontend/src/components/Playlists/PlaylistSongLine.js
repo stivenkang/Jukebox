@@ -25,7 +25,13 @@ function PlaylistSongLine({song, index}) {
     }
 
     const handleRemoveClick = () => {
-        dispatch(deletePlaylistSong(playlistSongs[index].id))
+        debugger
+        // dispatch(deletePlaylistSong(playlistSongs[index].id))
+        dispatch(deletePlaylistSong(playlistSongs[index]))
+        // dispatch(deletePlaylistSong(playlistId, playlistSongs[index]))
+
+        // want to find and remove the song by its playlistSong id num and not song id num
+        // playlistSongs[index] finds the song id number
     }
 
     if (!artists || !albums || !songs) {return null}

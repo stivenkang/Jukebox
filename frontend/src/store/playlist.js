@@ -101,9 +101,10 @@ const playlistsReducer = (state={}, action) => {
             delete newState[action.playlistId]
             return newState;
         case ADD_PLAYLIST_SONG:
-            newState[action.playlistSong.playlistSong.playlistId].playlistSongs.push(action.playlistSong.playlistSong.songId)
+            newState[action.playlistSong.playlistSong.playlistId].playlistSongs.push(action.playlistSong.playlistSong)
             return newState;
         case REMOVE_PLAYLIST_SONG:
+            debugger
             const playlistArray = newState[action.playlistSongId.playlistSong.playlistId].playlistSongs
             const indexToRemove = playlistArray.findIndex((playlistSong) => playlistSong.song_id === action.playlistSongId.playlistSong.songId)
             playlistArray.splice(indexToRemove, 1)

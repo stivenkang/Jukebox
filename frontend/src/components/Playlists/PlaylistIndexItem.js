@@ -31,7 +31,7 @@ const PlaylistIndexItem = ({playlist}) => {
             </div>
 
             <div className='plIndInfo'>
-                <p>{playlist.title}</p>
+                <p className='plIndInfoTitle'>{playlist.title}</p>
                 <p>By {sessionUser.username}</p>
             </div>
         </div>
