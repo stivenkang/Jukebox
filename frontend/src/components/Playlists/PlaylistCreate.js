@@ -82,20 +82,19 @@ function PlaylistCreate() {
             dispatch(fetchPlaylist(playlistId))
         }
 
-        // console.log(artists)
-        // console.log(albums)
-        // console.log(songs)
-        // console.log(playlist)
-
     }, [dispatch, playlistId]);
-    // }, [dispatch, playlistId, artists, albums, songs, playlist]);
-    // code above gets rid of the maximum depth error but also refetches artists, albums, songs... multiple times
+
+    // useEffect(() => {
+    //     if (playlist) {
+    //         setPlaylistTitle(playlist.title);
+    //     }
+    // }, [dispatch, playlist]);
 
     useEffect(() => {
-        if (playlist) {
+        if (playlist && playlist.title !== playlistTitle) {
             setPlaylistTitle(playlist.title);
         }
-    }, [dispatch, playlist]);
+    }, [playlist, playlistTitle]);
 
     // const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     // const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
