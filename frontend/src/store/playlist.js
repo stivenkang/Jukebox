@@ -89,8 +89,11 @@ const playlistsReducer = (state={}, action) => {
     switch(action.type) {
         case RECEIVE_PLAYLISTS:
             for (const playlist in action.playlists) {
-                const songIds = action.playlists[playlist].playlistSongs.map((playlistSong) => playlistSong.song_id);
-                newState[playlist] = { ...action.playlists[playlist], playlistSongs: songIds };
+                // const songIds = action.playlists[playlist].playlistSongs.map((playlistSong) => playlistSong.song_id);
+                // newState[playlist] = { ...action.playlists[playlist], playlistSongs: songIds };
+                
+                const songInfo = action.playlists[playlist].playlistSongs.map((playlistSong) => playlistSong);
+                newState[playlist] = { ...action.playlists[playlist], playlistSongs: songInfo };
             };  
             return newState;
         case RECEIVE_PLAYLIST:
@@ -101,6 +104,7 @@ const playlistsReducer = (state={}, action) => {
             delete newState[action.playlistId]
             return newState;
         case ADD_PLAYLIST_SONG:
+            debugger
             newState[action.playlistSong.playlistSong.playlistId].playlistSongs.push(action.playlistSong.playlistSong)
             return newState;
         case REMOVE_PLAYLIST_SONG:

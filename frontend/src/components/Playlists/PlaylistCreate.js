@@ -27,9 +27,11 @@ function PlaylistCreate() {
     });
     // const songsInPlaylist = playlistSongs.map(playlistSong => songs.find(song => song.id === playlistSong));
     const songsInPlaylist = playlistSongs.map(playlistSong => {
+        // debugger
         if (songs.length > 0) {
-            return songs.find(song => song.id === playlistSong)
+            return songs.find(song => song.id === playlistSong.song_id)
         }
+        return null;
     });
 
     const albumCovers = songsInPlaylist.slice(0, 4).map(song => {
@@ -83,7 +85,7 @@ function PlaylistCreate() {
         }
 
     }, [dispatch, playlistId]);
-
+    
     // useEffect(() => {
     //     if (playlist) {
     //         setPlaylistTitle(playlist.title);
@@ -94,7 +96,7 @@ function PlaylistCreate() {
         if (playlist && playlist.title !== playlistTitle) {
             setPlaylistTitle(playlist.title);
         }
-    }, [playlist, playlistTitle]);
+    }, [playlist]);
 
     // const searchArtists = searchValue !== '' && artists.filter((artist) => artist.name && artist.name.toLowerCase().startsWith(searchValue.toLowerCase()));
     // const searchAlbums = searchValue !== '' && albums.filter((album) => album.title && album.title.toLowerCase().startsWith(searchValue.toLowerCase()));
