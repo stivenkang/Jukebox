@@ -61,6 +61,8 @@
 
 .playlistCover {
     margin: 0px 0px 0px 0px;
+    width: 100px;
+    height: 100px;
 }
 
 .plIndInfo {
