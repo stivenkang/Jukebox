@@ -11,7 +11,7 @@ const PlaylistIndexItem = ({playlist}) => {
         const currPlaylist = state.playlists[playlist.id]
         return currPlaylist ? Object.values(currPlaylist.playlistSongs) : [];
     });
-    const songsInPlaylist = playlistSongs.map(playlistSong => songs.find(song => song.id === playlistSong));
+    const songsInPlaylist = playlistSongs.map(playlistSong => songs.find(song => song.id === playlistSong.song_id));
 
     const albumCovers = songsInPlaylist.slice(0, 4).map(song => {
         if (!song) {
