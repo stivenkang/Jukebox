@@ -85,12 +85,6 @@ function PlaylistCreate() {
         }
 
     }, [dispatch, playlistId]);
-    
-    // useEffect(() => {
-    //     if (playlist) {
-    //         setPlaylistTitle(playlist.title);
-    //     }
-    // }, [dispatch, playlist]);
 
     useEffect(() => {
         if (playlist && playlist.title !== playlistTitle) {

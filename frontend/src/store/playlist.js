@@ -91,8 +91,16 @@ const playlistsReducer = (state={}, action) => {
             for (const playlist in action.playlists) {
                 // const songIds = action.playlists[playlist].playlistSongs.map((playlistSong) => playlistSong.song_id);
                 // newState[playlist] = { ...action.playlists[playlist], playlistSongs: songIds };
-                
+
+                // debugger
                 const songInfo = action.playlists[playlist].playlistSongs.map((playlistSong) => playlistSong);
+                // songInfo.sort((a, b) => a.playlistSong.id < b.playlistSong.id)
+                // songInfo.sort((a, b) => {
+                //     if ( a.playlistSong.id > b.playlistSong.id) {
+                //         return (b, a)
+                //     }
+                //     // a.playlistSong.id - b.playlistSong.id
+                // });
                 newState[playlist] = { ...action.playlists[playlist], playlistSongs: songInfo };
             };  
             return newState;
@@ -105,7 +113,13 @@ const playlistsReducer = (state={}, action) => {
             return newState;
         case ADD_PLAYLIST_SONG:
             debugger
-            newState[action.playlistSong.playlistSong.playlistId].playlistSongs.push(action.playlistSong.playlistSong)
+            const newSong = {}
+            newSong.id = action.playlistSong.playlistSong.id
+            newSong.playlist_id = action.playlistSong.playlistSong.playlistId
+            newSong.song_id = action.playlistSong.playlistSong.songId
+            newState[action.playlistSong.playlistSong.playlistId].playlistSongs.push(newSong)
+
+            // newState[action.playlistSong.playlistSong.playlistId].playlistSongs.push(action.playlistSong.playlistSong)
             return newState;
         case REMOVE_PLAYLIST_SONG:
             const playlistArray = newState[action.playlistSongId.playlistSong.playlistId].playlistSongs
