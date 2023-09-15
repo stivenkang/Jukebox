@@ -26,8 +26,7 @@ function PlaylistCreate() {
         return currPlaylist ? Object.values(currPlaylist.playlistSongs) : [];
     });
     // const songsInPlaylist = playlistSongs.map(playlistSong => songs.find(song => song.id === playlistSong));
-    const songsInPlaylist = playlistSongs.map(playlistSong => {
-        // debugger
+    const songsInPlaylist = playlistSongs.map((playlistSong) => {
         if (songs.length > 0) {
             return songs.find(song => song.id === playlistSong.song_id)
         }

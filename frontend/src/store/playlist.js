@@ -92,15 +92,13 @@ const playlistsReducer = (state={}, action) => {
                 // const songIds = action.playlists[playlist].playlistSongs.map((playlistSong) => playlistSong.song_id);
                 // newState[playlist] = { ...action.playlists[playlist], playlistSongs: songIds };
 
-                // debugger
-                const songInfo = action.playlists[playlist].playlistSongs.map((playlistSong) => playlistSong);
-                // songInfo.sort((a, b) => a.playlistSong.id < b.playlistSong.id)
-                // songInfo.sort((a, b) => {
-                //     if ( a.playlistSong.id > b.playlistSong.id) {
-                //         return (b, a)
-                //     }
-                //     // a.playlistSong.id - b.playlistSong.id
-                // });
+                // const songInfo = action.playlists[playlist].playlistSongs.map((playlistSong) => playlistSong);
+
+                const songInfo = action.playlists[playlist].playlistSongs;
+                songInfo.sort((a,b) => {
+                    return a.id - b.id;
+                })
+
                 newState[playlist] = { ...action.playlists[playlist], playlistSongs: songInfo };
             };  
             return newState;
@@ -112,11 +110,11 @@ const playlistsReducer = (state={}, action) => {
             delete newState[action.playlistId]
             return newState;
         case ADD_PLAYLIST_SONG:
-            debugger
-            const newSong = {}
-            newSong.id = action.playlistSong.playlistSong.id
-            newSong.playlist_id = action.playlistSong.playlistSong.playlistId
-            newSong.song_id = action.playlistSong.playlistSong.songId
+            const newSong = {
+                id: action.playlistSong.playlistSong.id,
+                playlist_id: action.playlistSong.playlistSong.playlistId,
+                song_id: action.playlistSong.playlistSong.songId
+            }
             newState[action.playlistSong.playlistSong.playlistId].playlistSongs.push(newSong)
 
             // newState[action.playlistSong.playlistSong.playlistId].playlistSongs.push(action.playlistSong.playlistSong)
