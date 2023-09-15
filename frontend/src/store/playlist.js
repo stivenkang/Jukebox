@@ -104,6 +104,12 @@ const playlistsReducer = (state={}, action) => {
             return newState;
         case RECEIVE_PLAYLIST:
             const playlistId = action.payload.playlist.id;
+
+            const plSongs = action.payload.playlist.playlistSongs
+            plSongs.sort((a,b) => {
+                return a.id - b.id;
+            })
+
             newState[playlistId] = action.payload.playlist
             return newState;
         case REMOVE_PLAYLIST:
