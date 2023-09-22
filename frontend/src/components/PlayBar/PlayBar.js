@@ -2,22 +2,30 @@ import AudioPlayer from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 import { useSelector, useDispatch } from 'react-redux';
 import './PlayBar.css';
-
-// import { playNextSong, playPreviousSong } from '../../store/currentSong';
+import { playNextSong, playPreviousSong } from '../../store/currentSong';
+import { useLocation } from 'react-router-dom';
 
 function PlayBar() {
+    const dispatch = useDispatch();
     const currentSong = useSelector((state) => state.currentSong);
     const songArtist = useSelector(state => state.artists[currentSong.artistId]);
     const songAlbum = useSelector(state => state.albums[currentSong.albumId]);
-    const dispatch = useDispatch();
 
-    // const handleNextSong = () => {
-    //     dispatch(playNextSong()); // Dispatch the action to play the next song
-    // };
+    const location = useLocation();
+    const playlistId = location.pathname.split("/")[2]
+    const playlist = useSelector(state => {
+        return state.playlists[playlistId]?.playlistSongs
+    });
+    // debugger
+
+    const handleNextSong = () => {
+        // debugger
+        dispatch(playNextSong(currentSong.id, playlist));
+    };
     
-    // const handlePreviousSong = () => {
-    //     dispatch(playPreviousSong()); // Dispatch the action to play the previous song
-    // };
+    const handlePreviousSong = () => {
+        dispatch(playPreviousSong());
+    };
 
     if (!currentSong || !songArtist) {
         return (
@@ -26,7 +34,7 @@ function PlayBar() {
                     <AudioPlayer
                         src={null}
                         showFilledProgress
-                        // showSkipControls
+                        showSkipControls
                         showFilledVolume
                         defaultCurrentTime
                         defaultDuration
@@ -48,15 +56,15 @@ function PlayBar() {
                     src={currentSong.songUrl}
                     autoPlay
                     showFilledProgress
-                    // showSkipControls
+                    showSkipControls
                     showFilledVolume
                     defaultCurrentTime
                     defaultDuration
                     disableRemotePlayback={true}
 
                     // autoPlayAfterSrcChange
-                    // onClickNext={handleNextSong}
-                    // onClickPrevious={handlePreviousSong}
+                    onClickNext={handleNextSong}
+                    onClickPrevious={handlePreviousSong}
                 />
             </div>
         </div>

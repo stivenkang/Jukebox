@@ -1,41 +1,59 @@
-export const RECEIVE_CURRENT_SONG = 'currentSong/RECEIVE_CURRENT_SONG';
+import { merge } from 'lodash';
 
-// export const PLAY_NEXT_SONG = 'currentSong/PLAY_NEXT_SONG';
-// export const PLAY_PREVIOUS_SONG = 'currentSong/PLAY_PREVIOUS_SONG';
+export const RECEIVE_CURRENT_SONG = 'currentSong/RECEIVE_CURRENT_SONG';
+export const PLAY_NEXT_SONG = 'currentSong/PLAY_NEXT_SONG';
+export const PLAY_PREVIOUS_SONG = 'currentSong/PLAY_PREVIOUS_SONG';
+
 
 export const receiveCurrentSong = (songId) => {
     return {
         type: RECEIVE_CURRENT_SONG,
         songId
-    }
+    };
 };
 
-// export const playNextSong = () => {
-//     return {
-//       type: PLAY_NEXT_SONG
-//     };
-// };
+export const playNextSong = (songId, playlist) => {
+    return {
+      type: PLAY_NEXT_SONG,
+      songId,
+      playlist
+    };
+};
   
-// export const playPreviousSong = () => {
-//     return {
-//       type: PLAY_PREVIOUS_SONG
-//     };
-// };
+export const playPreviousSong = (songId) => {
+    return {
+      type: PLAY_PREVIOUS_SONG,
+      songId
+    };
+};
 
 const currentSongReducer = (state={}, action) => {
     // const newState = {...state};
+    const newState = merge({}, state)
+
 
     switch(action.type) {
         case RECEIVE_CURRENT_SONG:
-            return action.songId; // may have to use another useselector the get the song
-        // case PLAY_NEXT_SONG:
-        //     // Logic to find the next song and update the state
-        //     // Update the currentSong state with the ID of the next song
-        //     // Example: return nextSongId;
+            return action.songId;
+        case PLAY_NEXT_SONG:
+            debugger
+            const currSongId = state.id
+            const currPlaylist = action.playlist
+
+            if (!currSongId || !currPlaylist) {
+                return state
+            }
+
+            const currIndex = currPlaylist.findIndex(song => song.id === currSongId)
+
+            if (currIndex === -1 || currIndex === currPlaylist.length - 1) {
+                return state
+            }
+
+            const nextSongId = currPlaylist[currIndex + 1].id;
+
+            return nextSongId;
         // case PLAY_PREVIOUS_SONG:
-        //     // Logic to find the previous song and update the state
-        //     // Update the currentSong state with the ID of the previous song
-        //     // Example: return previousSongId;
         default:
             return state;
     }
