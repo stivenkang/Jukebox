@@ -12,11 +12,10 @@ export const receiveCurrentSong = (songId) => {
     };
 };
 
-export const playNextSong = (songId, playlist) => {
+export const playNextSong = (songId) => {
     return {
       type: PLAY_NEXT_SONG,
-      songId,
-      playlist
+      songId
     };
 };
   
@@ -29,30 +28,34 @@ export const playPreviousSong = (songId) => {
 
 const currentSongReducer = (state={}, action) => {
     // const newState = {...state};
-    const newState = merge({}, state)
-
+    // const newState = merge({}, state)
 
     switch(action.type) {
         case RECEIVE_CURRENT_SONG:
             return action.songId;
         case PLAY_NEXT_SONG:
-            debugger
-            const currSongId = state.id
-            const currPlaylist = action.playlist
+            // debugger
 
-            if (!currSongId || !currPlaylist) {
-                return state
-            }
+            // const currSongId = state.id
+            // const currPlaylist = action.playlist
 
-            const currIndex = currPlaylist.findIndex(song => song.id === currSongId)
+            // if (!currSongId || !currPlaylist) {
+            //     return state
+            // }
 
-            if (currIndex === -1 || currIndex === currPlaylist.length - 1) {
-                return state
-            }
+            // const currIndex = currPlaylist.findIndex(song => song.song_id === currSongId)
 
-            const nextSongId = currPlaylist[currIndex + 1].id;
+            // if (currIndex === -1 || currIndex === currPlaylist.length - 1) {
+            //     return state
+            // }
 
-            return nextSongId;
+            // const nextSongId = currPlaylist[currIndex + 1].song_id;
+            // const nextSong = currPlaylist.find((song) => song.song_id === nextSongId);
+            // return nextSong;
+
+            return action.songId;
+
+
         // case PLAY_PREVIOUS_SONG:
         default:
             return state;

@@ -10,18 +10,41 @@ function PlayBar() {
     const currentSong = useSelector((state) => state.currentSong);
     const songArtist = useSelector(state => state.artists[currentSong.artistId]);
     const songAlbum = useSelector(state => state.albums[currentSong.albumId]);
+    const playlists = useSelector(state => state.playlists ? Object.values(state.playlists) : []);
 
     const location = useLocation();
-    const playlistId = location.pathname.split("/")[2]
-    const playlist = useSelector(state => {
-        return state.playlists[playlistId]?.playlistSongs
+    const playlistId = location.pathname.split("/")[2] || "";
+    const plSongs = useSelector(state => {
+        // debugger
+        // return state.playlists[playlistId]?.playlistSongs
+
+        // const playlist = playlists[playlistId];
+        const currPl = playlists.find(playlist => playlist.id === playlistId);
+        return currPl ? currPl.playlistSongs : [];
     });
-    // debugger
+
+    // playlist is undefined and therefore playlist.id can't find anything to compare playlistId too
+
+    const currIndex = plSongs.findIndex(song => {
+        debugger
+        return song && song.id === currentSong.id;
+    })
 
     const handleNextSong = () => {
-        // debugger
-        dispatch(playNextSong(currentSong.id, playlist));
+        debugger
+        const nextSong = currIndex !== -1 && currIndex < plSongs.length -1 ? plSongs[currIndex + 1] : currentSong;
+
+        // dispatch(playNextSong(currentSong.id, plSongs));
+        dispatch(playNextSong(nextSong))
     };
+
+    // can I just add a const (currentSong, setCurrentSong) = useState()?
+    // this would set the next song to be the new currentSong
+
+
+    // const handleNextSong = () => {
+    //     dispatch(playNextSong(currentSong.id, plSongs));
+    // };
     
     const handlePreviousSong = () => {
         dispatch(playPreviousSong());
