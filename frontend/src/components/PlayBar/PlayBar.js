@@ -27,7 +27,10 @@ function PlayBar() {
     })
 
     const handleNextSong = () => {
-        const nextPlSong = currIndex !== -1 && currIndex < plSongs.length -1 ? plSongs[currIndex + 1] : currentSong;
+        // const nextPlSong = currIndex !== -1 && currIndex < plSongs.length -1 ? plSongs[currIndex + 1] : currentSong;
+
+        const nextIndex = currIndex !== -1 ? (currIndex + 1) % plSongs.length : 0;
+        const nextPlSong = plSongs[nextIndex];
 
         if (nextPlSong) {
             const nextSongId = nextPlSong.song_id;
@@ -40,7 +43,10 @@ function PlayBar() {
     // this would set the next song to be the new currentSong
     
     const handlePreviousSong = () => {
-        const prevPlSong = currIndex !== -1 && currIndex > 0 ? plSongs[currIndex - 1] : currentSong;
+        // const prevPlSong = currIndex !== -1 && currIndex > 0 ? plSongs[currIndex - 1] : currentSong;
+
+        const prevIndex = currIndex !== -1 ? (currIndex - 1 + plSongs.length) % plSongs.length : plSongs.length - 1;
+        const prevPlSong = plSongs[prevIndex];
 
         if (prevPlSong) {
             const prevSongId = prevPlSong.song_id;
