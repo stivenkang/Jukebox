@@ -34,28 +34,7 @@ const currentSongReducer = (state={}, action) => {
         case RECEIVE_CURRENT_SONG:
             return action.songId;
         case PLAY_NEXT_SONG:
-            // debugger
-
-            // const currSongId = state.id
-            // const currPlaylist = action.playlist
-
-            // if (!currSongId || !currPlaylist) {
-            //     return state
-            // }
-
-            // const currIndex = currPlaylist.findIndex(song => song.song_id === currSongId)
-
-            // if (currIndex === -1 || currIndex === currPlaylist.length - 1) {
-            //     return state
-            // }
-
-            // const nextSongId = currPlaylist[currIndex + 1].song_id;
-            // const nextSong = currPlaylist.find((song) => song.song_id === nextSongId);
-            // return nextSong;
-
             return action.songId;
-
-
         // case PLAY_PREVIOUS_SONG:
         default:
             return state;

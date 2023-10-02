@@ -11,31 +11,29 @@ function PlayBar() {
     const songArtist = useSelector(state => state.artists[currentSong.artistId]);
     const songAlbum = useSelector(state => state.albums[currentSong.albumId]);
     const playlists = useSelector(state => state.playlists ? Object.values(state.playlists) : []);
+    const songs = useSelector(state => state.songs ? Object.values(state.songs) : []);
+
 
     const location = useLocation();
-    const playlistId = location.pathname.split("/")[2] || "";
-    const plSongs = useSelector(state => {
-        // debugger
-        // return state.playlists[playlistId]?.playlistSongs
+    const playlistId = parseInt(location.pathname.split("/")[2] || "", 10);
 
-        // const playlist = playlists[playlistId];
+    const plSongs = useSelector(state => {
         const currPl = playlists.find(playlist => playlist.id === playlistId);
         return currPl ? currPl.playlistSongs : [];
     });
 
-    // playlist is undefined and therefore playlist.id can't find anything to compare playlistId too
-
-    const currIndex = plSongs.findIndex(song => {
-        debugger
-        return song && song.id === currentSong.id;
+    const currIndex = plSongs.findIndex(playlistSong => {
+        return playlistSong && playlistSong.song_id === currentSong.id;
     })
 
     const handleNextSong = () => {
-        debugger
-        const nextSong = currIndex !== -1 && currIndex < plSongs.length -1 ? plSongs[currIndex + 1] : currentSong;
+        const nextPlSong = currIndex !== -1 && currIndex < plSongs.length -1 ? plSongs[currIndex + 1] : currentSong;
 
-        // dispatch(playNextSong(currentSong.id, plSongs));
-        dispatch(playNextSong(nextSong))
+        if (nextPlSong) {
+            const nextSongId = nextPlSong.song_id
+            const nextSong = songs.find(song => song.id === nextSongId);
+            dispatch(playNextSong(nextSong))
+        }
     };
 
     // can I just add a const (currentSong, setCurrentSong) = useState()?
