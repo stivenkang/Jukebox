@@ -35,7 +35,8 @@ const currentSongReducer = (state={}, action) => {
             return action.songId;
         case PLAY_NEXT_SONG:
             return action.songId;
-        // case PLAY_PREVIOUS_SONG:
+        case PLAY_PREVIOUS_SONG:
+            return action.songId;
         default:
             return state;
     }
