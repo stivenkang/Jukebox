@@ -22,6 +22,10 @@ const PlaylistIndexItem = ({playlist}) => {
         return album ? album.photoUrl : null;
     });
 
+    if (!sessionUser) {
+        return null;
+    }
+
     return (
         <div className='playlistsList' onClick={(e) => history.push(`/playlists/${playlist.id}`)}>
             <div className='plIndImgCont'>
@@ -33,9 +37,12 @@ const PlaylistIndexItem = ({playlist}) => {
             <div className='plIndInfo'>
                 <p className='plIndInfoTitle'>{playlist.title}</p>
                 <p>By {sessionUser.username}</p>
+                {/* {sessionUser && <p>By {sessionUser.username}</p>} */}
             </div>
         </div>
     )
 }    
 
 export default PlaylistIndexItem;
+
+// Set playlistindexitem to check if a user is signed in. If not, return null
