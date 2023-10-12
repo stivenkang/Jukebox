@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import '../ArtistsIndex/ArtistsIndex.css';
@@ -8,11 +8,6 @@ const AlbumIndexItem = ({album}) => {
 
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     const artistName = artists.find(artist => artist.id === album.artistId)?.name;
-
-    // useEffect(() => {
-    //     dispatch(fetchAlbum(albumId))
-    // }, [dispatch, albumId])
-    // debugger
 
     return (
         <div className='artistsList' onClick={(e) => history.push(`/albums/${album.id}`)}>

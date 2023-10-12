@@ -18,8 +18,6 @@ function SideBar() {
     }, [dispatch]);
 
     const handleCreatePlaylist = async () => {
-        // code below takes into account if the playlists array is empty ... supposedly
-        // need to test by deleting all playlists and see if the newly created playlist is 1
         const highestId = playlists.reduce((maxId, playlist) => Math.max(maxId, playlist.id), 0);
         const nextId = highestId + 1;
 
@@ -38,12 +36,9 @@ function SideBar() {
             authorId: sessionUser.id,
             // playlistSongIds: [],
         };
-        // debugger
+
         const newPlaylist = await dispatch(createPlaylist(playlist));
         history.push(`/playlists/${newPlaylist.playlist.id}`);
-
-        // await dispatch(createPlaylist(playlist))
-        // history.push(`/playlists/${playlist.id}`)
     }
 
     let sessionLinks;
