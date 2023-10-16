@@ -2,7 +2,7 @@ import { Route, Switch } from "react-router-dom";
 import LoginFormPage from "./components/LoginFormPage/LoginForm";
 import SignupFormPage from "./components/SignupFormPage/SignupForm";
 import Navigation from "./components/Navigation/Navigation";
-import ArtistIndex from "./components/ArtistsIndex/ArtistIndex"
+import ArtistIndex from "./components/ArtistsIndex/ArtistIndex";
 import ArtistsShowPage from "./components/ArtistsShow/ArtistShow";
 import AlbumShowPage from "./components/Albums/AlbumShow";
 import SearchBar from "./components/SearchBar/SearchBar";

@@ -1,4 +1,4 @@
-import { merge } from 'lodash';
+// import { merge } from 'lodash';
 
 export const RECEIVE_CURRENT_SONG = 'currentSong/RECEIVE_CURRENT_SONG';
 export const PLAY_NEXT_SONG = 'currentSong/PLAY_NEXT_SONG';

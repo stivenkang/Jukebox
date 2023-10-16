@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { fetchAlbum } from "../../store/album";
-import { receiveCurrentSong } from "../../store/currentSong";
 import { fetchSongs } from "../../store/song";
 import "./AlbumShow.css";
 import PlaylistResLine from '../Playlists/PlaylistResLine';
@@ -13,7 +12,6 @@ function AlbumShowPage() {
     const { albumId } = useParams();
     const albums = useSelector(state => state.albums[albumId] ? state.albums[albumId] : [])
     const songs = useSelector(state => state.songs ? state.songs : [])
-    const artists = useSelector(state => albums.artistId ? state.artists[albums.artistId] : null)
 
     const albumSongs = Object.values(songs).filter(song => {
         return song.albumId === albums.id
@@ -23,13 +21,6 @@ function AlbumShowPage() {
         dispatch(fetchAlbum(albumId))
         dispatch(fetchSongs())
     }, [albumId, dispatch])
-
-    // const handleClick = (song) => {
-    //     dispatch(receiveCurrentSong(song));
-    // }
-
-    // const album = albums.find(album => album.id === albumId);
-    // const artistName = artists.find(artist => artist.id === album.artistId)?.name;
 
     return (
         <div className='albumPageBody'>

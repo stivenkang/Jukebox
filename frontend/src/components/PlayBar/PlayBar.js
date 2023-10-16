@@ -38,9 +38,6 @@ function PlayBar() {
             dispatch(playNextSong(nextSong));
         }
     };
-
-    // can I just add a const (currentSong, setCurrentSong) = useState()?
-    // this would set the next song to be the new currentSong
     
     const handlePreviousSong = () => {
         // const prevPlSong = currIndex !== -1 && currIndex > 0 ? plSongs[currIndex - 1] : currentSong;

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { receiveCurrentSong } from "../../store/currentSong";
@@ -26,7 +26,6 @@ function PlaylistSongLine({song, index}) {
 
     const handleRemoveClick = () => {
         dispatch(deletePlaylistSong(playlistSongs[index].id))
-        // dispatch(deletePlaylistSong(playlistSongs[index]))
     }
 
     if (!artists || !albums || !songs) {return null}

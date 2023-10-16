@@ -99,6 +99,3 @@ function SearchBar() {
 }
 
 export default SearchBar;
-
-
-// halfway done, need to finish index.js then move on too css
