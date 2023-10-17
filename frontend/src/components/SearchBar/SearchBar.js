@@ -4,7 +4,7 @@ import './SearchBar.css'
 import { fetchArtists } from "../../store/artist";
 import { fetchAlbums } from "../../store/album";
 import { fetchSongs } from "../../store/song";
-import AlbumIndexItem from "../Albums/AlbumIndexItem";
+// import AlbumIndexItem from "../Albums/AlbumIndexItem";
 import ArtistIndexItem from "../ArtistsIndex/ArtistsIndexItem";
 import PlaylistResLine from '../Playlists/PlaylistResLine';
 
@@ -84,9 +84,9 @@ function SearchBar() {
                                 <div className='searchRes'>
                                     <div className='searchType'>Albums</div>
                                     <div className='results'>
-                                        {searchAlbums.map((album) => (
+                                        {/* {searchAlbums.map((album) => (
                                             <AlbumIndexItem id='albumIndexItem' key={album.id} album={album} />
-                                        ))}
+                                        ))} */}
                                     </div>
                                 </div>
                             }
