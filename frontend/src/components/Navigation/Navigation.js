@@ -2,8 +2,8 @@ import React from "react";
 import { NavLink, useHistory, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
-import SideBar from "../SideBar/SideBar";
 import PlayBar from "../PlayBar/PlayBar";
+import SideBar from "../SideBar/SideBar";
 import SearchBar from "../SearchBar/SearchBar";
 import "./Navigation.css";
 
