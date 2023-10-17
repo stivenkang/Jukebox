@@ -3,7 +3,7 @@ import { NavLink, useHistory, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
 import PlayBar from "../PlayBar/PlayBar";
-// import SideBar from "../SideBar/SideBar";
+import SideBar from "../SideBar/SideBar";
 import SearchBar from "../SearchBar/SearchBar";
 import "./Navigation.css";
 
@@ -40,7 +40,7 @@ function Navigation() {
             <ProfileButton user={sessionUser} />
           </div>
         </div>
-        {/* <SideBar /> */}
+        <SideBar />
         <PlayBar />
       </>
     );
@@ -60,7 +60,7 @@ function Navigation() {
             Log In
           </NavLink>
         </div>
-        {/* <SideBar /> */}
+        <SideBar />
         <PlayBar />
       </>
     );
