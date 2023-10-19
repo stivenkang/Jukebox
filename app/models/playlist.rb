@@ -19,8 +19,7 @@ class Playlist < ApplicationRecord
     has_many :playlist_songs,
         foreign_key: :playlist_id,
         class_name: :PlaylistSong,
-        dependent: :destroy,
-        optional: true
+        dependent: :destroy
 
     # does I need below? Technically playlist can have many artists but artist does not belong to a playlist
     # has_many :artists,

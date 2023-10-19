@@ -16,6 +16,6 @@ class Song < ApplicationRecord
 
     belongs_to :artist
     belongs_to :album
-    belongs_to :playlist_song
+    belongs_to :playlist_song, optional: true
 
 end
