@@ -84,5 +84,5 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.server.port = ENV['PORT'] || 5001
+  config.server.port = ENV['PORT'] || 3000
 end
