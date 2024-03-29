@@ -89,11 +89,6 @@ const playlistsReducer = (state={}, action) => {
     switch(action.type) {
         case RECEIVE_PLAYLISTS:
             for (const playlist in action.playlists) {
-                // const songIds = action.playlists[playlist].playlistSongs.map((playlistSong) => playlistSong.song_id);
-                // newState[playlist] = { ...action.playlists[playlist], playlistSongs: songIds };
-
-                // const songInfo = action.playlists[playlist].playlistSongs.map((playlistSong) => playlistSong);
-
                 const songInfo = action.playlists[playlist].playlistSongs;
                 songInfo.sort((a,b) => {
                     return a.id - b.id;
