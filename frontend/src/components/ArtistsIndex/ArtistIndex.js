@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchArtists } from '../../store/artist'
+import { fetchAlbums } from '../../store/album'
 import ArtistsIndexItem from './ArtistsIndexItem';
 import './ArtistsIndex.css';
 
@@ -10,6 +11,7 @@ function ArtistIndexPage() {
 
     useEffect(() => {
         dispatch(fetchArtists())
+        dispatch(fetchAlbums())
     }, [dispatch])
 
     return (
