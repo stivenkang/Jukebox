@@ -148,7 +148,7 @@ ApplicationRecord.transaction do
     album6 = Album.create!(title: "Here For Now", year: 2020, artist_id: 2, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/here-for-now.jpeg")
     album7 = Album.create!(title: "Kids At Play - EP", year: 2018, artist_id: 2, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/kids-at-play.jpeg")
     album8 = Album.create!(title: "The Juice: Vol.II", year: 2019, artist_id: 3, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/the-juice.jpeg")
-    album9 = Album.create!(title: "Gloria", year: 2023, artist_id: 4, "https://jukebox-sk-seeds.s3.amazonaws.com/Sam_Smith-ArtistImg.jpeg")
+    album9 = Album.create!(title: "Gloria", year: 2023, artist_id: 4, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Sam_Smith-ArtistImg.jpeg")
     album10 = Album.create!(title: "LoveMe/Love Me Not", year: 2018, artist_id: 5, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/loveme-love-me-not.jpeg")
     album11 = Album.create!(title: "KOD", year: 2018, artist_id: 6, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/kod.jpeg")
     album12 = Album.create!(title: "4 Your Eyez Only", year: 2016, artist_id: 6, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/4your-eyes-only.jpg")
