@@ -142,130 +142,26 @@ ApplicationRecord.transaction do
     # )
 
     album2 = Album.create!(title: "Stay Home Tapes", year: 2018, artist_id: 1, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/stay-home-tapes.jpeg")
-    # album2.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/stay-home-tapes.jpeg"),
-    #   filename: "sht.jpeg"
-    # )
-
-    # album3 = Album.create!(title: "Don't Leave", year: 2017, artist_id: 1)
-    # album3.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/don't-leave.jpeg"),
-    #   filename: "dontleave.jpeg"
-    # )
-
-    # album4 = Album.create!(title: "All My Friends", year: 2016, artist_id: 1)
-    # album4.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/SnakeHips-AllMyFriends.jpeg"),
-    #   filename: "amf.jpeg"
-    # )
-
-    # album5 = Album.create!(title: "Forever (Pt. II) - EP", year: 2015, artist_id: 1)
-    # album5.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/forever.jpeg"),
-    #   filename: "forever.jpeg"
-    # )
-
-    # album6 = Album.create!(title: "Here For Now", year: 2020, artist_id: 2)
-    # album6.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/here-for-now.jpeg"),
-    #   filename: "hfn.jpeg"
-    # )
-
-    # album7 = Album.create!(title: "Kids At Play - EP", year: 2018, artist_id: 2)
-    # album7.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/kids-at-play.jpeg"),
-    #   filename: "kap.jpeg"
-    # )
-
-    # album8 = Album.create!(title: "The Juice: Vol.II", year: 2019, artist_id: 3)
-    # album8.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/the-juice.jpeg"),
-    #   filename: "thejuice.jpeg"
-    # )
-
-    # album9 = Album.create!(title: "Gloria", year: 2023, artist_id: 4)
-    # album9.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/Sam_Smith-ArtistImg.jpeg"),
-    #   filename: "gloria.jpeg"
-    # )
-
-    # album10 = Album.create!(title: "LoveMe/Love Me Not", year: 2018, artist_id: 5)
-    # album10.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/loveme-love-me-not.jpeg"),
-    #   filename: "loveme.jpeg"
-    # )
-
-    # album11 = Album.create!(title: "KOD", year: 2018, artist_id: 6)
-    # album11.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/kod.jpeg"),
-    #   filename: "kod.jpeg"
-    # )
-
-    # album12 = Album.create!(title: "4 Your Eyez Only", year: 2016, artist_id: 6)
-    # album12.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/4your-eyes-only.jpg"),
-    #   filename: "youreyez.jpg"
-    # )
-
-    # album13 = Album.create!(title: "2014 Forest Hills Drive", year: 2014, artist_id: 6)
-    # album13.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/2014forest-hills.jpeg"),
-    #   filename: "foresthills.jpeg"
-    # )
-
-    # album14 = Album.create!(title: "Epik High Is Here (Part 1)", year: 2021, artist_id: 7)
-    # album14.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/Epik-High-is-here.jpeg"),
-    #   filename: "ehishere.jpeg"
-    # )
-
-    # album15 = Album.create!(title: "Map the Soul", year: 2009, artist_id: 7)
-    # album15.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/map-the-soul.jpeg"),
-    #   filename: "mapthesoul.jpeg"
-    # )
-
-    # album16 = Album.create!(title: "Head In The Clouds II", year: 2019, artist_id: 8)
-    # album16.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/head-in-the-clouds.jpeg"),
-    #   filename: "hitc.jpeg"
-    # )
-
-    # album17 = Album.create!(title: "Hybrid Theory", year: 2000, artist_id: 9)
-    # album17.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/hybrid-theory.webp"),
-    #   filename: "hybrid.webp"
-    # )
-
-    # album18 = Album.create!(title: "24K Magic", year: 2016, artist_id: 10)
-    # album18.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/24k-magic.jpeg"),
-    #   filename: "kmagic.jpeg"
-    # )
-
-    # album19 = Album.create!(title: "Unorthodox Jukebox", year: 2012, artist_id: 10)
-    # album19.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/unorthodox-jukebox.jpeg"),
-    #   filename: "unjuke.jpeg"
-    # )
-
-    # album20 = Album.create!(title: "LILAC", year: 2021, artist_id: 11)
-    # album20.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/lilac.png"),
-    #   filename: "lilac.png"
-    # )
-
-    # album21 = Album.create!(title: "eight", year: 2020, artist_id: 11)
-    # album21.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/eight.jpeg"),
-    #   filename: "eight.jpeg"
-    # )
-
-    # album22 = Album.create!(title: "Free Spirit", year: 2019, artist_id: 12)
-    # album22.photo.attach(
-    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/free-spirit.png"),
-    #   filename: "freespirit.png"
-    # )
+    album3 = Album.create!(title: "Don't Leave", year: 2017, artist_id: 1, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/don't-leave.jpeg")
+    album4 = Album.create!(title: "All My Friends", year: 2016, artist_id: 1, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/SnakeHips-AllMyFriends.jpeg")
+    album5 = Album.create!(title: "Forever (Pt. II) - EP", year: 2015, artist_id: 1, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/forever.jpeg")
+    album6 = Album.create!(title: "Here For Now", year: 2020, artist_id: 2, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/here-for-now.jpeg")
+    album7 = Album.create!(title: "Kids At Play - EP", year: 2018, artist_id: 2, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/kids-at-play.jpeg")
+    album8 = Album.create!(title: "The Juice: Vol.II", year: 2019, artist_id: 3, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/the-juice.jpeg")
+    album9 = Album.create!(title: "Gloria", year: 2023, artist_id: 4, "https://jukebox-sk-seeds.s3.amazonaws.com/Sam_Smith-ArtistImg.jpeg")
+    album10 = Album.create!(title: "LoveMe/Love Me Not", year: 2018, artist_id: 5, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/loveme-love-me-not.jpeg")
+    album11 = Album.create!(title: "KOD", year: 2018, artist_id: 6, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/kod.jpeg")
+    album12 = Album.create!(title: "4 Your Eyez Only", year: 2016, artist_id: 6, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/4your-eyes-only.jpg")
+    album13 = Album.create!(title: "2014 Forest Hills Drive", year: 2014, artist_id: 6, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/2014forest-hills.jpeg")
+    album14 = Album.create!(title: "Epik High Is Here (Part 1)", year: 2021, artist_id: 7, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Epik-High-is-here.jpeg")
+    album15 = Album.create!(title: "Map the Soul", year: 2009, artist_id: 7, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/map-the-soul.jpeg")
+    album16 = Album.create!(title: "Head In The Clouds II", year: 2019, artist_id: 8, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/head-in-the-clouds.jpeg")
+    album17 = Album.create!(title: "Hybrid Theory", year: 2000, artist_id: 9, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/hybrid-theory.webp")
+    album18 = Album.create!(title: "24K Magic", year: 2016, artist_id: 10, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/24k-magic.jpeg")
+    album19 = Album.create!(title: "Unorthodox Jukebox", year: 2012, artist_id: 10, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/unorthodox-jukebox.jpeg")
+    album20 = Album.create!(title: "LILAC", year: 2021, artist_id: 11, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/lilac.png")
+    album21 = Album.create!(title: "eight", year: 2020, artist_id: 11, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/eight.jpeg")
+    album22 = Album.create!(title: "Free Spirit", year: 2019, artist_id: 12, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/free-spirit.png")
 \
     # Album.create!(title: "", year: 20, artist_id: 1)
 
@@ -273,55 +169,55 @@ ApplicationRecord.transaction do
 
     # Song.create!(title: "Nights Like This (ft. Ty Dolla $ign)", album_id: 1, artist_id: 1)
     song1 = Song.create!(title: "For the F^_^k Of It (ft. Jeremih & Amine)", album_id: 2, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/For+the+Fk+Of+It.mp3")
-    # song2 = Song.create!(title: "Don't Leave", album_id: 3, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Snakehips+%26+M%C3%98+-+Don't+Leave+(Official+Lyric+Video).mp3")
-    # song3 = Song.create!(title: "All My Friends (ft. Tinashe & Chance the Rapper)", album_id: 4, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Snakehips+-+All+My+Friends+(Lyrics)+ft.+Tinashe%2C+Chance+The+Rapper.mp3")
-    # song4 = Song.create!(title: "Dimelo", album_id: 4, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Di%CC%81melo.mp3")
-    # song5 = Song.create!(title: "Forever (Pt. II) (ft. Kaleem Taylor)", album_id: 5, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/SNAKEHIPS+-+Forever+(Pt.II)+Feat.+Kaleem+Taylor.mp3")
-    # song6 = Song.create!(title: "Overtime (ft. Sasha Keable)", album_id: 5, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Snakehips+-+Overtime+(ft.+Sasha+Keable).mp3")
-    # song7 = Song.create!(title: "Little Things (with Quinn XCII & Chelsea Cutler", album_id: 6, artist_id: 2, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Louis+The+Child%2C+Quinn+XCII%2C+Chelsea+Cutler+-+Little+Things+(Lyric+Video).mp3")
-    # song8 = Song.create!(title: "Free (with Drew Love)", album_id: 6, artist_id: 2, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Louis+The+Child+-+Free+(Lyrics)+feat.+Drew+Love.mp3")
-    # song9 = Song.create!(title: "Breaking News (with RAYE)", album_id: 7, artist_id: 2, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Louis+The+Child%2C+RAYE+-+Breaking+News+(Lyrics).mp3")
-    # song10 = Song.create!(title: "Better Not (with Wafia)", album_id: 7, artist_id: 2, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Louis+The+Child+-+Better+Not+(Lyric+Video)+ft.+Wafia.mp3")
-    # song11 = Song.create!(title: "Save Me From Myself (with NoMBe & Big Gigantic)", album_id: 7, artist_id: 2, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Louis+The+Child%2C+NoMBe%2C+Big+Gigantic+-+Save+Me+From+Myself+(Audio).mp3")
-    # song12 = Song.create!(title: "Just Like You", album_id: 8, artist_id: 3, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Emotional+Oranges+-+Just+Like+You.mp3")
-    # song13 = Song.create!(title: "West Coast Love", album_id: 8, artist_id: 3, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/West+Coast+Love.mp3")
-    # song14 = Song.create!(title: "Love Me More", album_id: 9, artist_id: 4, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Sam+Smith+-+Love+Me+More.mp3")
-    # song15 = Song.create!(title: "Unholy (ft. Kim Petras)", album_id: 9, artist_id: 4, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Sam+Smith+-+Unholy+(ft.+Kim+Petras).mp3")
-    # song16 = Song.create!(title: "I Might", album_id: 10, artist_id: 5, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/HONNE+-+I+Might.mp3")
-    # song17 = Song.create!(title: "Me & You", album_id: 10, artist_id: 5, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/HONNE+-+Me+%26+You.mp3")
-    # song18 = Song.create!(title: "Location Unknown", album_id: 10, artist_id: 5, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/HONNE+-+Location+Unknown++(feat.+Georgia).mp3")
-    # song19 = Song.create!(title: "I Just Wanna Go Back", album_id: 10, artist_id: 5, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/HONNE+-+I+Just+Wanna+Go+Back.mp3")
-    # song20 = Song.create!(title: "Photograph", album_id: 11, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Photograph.mp3")
-    # song21 = Song.create!(title: "Kevin\'s Heart", album_id: 11, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/J.+Cole+-+Kevin's+Heart.mp3")
-    # song22 = Song.create!(title: "FRIENDS (ft. kiLL edward)", album_id: 11, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/J.+Cole+-+Friends+ft.+kiLL+edward.mp3")
-    # song23 = Song.create!(title: "4 Your Eyez Only", album_id: 12, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/J.+Cole+-+4+Your+Eyez+Only.mp3")
-    # song24 = Song.create!(title: "Deja Vu", album_id: 12, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/J++Cole++Deja+Vu.mp3")
-    # song25 = Song.create!(title: "Neighbors", album_id: 12, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/J.+Cole+-+Neighbors.mp3")
-    # song26 = Song.create!(title: "Wet Dreamz", album_id: 13, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Wet+Dreamz.mp3")
-    # song27 = Song.create!(title: "No Role Modelz", album_id: 13, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/No+Role+Modelz.mp3")
-    # song28 = Song.create!(title: "Rosario (ft. CL, ZICO)", album_id: 14, artist_id: 7, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Epik+High+(%E1%84%8B%E1%85%A6%E1%84%91%E1%85%B5%E1%86%A8%E1%84%92%E1%85%A1%E1%84%8B%E1%85%B5)+Rosario+ft.+CL%2C+ZICO.mp3")
-    # song29 = Song.create!(title: "Map The Soul (ft. Tablo, MYK, Kero One)", album_id: 15, artist_id: 7, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Epik+High+-+Map+the+Soul+ft.+MYK.mp3")
-    # song30 = Song.create!(title: "These Nights", album_id: 16, artist_id: 8, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Rich+Brian+%26+CHUNG+HA+-+These+Nights.mp3")
-    # song31 = Song.create!(title: "Strange Land", album_id: 16, artist_id: 8, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/NIKI+%26+Phum+Viphurit+-+Strange+Land.mp3")
-    # song32 = Song.create!(title: "La La Lost You", album_id: 16, artist_id: 8, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/NIKI+-+La+La+Lost+You.mp3")
-    # song33 = Song.create!(title: "Papercut", album_id: 17, artist_id: 9, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/01+Papercut+-+Linkin+Park+(Hybrid+Theory).mp3")
-    # song34 = Song.create!(title: "One Step Closer", album_id: 17, artist_id: 9, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Linkin+Park+-+One+Step+Closer.mp3")
-    # song35 = Song.create!(title: "Runaway", album_id: 17, artist_id: 9, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Runaway+-+Linkin+Park+(Hybrid+Theory).mp3")
-    # song36 = Song.create!(title: "In The End", album_id: 17, artist_id: 9, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Linkin+Park+-+In+The+End.mp3")
-    # song37 = Song.create!(title: "24K Magic", album_id: 18, artist_id: 10, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/24K+Magic.mp3")
-    # song38 = Song.create!(title: "Thats What I Like", album_id: 18, artist_id: 10, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Bruno+Mars+-+Thats+What+I+Like.mp3")
-    # song39 = Song.create!(title: "Versace on the Floor", album_id: 18, artist_id: 10, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Versace+on+the+Floor.mp3")
-    # song40 = Song.create!(title: "Finesse", album_id: 18, artist_id: 10, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Bruno+Mars+-+Finesse.mp3")
-    # song41 = Song.create!(title: "Locked out of Heaven", album_id: 19, artist_id: 10, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Bruno+Mars+-+Locked+Out+Of+Heaven.mp3")
-    # song42 = Song.create!(title: "When I Was Your Man", album_id: 19, artist_id: 10, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Bruno+Mars+-+When+I+Was+Your+Man.mp3")
-    # song43 = Song.create!(title: "LILAC", album_id: 20, artist_id: 11, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/IU+(%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%B2)+-+%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%A1%E1%86%A8+(LILAC).mp3")
-    # song44 = Song.create!(title: "Coin", album_id: 20, artist_id: 11, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/IU(%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%B2)Coin.mp3")
-    # song45 = Song.create!(title: "eight (ft. SUGA of BTS)", album_id: 21, artist_id: 11, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/IU+(%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%B2)+-+%E1%84%8B%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%BA+(Eight)+(Prod.+%26+Feat.+SUGA+of+BTS)+%5B%E1%84%8B%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%BA+(Eight)%5D.mp3")
-    # song46 = Song.create!(title: "Right Back", album_id: 22, artist_id: 12, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Khalid+-+Right+Back.mp3")
-    # song47 = Song.create!(title: "Don't Pretend (ft. SAFE)", album_id: 22, artist_id: 12, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Khalid+-+Don't+Pretend+ft.+SAFE.mp3")
-    # song48 = Song.create!(title: "Paradise", album_id: 22, artist_id: 12, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Khalid+-+Paradise.mp3")
-    # song49 = Song.create!(title: "Hundred", album_id: 22, artist_id: 12, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Khalid+-+Hundred.mp3")
-    # song50 = Song.create!(title: "Saturday Nights", album_id: 22, artist_id: 12, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Khalid+-+Saturday+Nights.mp3")
+    song2 = Song.create!(title: "Don't Leave", album_id: 3, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Snakehips+%26+M%C3%98+-+Don't+Leave+(Official+Lyric+Video).mp3")
+    song3 = Song.create!(title: "All My Friends (ft. Tinashe & Chance the Rapper)", album_id: 4, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Snakehips+-+All+My+Friends+(Lyrics)+ft.+Tinashe%2C+Chance+The+Rapper.mp3")
+    song4 = Song.create!(title: "Dimelo", album_id: 4, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Di%CC%81melo.mp3")
+    song5 = Song.create!(title: "Forever (Pt. II) (ft. Kaleem Taylor)", album_id: 5, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/SNAKEHIPS+-+Forever+(Pt.II)+Feat.+Kaleem+Taylor.mp3")
+    song6 = Song.create!(title: "Overtime (ft. Sasha Keable)", album_id: 5, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Snakehips+-+Overtime+(ft.+Sasha+Keable).mp3")
+    song7 = Song.create!(title: "Little Things (with Quinn XCII & Chelsea Cutler", album_id: 6, artist_id: 2, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Louis+The+Child%2C+Quinn+XCII%2C+Chelsea+Cutler+-+Little+Things+(Lyric+Video).mp3")
+    song8 = Song.create!(title: "Free (with Drew Love)", album_id: 6, artist_id: 2, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Louis+The+Child+-+Free+(Lyrics)+feat.+Drew+Love.mp3")
+    song9 = Song.create!(title: "Breaking News (with RAYE)", album_id: 7, artist_id: 2, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Louis+The+Child%2C+RAYE+-+Breaking+News+(Lyrics).mp3")
+    song10 = Song.create!(title: "Better Not (with Wafia)", album_id: 7, artist_id: 2, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Louis+The+Child+-+Better+Not+(Lyric+Video)+ft.+Wafia.mp3")
+    song11 = Song.create!(title: "Save Me From Myself (with NoMBe & Big Gigantic)", album_id: 7, artist_id: 2, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Louis+The+Child%2C+NoMBe%2C+Big+Gigantic+-+Save+Me+From+Myself+(Audio).mp3")
+    song12 = Song.create!(title: "Just Like You", album_id: 8, artist_id: 3, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Emotional+Oranges+-+Just+Like+You.mp3")
+    song13 = Song.create!(title: "West Coast Love", album_id: 8, artist_id: 3, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/West+Coast+Love.mp3")
+    song14 = Song.create!(title: "Love Me More", album_id: 9, artist_id: 4, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Sam+Smith+-+Love+Me+More.mp3")
+    song15 = Song.create!(title: "Unholy (ft. Kim Petras)", album_id: 9, artist_id: 4, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Sam+Smith+-+Unholy+(ft.+Kim+Petras).mp3")
+    song16 = Song.create!(title: "I Might", album_id: 10, artist_id: 5, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/HONNE+-+I+Might.mp3")
+    song17 = Song.create!(title: "Me & You", album_id: 10, artist_id: 5, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/HONNE+-+Me+%26+You.mp3")
+    song18 = Song.create!(title: "Location Unknown", album_id: 10, artist_id: 5, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/HONNE+-+Location+Unknown++(feat.+Georgia).mp3")
+    song19 = Song.create!(title: "I Just Wanna Go Back", album_id: 10, artist_id: 5, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/HONNE+-+I+Just+Wanna+Go+Back.mp3")
+    song20 = Song.create!(title: "Photograph", album_id: 11, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Photograph.mp3")
+    song21 = Song.create!(title: "Kevin\'s Heart", album_id: 11, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/J.+Cole+-+Kevin's+Heart.mp3")
+    song22 = Song.create!(title: "FRIENDS (ft. kiLL edward)", album_id: 11, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/J.+Cole+-+Friends+ft.+kiLL+edward.mp3")
+    song23 = Song.create!(title: "4 Your Eyez Only", album_id: 12, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/J.+Cole+-+4+Your+Eyez+Only.mp3")
+    song24 = Song.create!(title: "Deja Vu", album_id: 12, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/J++Cole++Deja+Vu.mp3")
+    song25 = Song.create!(title: "Neighbors", album_id: 12, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/J.+Cole+-+Neighbors.mp3")
+    song26 = Song.create!(title: "Wet Dreamz", album_id: 13, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Wet+Dreamz.mp3")
+    song27 = Song.create!(title: "No Role Modelz", album_id: 13, artist_id: 6, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/No+Role+Modelz.mp3")
+    song28 = Song.create!(title: "Rosario (ft. CL, ZICO)", album_id: 14, artist_id: 7, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Epik+High+(%E1%84%8B%E1%85%A6%E1%84%91%E1%85%B5%E1%86%A8%E1%84%92%E1%85%A1%E1%84%8B%E1%85%B5)+Rosario+ft.+CL%2C+ZICO.mp3")
+    song29 = Song.create!(title: "Map The Soul (ft. Tablo, MYK, Kero One)", album_id: 15, artist_id: 7, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Epik+High+-+Map+the+Soul+ft.+MYK.mp3")
+    song30 = Song.create!(title: "These Nights", album_id: 16, artist_id: 8, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Rich+Brian+%26+CHUNG+HA+-+These+Nights.mp3")
+    song31 = Song.create!(title: "Strange Land", album_id: 16, artist_id: 8, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/NIKI+%26+Phum+Viphurit+-+Strange+Land.mp3")
+    song32 = Song.create!(title: "La La Lost You", album_id: 16, artist_id: 8, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/NIKI+-+La+La+Lost+You.mp3")
+    song33 = Song.create!(title: "Papercut", album_id: 17, artist_id: 9, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/01+Papercut+-+Linkin+Park+(Hybrid+Theory).mp3")
+    song34 = Song.create!(title: "One Step Closer", album_id: 17, artist_id: 9, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Linkin+Park+-+One+Step+Closer.mp3")
+    song35 = Song.create!(title: "Runaway", album_id: 17, artist_id: 9, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Runaway+-+Linkin+Park+(Hybrid+Theory).mp3")
+    song36 = Song.create!(title: "In The End", album_id: 17, artist_id: 9, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Linkin+Park+-+In+The+End.mp3")
+    song37 = Song.create!(title: "24K Magic", album_id: 18, artist_id: 10, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/24K+Magic.mp3")
+    song38 = Song.create!(title: "Thats What I Like", album_id: 18, artist_id: 10, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Bruno+Mars+-+Thats+What+I+Like.mp3")
+    song39 = Song.create!(title: "Versace on the Floor", album_id: 18, artist_id: 10, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Versace+on+the+Floor.mp3")
+    song40 = Song.create!(title: "Finesse", album_id: 18, artist_id: 10, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Bruno+Mars+-+Finesse.mp3")
+    song41 = Song.create!(title: "Locked out of Heaven", album_id: 19, artist_id: 10, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Bruno+Mars+-+Locked+Out+Of+Heaven.mp3")
+    song42 = Song.create!(title: "When I Was Your Man", album_id: 19, artist_id: 10, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Bruno+Mars+-+When+I+Was+Your+Man.mp3")
+    song43 = Song.create!(title: "LILAC", album_id: 20, artist_id: 11, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/IU+(%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%B2)+-+%E1%84%85%E1%85%A1%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%85%E1%85%A1%E1%86%A8+(LILAC).mp3")
+    song44 = Song.create!(title: "Coin", album_id: 20, artist_id: 11, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/IU(%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%B2)Coin.mp3")
+    song45 = Song.create!(title: "eight (ft. SUGA of BTS)", album_id: 21, artist_id: 11, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/IU+(%E1%84%8B%E1%85%A1%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%B2)+-+%E1%84%8B%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%BA+(Eight)+(Prod.+%26+Feat.+SUGA+of+BTS)+%5B%E1%84%8B%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%BA+(Eight)%5D.mp3")
+    song46 = Song.create!(title: "Right Back", album_id: 22, artist_id: 12, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Khalid+-+Right+Back.mp3")
+    song47 = Song.create!(title: "Don't Pretend (ft. SAFE)", album_id: 22, artist_id: 12, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Khalid+-+Don't+Pretend+ft.+SAFE.mp3")
+    song48 = Song.create!(title: "Paradise", album_id: 22, artist_id: 12, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Khalid+-+Paradise.mp3")
+    song49 = Song.create!(title: "Hundred", album_id: 22, artist_id: 12, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Khalid+-+Hundred.mp3")
+    song50 = Song.create!(title: "Saturday Nights", album_id: 22, artist_id: 12, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Khalid+-+Saturday+Nights.mp3")
 
 
 
