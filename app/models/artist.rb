@@ -19,5 +19,5 @@ class Artist < ApplicationRecord
         foreign_key: :album_id,
         dependent: :destroy
 
-    has_one_attached :photo
+    # has_one_attached :photo
 end

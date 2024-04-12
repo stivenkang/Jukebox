@@ -4,7 +4,7 @@ json.set! 'album' do
 end
 
 json.artist do
-    json.extract! @artist, :id, :name, :description
+    json.extract! @artist, :id, :name, :description, :photo_url
     # @artists.each do |artist|
     #     json.set! artist.id do
     #         json.extract! artist, :id, :name, :description
