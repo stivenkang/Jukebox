@@ -8,7 +8,6 @@ const AlbumIndexItem = ({album}) => {
 
     const artists = useSelector(state => state.artists ? Object.values(state.artists) : []);
     const artistName = artists.find(artist => artist.id === album.artistId)?.name;
-    debugger
 
     return (
         <div className='artistsList' onClick={(e) => history.push(`/albums/${album.id}`)}>
