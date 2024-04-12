@@ -141,7 +141,7 @@ ApplicationRecord.transaction do
     #   filename: "nlt.jpg"
     # )
 
-    # album2 = Album.create!(title: "Stay Home Tapes", year: 2018, artist_id: 1)
+    album2 = Album.create!(title: "Stay Home Tapes", year: 2018, artist_id: 1, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/stay-home-tapes.jpeg")
     # album2.photo.attach(
     #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/stay-home-tapes.jpeg"),
     #   filename: "sht.jpeg"
@@ -272,7 +272,7 @@ ApplicationRecord.transaction do
     
 
     # Song.create!(title: "Nights Like This (ft. Ty Dolla $ign)", album_id: 1, artist_id: 1)
-    # song1 = Song.create!(title: "For the F^_^k Of It (ft. Jeremih & Amine)", album_id: 2, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/For+the+Fk+Of+It.mp3")
+    song1 = Song.create!(title: "For the F^_^k Of It (ft. Jeremih & Amine)", album_id: 2, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/For+the+Fk+Of+It.mp3")
     # song2 = Song.create!(title: "Don't Leave", album_id: 3, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Snakehips+%26+M%C3%98+-+Don't+Leave+(Official+Lyric+Video).mp3")
     # song3 = Song.create!(title: "All My Friends (ft. Tinashe & Chance the Rapper)", album_id: 4, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Snakehips+-+All+My+Friends+(Lyrics)+ft.+Tinashe%2C+Chance+The+Rapper.mp3")
     # song4 = Song.create!(title: "Dimelo", album_id: 4, artist_id: 1, song_url: "https://jukebox-sk-seeds.s3.amazonaws.com/Di%CC%81melo.mp3")
