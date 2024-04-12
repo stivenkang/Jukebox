@@ -1,6 +1,6 @@
 json.set! 'artist' do
     json.extract! @artist, :id, :name, :description
-    json.photoUrl url_for(@artist.photo)
+    json.photoUrl image_url(@artist.photo)
 end
 
 # @artists.each do |artist|
