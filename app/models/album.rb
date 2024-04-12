@@ -10,7 +10,7 @@
 #  updated_at :datetime         not null
 #
 class Album < ApplicationRecord
-    validates :title, :year, :artist_id, presence: true
+    validates :title, :year, :artist_id, :photo_url, presence: true
 
     belongs_to :artist
 
@@ -18,5 +18,5 @@ class Album < ApplicationRecord
         foreign_key: :album_id,
         dependent: :destroy
 
-    has_one_attached :photo
+    # has_one_attached :photo
 end

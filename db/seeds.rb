@@ -135,11 +135,11 @@ ApplicationRecord.transaction do
     #   )
     # end
 
-    album1 = Album.create!(title: "Nights Like This", year: 2019, artist_id: 1)
-    album1.photo.attach(
-      io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/nights-like-this.jpg"),
-      filename: "nlt.jpg"
-    )
+    album1 = Album.create!(title: "Nights Like This", year: 2019, artist_id: 1, photo_url: "https://jukebox-sk-seeds.s3.amazonaws.com/nights-like-this.jpg")
+    # album1.photo.attach(
+    #   io: URI.open("https://jukebox-sk-seeds.s3.amazonaws.com/nights-like-this.jpg"),
+    #   filename: "nlt.jpg"
+    # )
 
     album2 = Album.create!(title: "Stay Home Tapes", year: 2018, artist_id: 1)
     album2.photo.attach(
